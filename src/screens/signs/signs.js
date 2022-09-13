@@ -6,7 +6,41 @@ import "./signs.scss"
 import data from '../../services/pricing.json'
 
 
+export default class Signs extends Component{
+    
+    state = {
+        active: 'useful'
+    }
 
+    stateActiveSetter = (page) => {
+        this.setState({
+            active : page
+            
+        })
+    }
+    
+
+    render = () => {
+        
+        const {active} = this.state
+        
+        return(
+           <section className="signs">
+                <div className="container">
+                    <div className="signs__header">
+                        <div className="signs__buttons">
+                            <button onClick={() => this.stateActiveSetter('useful')} className={"btn bth-light signs__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Полезная информация</button>
+                            <button onClick={() => this.stateActiveSetter('calc')} className={"btn bth-light signs__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн калькулятор</button>
+                            <button onClick={() => this.stateActiveSetter('order')}  className={"btn bth-light signs__button"+ (active === 'order' ? ' signs__button_active' : '')}>Как заказать</button>
+                        </div>
+                        <h1 className="signs__title">Вывески</h1>
+                    </div>
+                   {active === 'useful' ? <SignsUseful onActiveChange = {(a) => this.stateActiveSetter(a) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>}
+                </div>
+           </section>
+        )
+    }
+}
 
 
 //////////**************************USEFUL INFO BLOCK
@@ -422,37 +456,3 @@ class SignsOrder extends Component{
 
 
 
-export default class Signs extends Component{
-    
-    state = {
-        active: 'useful'
-    }
-
-    stateActiveSetter = (page) => {
-        this.setState({
-            active : page
-        })
-    }
-    
-
-    render = () => {
-        
-        const {active} = this.state
-        
-        return(
-           <section className="signs">
-                <div className="container">
-                    <div className="signs__header">
-                        <div className="signs__buttons">
-                            <button onClick={() => this.stateActiveSetter('useful')} className="signs__button btn btn-light">Полезная информация</button>
-                            <button  onClick={() => this.stateActiveSetter('calc')}  className="signs__button btn btn-light">Онлайн калькулятор</button>
-                            <button onClick={() => this.stateActiveSetter('order')}  className="signs__button btn btn-light">Как заказать</button>
-                        </div>
-                        <h1 className="signs__title">Вывески</h1>
-                    </div>
-                   {active === 'useful' ? <SignsUseful onActiveChange = {(a) => this.stateActiveSetter(a) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>}
-                </div>
-           </section>
-        )
-    }
-}
