@@ -1,0 +1,114 @@
+@import '../../sass/base/_variables.scss';
+
+.header {
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    height:59px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36px 0 36px;
+    border-bottom: 2px solid $back-color;
+    background-color: white;
+    &__wrapper1 {
+        display: flex;
+        width: 164px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__burger {
+        height: 16px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        cursor: pointer;
+            &-line {
+                background-color: $main-color;
+                width: 19px;
+                height: 3px;
+                border-radius: 2px;
+             }
+    }
+    &__logo{
+        img {
+            width: 104px;
+        }
+    }
+
+    &__wrapper2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__search {
+        margin-right: 19px;
+    }
+    &__search-form {
+        padding: 0 12px 0 12px;
+        height: 38px;
+        max-width: 113px;
+        border-radius: 19px;
+        border: 2px solid $main-color;
+        font-size: 12px;
+        &:active {
+            border: none;
+        }
+    }
+    &__search-icon {
+        border: none;
+        background-color: none;
+        img {
+            background-color: none;
+        }
+    }
+    &__contact {
+        height: 38px;
+        width: 160px;
+        border-radius: 19px;
+        background-color: $main-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+        font-weight: 700;
+        color: white;
+        margin-right:72px;
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    }
+    &__login {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+    }
+    &__login-text {
+        font-size: 12px;
+        font-weight: 400;
+        color: black;
+        margin-right: 8px;
+        text-decoration: none;
+    }
+    &__login-block{
+        width: 38px;
+        height: 38px;
+        border-radius: 100%;
+        background-color: $yellow-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+            height: 22px;
+        }
+    }
+}
+@media (max-width: 1200px) {}
+@media (max-width: 991px) {}
+@media (max-width: 767px) {}
+@media (max-width: 575px) {}

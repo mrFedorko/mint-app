@@ -1,0 +1,25 @@
+@import '../../sass/base/_variables.scss';
+@import '../../sass/base/_base.scss';
+
+@import './advantage';
+@import './depiction';
+@import './footer';
+@import './portfolio';
+@import './promo';
+
+.mainPage{
+    animation-duration: 0.5s;
+    animation-name: fade;
+    
+    @keyframes fade {
+        from {
+         opacity: 0%;
+    
+        }
+      
+        to {
+          opacity: 100%;
+        }
+      }
+
+}

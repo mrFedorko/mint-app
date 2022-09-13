@@ -1,0 +1,44 @@
+.portfolio {
+    .container{
+    height: 60vh;
+    max-width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+    }
+    &__text {
+        margin-top: 20px;
+        transform: rotate(340deg);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &__header {
+        font-size: 16px;
+        text-align: center;
+        font-weight: 700;
+        color: black;
+    }
+    &__arrow {
+        width: 100px;
+    }
+    &__cases {
+        height: 66%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__link {
+        position: absolute;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+        margin-right: 40px;
+    }
+    &__play {
+        height: 180px;
+    }
+}
