@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import './uvPrint.scss'
+
 import data from '../../services/pricing.json'
 import { convertCalcState, getPrice } from "../../services/services.js"
 
