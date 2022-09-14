@@ -1,5 +1,5 @@
 .depiction {
-    height: 100vh;
+    min-height: 100vh;
     background: #d8d8d8;
     .container {
         display: flex;
@@ -56,4 +56,50 @@
             transition: 1s;
         }
     }
+}
+
+@media (max-width: 1200px) {
+    .depiction {
+        .container {
+            flex-direction: column;
+            padding-top: 30px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+        &__cards {
+            justify-content: center;
+        }
+        &__card {
+            margin: 10px;
+        }
+        &__img {
+            img {
+                max-height: 90px;
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 575px) {
+    .depiction {
+        &__card {
+            height: 190px;
+            width: 220px;
+        }
+        &__title {
+            text-align: center;
+        }
+        &__button{
+            height: 150px;
+            width: 220px;
+            a{
+                font-size: 22px;
+            }
+        }
+    }
+
 }

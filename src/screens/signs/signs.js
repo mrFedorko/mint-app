@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { convertCalcState, getPrice } from "../../services/services.js";
 
-
+import "../../sass/base/_base.scss"
 import "./signs.scss"
+
 import data from '../../services/pricing.json'
 
 
@@ -29,9 +30,9 @@ export default class Signs extends Component{
                 <div className="container">
                     <div className="signs__header">
                         <div className="signs__buttons">
-                            <button onClick={() => this.stateActiveSetter('useful')} className={"btn bth-light signs__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Полезная информация</button>
-                            <button onClick={() => this.stateActiveSetter('calc')} className={"btn bth-light signs__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн калькулятор</button>
-                            <button onClick={() => this.stateActiveSetter('order')}  className={"btn bth-light signs__button"+ (active === 'order' ? ' signs__button_active' : '')}>Как заказать</button>
+                            <button onClick={() => this.stateActiveSetter('useful')} className={"signs__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Полезная информация</button>
+                            <button onClick={() => this.stateActiveSetter('calc')} className={"signs__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн калькулятор</button>
+                            <button onClick={() => this.stateActiveSetter('order')}  className={"signs__button"+ (active === 'order' ? ' signs__button_active' : '')}>Как заказать</button>
                         </div>
                         <h1 className="signs__title">Вывески</h1>
                     </div>
@@ -53,7 +54,7 @@ export default class Signs extends Component{
 class SignsUseful extends Component{
     render = () => {
         return(
-            <div className="signs__info">
+            <div className="signs__info fadein">
                 <h3>Выбираем наружную рекламу для ваших целей и бюджета</h3>
                 <span>Наружная реклама - это первое, с чем сталкивается клиент, посещая Вашу компанию. Поэтому важно, чтобы реклама вызывала позитивные впечатления и располагала к сотрудничеству! </span>
                 <span>Давайте определимся - что вам нужно</span>
@@ -217,7 +218,7 @@ class SignCalculator extends Component{
 
 
         return(
-            <div className="calculator">
+            <div className="calculator fadein">
                 <h3 className = "mb-2">Калькулятор</h3>
                 <div className="calculator__group">
                     <div className="calculator__input">
@@ -430,7 +431,7 @@ class SignsOrder extends Component{
     render = () => {
         return(
             <>
-                <div className="order">
+                <div className="order fadein">
                     <h3 >Как заказать...</h3>
                     <div className="oredr__descr">
                         Для вашего удобства мы создали сервис заказов онлайн.

@@ -12,6 +12,7 @@ export default class MainPage extends Component{
                     <div class="content">
                         <div class="content__text">
                             <h1 class="content__title">Рекламно- производственная  компания  “Мята”</h1>
+                            <div class="content__title-mini">РПК “Мята”</div>
                             <h2 class="content__subtitle">Каждый день работаем для Вас</h2>
                         </div>
                         <div class="content__img"><img src="img/hand.png" alt=""/></div>

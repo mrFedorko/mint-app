@@ -31,8 +31,11 @@
              }
     }
     &__logo{
-        img {
+        &-green {
             width: 104px;
+        }
+        &-white {
+            display: none;
         }
     }
 
@@ -77,9 +80,12 @@
         font-weight: 700;
         color: white;
         margin-right:72px;
-        a{
+        &-maxi{
             text-decoration: none;
             color: white;
+        }
+        &-mini {
+            display: none;
         }
     }
     &__login {
@@ -107,8 +113,74 @@
             height: 22px;
         }
     }
+    &-mini {
+        display: none;
+    }
 }
 @media (max-width: 1200px) {}
 @media (max-width: 991px) {}
-@media (max-width: 767px) {}
-@media (max-width: 575px) {}
+@media (max-width: 767px) {
+    .header {
+        position:fixed;
+        height:80px;
+        background-color: $main-color;
+        padding: 20px 40px;
+        &__wrapper1 {
+            width: 100%;
+            justify-content: flex-start;
+        }
+        &__burger {
+            height: 20px;
+            margin-right: 35px;
+                &-line {
+                    background-color: white;
+                 }
+        }
+        &__logo{
+            &-green {
+                display: none;
+            }
+            &-white {
+                display: inline;
+                width: 104px;
+            }
+        }
+    
+        &__wrapper2 {
+            width: 100%;
+            justify-content: flex-end;
+        }
+    
+        &__search {
+            display: none;
+        }
+        &__contact {
+            width: 40px;
+            margin: 0;
+            &-maxi{
+                display: none;
+            }
+            &-mini {
+                display: inline;
+                img {
+                    height: 40px;
+                }
+            }
+        }
+        &__login {
+            display: none;
+            &-block {
+                &-mini {
+                    margin-left: 13px;
+                    display: block;
+                    img {
+                        height: 40px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+@media (max-width: 575px) {
+}
