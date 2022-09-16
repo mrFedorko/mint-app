@@ -11,7 +11,7 @@ import "../../sass/base/_base.scss"
 import "./signs.scss"
 
 import data from '../../services/pricing.json'
-import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../store/signSlicer.js";
+import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../store/signSlice.js";
 
 
 const Signs  = () => {
@@ -137,7 +137,7 @@ const SignCalculator = () => {
                 left : <SignCalcBlock/>,
                 right: <SignDescrBlock calcState = {calculator}/>,
                 style : {
-                    width: "300px",
+                    width: "25px",
                     height: "200px",
                     background: 'url("icons/logo_main.png") center no-repeat',
                     backgroundColor: 'white',

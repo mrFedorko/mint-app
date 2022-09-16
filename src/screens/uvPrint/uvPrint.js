@@ -1,33 +1,27 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import './uvPrint.scss'
 
 import '../../sass/sassTemplates/hat.scss'
 import data from '../../services/pricing.json'
 import { convertCalcState, getPrice } from "../../services/services.js"
+import { heightCh, signMaterialCh, widthCh } from "../../store/uvprintSlice";
 
-export default class UvPrint extends Component{
+const UvPrint = () => {
     
-    state = {
-        active : 'useful'
-    }
+    const [active, setActive] = useState('useful');
 
-    stateActiveSetter = (page) => {
-        this.setState({
-            active : page
-        })
-    }
-    
-    render = () => {
+   
 
-        const {active} = this.state
+
         return(
             <section className="hat">
                 <div className="container">
                     <div className="hat__header">
                         <div className="uvprint__buttons">
-                            <button onClick={() => this.stateActiveSetter('useful')} className={"hat__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Информация</button>
-                            <button onClick={() => this.stateActiveSetter('calc')} className={"hat__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн заказ</button>
+                            <button onClick={() => setActive('useful')} className={"hat__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Информация</button>
+                            <button onClick={() => setActive('calc')} className={"hat__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн заказ</button>
                         </div>
                         <h1 className="hat__title">УФ-печать</h1>
                     </div>
@@ -35,21 +29,25 @@ export default class UvPrint extends Component{
                 </div>
            </section>
         )
-    }
-}
-class UvPrintCalculator extends Component {
-    state = {
-        signType: 'sign',
-        signMaterial: '',
-        width: '',
-        height: '',
-    } 
-
-
     
-    render() { 
+}
+const UvPrintCalculator = () =>  {
+    
+    const {width, height, signMaterial} = useSelector(state => state.uvprint);
+    const state = useSelector(state => state.uvprint)
+    const dispatch = useDispatch();
+
+    const renderImgStyle = {
+            
+        width: '300px',
+        height: '200px',
+        background: 'url("../../../public/icons/logo_main.png") center no-repeat',
+        backgroundColor: 'white',
+        border: '2px #4d897c solid',
+        borderRadius: '7px'
+    }
+   
         
-        const {signMaterial, width, height} = this.state
 
         return (
 
@@ -57,11 +55,11 @@ class UvPrintCalculator extends Component {
             <h3 className = "mb-2">Калькулятор</h3>
                 <div className="calculator__group">
                     <div className="calculator__input">
-                        <input onChange={(e) => this.setState({ width: e.target.value})} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
-                        <input onChange={(e) => this.setState({ height: e.target.value})} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
+                        <input onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
+                        <input onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
                         <div class="input-group mt-3">
                             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Материал</label>
-                            <select onChange={(e) => this.setState({ signMaterial: e.target.value})}  class="form-select" id="">
+                            <select onChange={(e) => dispatch(signMaterialCh(e.target.value))}  class="form-select" id="">
                                 <option defaultValue={''} />
                                 <option value="PVC3">пластик ПВХ 3мм</option>
                                 <option value="PVC5">пластик ПВХ 5мм</option>
@@ -70,7 +68,7 @@ class UvPrintCalculator extends Component {
                         </div>
                     </div>
                     <div className="calculator__render">
-                        <div className="calculator__render_img"></div>
+                        <div style={renderImgStyle}></div>
                         <div className = "calculator__render_description">
                             <span>Табличка с уф-печатью</span>
                             <ul>
@@ -80,13 +78,15 @@ class UvPrintCalculator extends Component {
 
                             </ul>
                             <span>Итоговая стоимость (без учета монтажа): {
-                                getPrice(this.state, data.pricing) } руб</span>
+                                getPrice(state, data.pricing) } руб</span>
                         </div>
                     </div>
                 </div>
             </div>
         );
-    }
+    
 }
+
+export default UvPrint;
  
 

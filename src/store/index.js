@@ -1,11 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import signReducer from './signSlicer'
+import signReducer from './signSlice'
+import uvprintReducer from './uvprintSlice'
 
 
 
 const store = configureStore({
     reducer: {
-        sign: signReducer
+        sign: signReducer,
+        uvprint: uvprintReducer
+
     }
 })
 
