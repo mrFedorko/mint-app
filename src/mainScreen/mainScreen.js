@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React  from "react";
 import {Routes, Route} from "react-router-dom"
 
 
@@ -9,10 +9,8 @@ import UvPrint from "../screens/uvPrint";
 import Design from "../screens/design"
 
 
-export default class MainScreen extends Component{
+const MainScreen = () => {
    
-   
-    render = () => {
         return (
             
                 <Routes>
@@ -26,5 +24,7 @@ export default class MainScreen extends Component{
                 </Routes>
 
         )
-    }
+    
 }
+
+export default MainScreen;

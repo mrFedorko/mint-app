@@ -15,7 +15,6 @@ export default class MainMenu extends Component{
         this.setState({
             menuWide : !menuWide
           })
-          console.log(this.state.menuWide)
       }
       
 

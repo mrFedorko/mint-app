@@ -17,8 +17,8 @@ export default class MainNav extends Component{
     }
 }
 
-class Menu extends Component{
-    render = () => {
+const Menu = () => {
+    
         return(
             <div class="menu show" >
                     <nav>
@@ -30,13 +30,12 @@ class Menu extends Component{
                             <li class="menu__item"><Link to="/design" class="menu__link" > <img src="./icons/design.png" alt="design"/><span>Дизайн</span></Link></li>
                         </ul>
                     </nav>
-                </div>
+            </div>
         )
-    }
+    
 }
 
-class MenuWide extends Component{
-    render = () => {
+const  MenuWide = () => {
         return (
             <div class="wide">
                     <nav>
@@ -66,5 +65,4 @@ class MenuWide extends Component{
                     </nav>
                 </div>
         )
-    }
 }

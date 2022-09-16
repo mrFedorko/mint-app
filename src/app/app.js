@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import MainScreen from "../mainScreen";
 import MainMenu from "../mainMenu/mainMenu";
@@ -6,11 +6,7 @@ import MainMenu from "../mainMenu/mainMenu";
 
 
 
-class App extends Component {
-  
- 
-  
-  render = () => {
+const App  = () =>  {
     return(
       <>
         <MainMenu/>
@@ -18,7 +14,6 @@ class App extends Component {
         
       </>
     )
-  }
 }
 
 export default App;

@@ -1,46 +1,39 @@
-import React, { Component } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+
+
+
 import { convertCalcState, getPrice } from "../../services/services.js";
+
 
 import "../../sass/base/_base.scss"
 import "./signs.scss"
 
 import data from '../../services/pricing.json'
+import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../store/signSlicer.js";
 
 
-export default class Signs extends Component{
-    
-    state = {
-        active: 'useful'
-    }
-
-    stateActiveSetter = (page) => {
-        this.setState({
-            active : page
-            
-        })
-    }
-    
-
-    render = () => {
-        
-        const {active} = this.state
+const Signs  = () => {
+    const active = useSelector((state) => state.sign.active)
+    const dispatch = useDispatch();
         
         return(
            <section className="signs">
                 <div className="container">
                     <div className="signs__header">
                         <div className="signs__buttons">
-                            <button onClick={() => this.stateActiveSetter('useful')} className={"signs__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Полезная информация</button>
-                            <button onClick={() => this.stateActiveSetter('calc')} className={"signs__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн калькулятор</button>
-                            <button onClick={() => this.stateActiveSetter('order')}  className={"signs__button"+ (active === 'order' ? ' signs__button_active' : '')}>Как заказать</button>
+                            <button onClick={() => dispatch(activeCh('useful'))} className={"signs__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Полезная информация</button>
+                            <button onClick={() => dispatch(activeCh('calc'))} className={"signs__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн калькулятор</button>
+                            <button onClick={() => dispatch(activeCh('order'))}  className={"signs__button"+ (active === 'order' ? ' signs__button_active' : '')}>Как заказать</button>
                         </div>
                         <h1 className="signs__title">Вывески</h1>
                     </div>
-                   {active === 'useful' ? <SignsUseful onActiveChange = {(a) => this.stateActiveSetter(a) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>}
+                   {active === 'useful' ? <SignsUseful onActiveChange = {(a) => dispatch(activeCh(a)) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>}
                 </div>
            </section>
         )
-    }
+    
 }
 
 
@@ -51,8 +44,7 @@ export default class Signs extends Component{
 
 
 
-class SignsUseful extends Component{
-    render = () => {
+const SignsUseful = (props) => {
         return(
             <div className="signs__info fadein">
                 <h3>Выбираем наружную рекламу для ваших целей и бюджета</h3>
@@ -70,7 +62,7 @@ class SignsUseful extends Component{
                     </div>
                     <div class="btn-group mt-1" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-outline-secondary">Примеры работ</button>
-                        <button onClick = {() =>  this.props.onActiveChange('calc')} type="button" class="btn btn-outline-secondary">Перейти в калькулятор</button>
+                        <button onClick = {() =>  props.onActiveChange('calc')} type="button" class="btn btn-outline-secondary">Перейти в калькулятор</button>
                     </div>
                 </div>
 
@@ -86,7 +78,7 @@ class SignsUseful extends Component{
                     </div>
                     <div class="btn-group mt-2" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-outline-secondary">Примеры работ</button>
-                        <button onClick = {() =>  this.props.onActiveChange('calc')} type="button" class="btn btn-outline-secondary">Перейти в калькулятор</button>
+                        <button onClick = {() =>  props.onActiveChange('calc')} type="button" class="btn btn-outline-secondary">Перейти в калькулятор</button>
                     </div>
                 </div>
                 
@@ -101,13 +93,13 @@ class SignsUseful extends Component{
                     </div>
                     <div class="btn-group mt-2" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-outline-secondary">Примеры работ</button>
-                        <button onClick = {() =>  this.props.onActiveChange('calc')} type="button" class="btn btn-outline-secondary">Перейти в калькулятор</button>
+                        <button onClick = {() =>  props.onActiveChange('calc')} type="button" class="btn btn-outline-secondary">Перейти в калькулятор</button>
                     </div>
                 </div>
 
             </div>
         )
-    }
+    
 }
 
 
@@ -118,74 +110,32 @@ class SignsUseful extends Component{
 
 
 
-
-class SignCalculator extends Component{
+const SignCalculator = () => {
     
-    state = {
-        signType: '',
-        type: '',
-        light:'',
-        colored: '',
-        sideColor: '',
-        faceColor: '',
-        word: '',
-        size: '',
-        width : '',
-        height: '',
-        signMaterial: '',
-        bannerPostWork: '' 
-
-    }
-
-    onChangeSignType = (value) => {
-        const signType = value
-        this.setState({signType})
+    const calculator = useSelector(state => state.sign.calculator);
+    const {signType, type, colored, sideColor, faceColor, word} = calculator;
+    const dispatch = useDispatch();
         
-    }
-
-    
-    
-    render = () => {
 
        
-
-        Object.entries({...this.state}).forEach(item => {
-            localStorage.setItem(item[0], item[1])
-        });
-
-        console.log(localStorage);
-        
-        
-
-        const {signType} = this.state;
         const content = {
             'letter' : {
-                left : <LetterCalcBlock 
-                onTypeChange = {(value) => this.setState({type: value})} 
-                onLightChange = {(value) => this.setState({light: +value})} 
-                onColoredChange = {(value) => this.setState({colored: value})}
-                onSideColorChange = {(value) => this.setState({sideColor: value})} 
-                onFaceColorChange = {(value) => this.setState({faceColor: value})} 
-                onWordChange = {(value) => this.setState({word: value})} 
-                onSizeChange = {(value) => this.setState({size: +value})}/>,
-                right : <LetterDescrBlock calcState = {this.state}/>,
+                left : <LetterCalcBlock />,
+                right : <LetterDescrBlock calcState = {calculator}/>,
                 style : {
-                    textShadow: this.state.type === 'volume' ? `1px 1px 1px ${this.state.sideColor},1px 2px 1px ${this.state.sideColor},1px 3px 1px ${this.state.sideColor},1px 4px 1px ${this.state.sideColor},1px 5px 1px ${this.state.sideColor},1px 6px 1px ${this.state.sideColor},1px 7px 1px ${this.state.sideColor},1px 8px 1px ${this.state.sideColor},1px 9px 1px ${this.state.sideColor},1px 10px 1px ${this.state.sideColor},1px 18px 6px rgba(16,16,16,0.4),1px 22px 10px rgba(16,16,16,0.2),1px 25px 35px rgba(16,16,16,0.2),1px 30px 60px rgba(16,16,16,0.4)` : '1px 1px 1px #FFFAFA,1px 2px 1px 	#FFFAFA,1px 18px 6px rgba(16,16,16,0.4),1px 22px 10px rgba(16,16,16,0.2),1px 25px 35px rgba(16,16,16,0.2),1px 30px 60px rgba(16,16,16,0.4)',
+                    textShadow: type === 'volume' ? `1px 1px 1px ${sideColor},1px 2px 1px ${sideColor},1px 3px 1px ${sideColor},1px 4px 1px ${sideColor},1px 5px 1px ${sideColor},1px 6px 1px ${sideColor},1px 7px 1px ${sideColor},1px 8px 1px ${sideColor},1px 9px 1px ${sideColor},1px 10px 1px ${sideColor},1px 18px 6px rgba(16,16,16,0.4),1px 22px 10px rgba(16,16,16,0.2),1px 25px 35px rgba(16,16,16,0.2),1px 30px 60px rgba(16,16,16,0.4)` : '1px 1px 1px #FFFAFA,1px 2px 1px 	#FFFAFA,1px 18px 6px rgba(16,16,16,0.4),1px 22px 10px rgba(16,16,16,0.2),1px 25px 35px rgba(16,16,16,0.2),1px 30px 60px rgba(16,16,16,0.4)',
                     lineHeight: '1.2',
                     fontSize: "100px",
                     fontWeight: "700",
                     fontFamily:  "'Ubuntu', sans-serif",
-                    color: `${this.state.faceColor}`,
-                    WebkitTextStroke : `${this.state.colored === 'stroke' ? '3px white' : ''}`,
+                    color: `${faceColor}`,
+                    WebkitTextStroke : `${colored === 'stroke' ? '3px white' : ''}`,
                     marginBottom : '0.3em'
                 }
             },
             'sign' : { 
-                left : <SignCalcBlock
-                onWidthChange = {(value) => this.setState({width: +value})} 
-                onHeightChange = {(value) => this.setState({height: +value})} 
-                onSignMaterialChange = {(value) => this.setState({signMaterial: value})}/>,
-                right: <SignDescrBlock calcState = {this.state}/>,
+                left : <SignCalcBlock/>,
+                right: <SignDescrBlock calcState = {calculator}/>,
                 style : {
                     width: "300px",
                     height: "200px",
@@ -197,11 +147,8 @@ class SignCalculator extends Component{
                 
             },
             'banner' : {
-                left : <BannerCalcBlock 
-                onWidthChange = {(value) => this.setState({width: +value})} 
-                onHeightChange = {(value) => this.setState({height: +value})} 
-                onBannerPostWorkChange = {(value) => this.setState({bannerPostWork: +value})}/>,
-                right: <BannerDescrBlock calcState = {this.state}/>,
+                left : <BannerCalcBlock/>,
+                right: <BannerDescrBlock calcState = {calculator}/>,
                 style : {
                     width: "300px",
                     height: "200px",
@@ -224,7 +171,7 @@ class SignCalculator extends Component{
                     <div className="calculator__input">
                         <div class="input-group mb-3">
                             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Тип вывески</label>
-                            <select  onChange={(e) =>  this.onChangeSignType(e.target.value)} class="form-select" id="">
+                            <select value={signType} onChange={(e) =>  dispatch(signTypeCh(e.target.value))} class="form-select" id="">
                             <option defaultValue={''} />
                                 <option value="letter">Объемные буквы</option>
                                 <option value="sign">Таблички с УФ-печатью</option>
@@ -236,21 +183,19 @@ class SignCalculator extends Component{
                        
                     </div>
                     <div className="calculator__render">
-                        <div className="calculator__render_img" style={content[signType].style}>{signType === 'letter' ? this.state.word : ''}</div>
+                        <div className="calculator__render_img" style={content[signType].style}>{signType === 'letter' ? word : ''}</div>
                         {content[signType].right}
                     </div>
                 </div>
             </div>
         )
-    } 
+    
 }
 
-class LetterDescrBlock extends Component{
+const LetterDescrBlock= (props) => {
    
-    render = () => {
-        
-        const {type, light, sideColor, faceColor, word, size} = this.props.calcState
-        
+    const {type, light, sideColor, faceColor, word, size,} = useSelector(state=>state.sign.calculator);
+
 
 
         return(
@@ -264,23 +209,23 @@ class LetterDescrBlock extends Component{
                     <li> Каркас: алюминиевая труба 15х15х1,5мм </li>
                 </ul>
                 <span>Итоговая стоимость (без учета монтажа): {
-                    getPrice(this.props.calcState, data.pricing) } руб</span>
+                    getPrice(props.calcState, data.pricing) } руб</span>
             </div>
         )
-    }
+    
 }
 
-class LetterCalcBlock extends Component {
+const LetterCalcBlock = () =>  {
     
-render = () => {
-    const {onTypeChange, onLightChange, onColoredChange, onSideColorChange, onWordChange, onSizeChange, onFaceColorChange} = this.props
+    const dispatch = useDispatch();
+    const {type, light, colored, sideColor, faceColor, word, size,} = useSelector(state=>state.sign.calculator);
 
     
     return(
         <>
         <div class="input-group mb-3">
             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Исполнение</label>
-            <select onChange={(e) => onTypeChange(e.target.value)}  class="form-select" id="">
+            <select value={type} onChange={(e) => dispatch(typeCh(e.target.value))}  class="form-select" id="">
                 <option defaultValue={'plate'} />
                 <option value="plate">Из ПВХ 8мм</option>
                 <option value="volume">Объемные</option>
@@ -288,7 +233,7 @@ render = () => {
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Подсветка</label>
-            <select onChange={(e) => onLightChange(e.target.value)} class="form-select" id="">
+            <select value={light} onChange={(e) => dispatch(lightCh(e.target.value))} class="form-select" id="">
                 <option defaultValue={0} />
                 <option value={1}>С подсветкой</option>
                 <option value={0}>Без подсветки</option>
@@ -296,7 +241,7 @@ render = () => {
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Лицевая часть</label>
-            <select onChange={(e) => onColoredChange(e.target.value)} class="form-select" id="">
+            <select value={colored} onChange={(e) => dispatch(coloredCh(e.target.value))} class="form-select" id="">
                 <option defaultValue={'full'} />
                 <option value="full">Сплошная</option>
                 <option value="stroke">С контуром</option>
@@ -304,7 +249,7 @@ render = () => {
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" htmlFor="inputGroupSelect01">Цвет боковой части</label>
-            <select onChange={(e) => onSideColorChange(e.target.value)} class="form-select" id="">
+            <select value={sideColor} onChange={(e) => dispatch(sideColorCh(e.target.value))} class="form-select" id="">
                 <option defaultValue={'white'} />
                 <option value="lightgrey"> Белый</option>
                 <option value="black"> Черный</option>
@@ -317,7 +262,7 @@ render = () => {
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" htmlFor="inputGroupSelect01">Цвет лицевой части</label>
-            <select onChange={(e) => onFaceColorChange(e.target.value)} class="form-select" id="">
+            <select value ={faceColor} onChange={(e) => dispatch(faceColorCh(e.target.value))} class="form-select" id="">
                 <option defaultValue={'white'} />
                 <option value="white"> Белый</option>
                 <option value="black"> Черный</option>
@@ -331,17 +276,16 @@ render = () => {
            
 
         
-        <input onChange={(e) => onWordChange(e.target.value)} type="text" className="form-control" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите название"/>
-        <input onChange={(e) => onSizeChange(e.target.value)} type="text" className="form-control mt-3" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите высоту буквы, cм"/>
+        <input value={word} onChange={(e) => dispatch(wordCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите название"/>
+        <input value={size} onChange={(e) => dispatch(sizeCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите высоту буквы, cм"/>
         </>
     )
-}
+
 }
 
-class BannerDescrBlock extends Component{
-    render = () => {
+const BannerDescrBlock = (props) => {
         
-        const {bannerPostWork, width, height} = this.props.calcState
+        const { width, height, bannerPostWork} = useSelector(state=>state.sign.calculator)
         
 
         return(
@@ -354,22 +298,23 @@ class BannerDescrBlock extends Component{
 
                 </ul>
                 <span>Итоговая стоимость (без учета монтажа): {
-                    getPrice(this.props.calcState, data.pricing) } руб</span>
+                    getPrice(props.calcState, data.pricing) } руб</span>
             </div>
         )
-    }
+    
 }
 
-class BannerCalcBlock extends Component{
-    render = () => {
-        const {onWidthChange, onHeightChange, onBannerPostWorkChange} = this.props
+const BannerCalcBlock = () => {
+    const { width, height, bannerPostWork} = useSelector(state=>state.sign.calculator)
+        const dispatch = useDispatch();
+
         return(
             <>
-                <input onChange={(e) => onWidthChange(e.target.value)} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
-                <input onChange={(e) => onHeightChange(e.target.value)} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
+                <input value={width} onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
+                <input value = {height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
                 <div class="input-group mt-3">
                     <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Пост обработка</label>
-                    <select onChange={(e) => onBannerPostWorkChange(e.target.value)}  class="form-select" id="">
+                    <select value={bannerPostWork} onChange={(e) => dispatch(bannerPostWorkCh(e.target.value))}  class="form-select" id="">
                         <option defaultValue={true} />
                         <option value="1">Проклейка + люверсы по контуру</option>
                         <option value="0">Без обработки</option>
@@ -377,12 +322,12 @@ class BannerCalcBlock extends Component{
                 </div>
             </>
         )
-    }
+    
 }
 
-class SignDescrBlock extends Component{
-    render = () => {
-        const {signMaterial, width, height} = this.props.calcState;
+const SignDescrBlock = (props) => {
+    
+    const {width, height, signMaterial} = useSelector(state=>state.sign.calculator)
         return(
             <div className = "calculator__render_description">
                 <span>Табличка с уф-печатью</span>
@@ -393,22 +338,23 @@ class SignDescrBlock extends Component{
 
                 </ul>
                 <span>Итоговая стоимость (без учета монтажа): {
-                    getPrice(this.props.calcState, data.pricing) } руб</span>
+                    getPrice(props.calcState, data.pricing) } руб</span>
             </div>
         )
-    }
+    
 }
 
-class SignCalcBlock extends Component{
-    render = () => {
-        const {onWidthChange, onHeightChange, onSignMaterialChange} = this.props
+const SignCalcBlock = () => {
+        const {width, height, signMaterial} = useSelector(state=>state.sign.calculator)
+        const dispatch = useDispatch();
+
         return(
             <>
-                <input onChange={(e) => onWidthChange(e.target.value)} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
-                <input onChange={(e) => onHeightChange(e.target.value)} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
+                <input value={width} onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
+                <input value={height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
                 <div class="input-group mt-3">
                     <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Материал</label>
-                    <select onChange={(e) => onSignMaterialChange(e.target.value)}  class="form-select" id="">
+                    <select value={signMaterial} onChange={(e) => dispatch(signMaterialCh(e.target.value))}  class="form-select" id="">
                         <option defaultValue={''} />
                         <option value="PVC3">пластик ПВХ 3мм</option>
                         <option value="PVC5">пластик ПВХ 5мм</option>
@@ -417,7 +363,7 @@ class SignCalcBlock extends Component{
                 </div>
             </>
         )
-    }
+    
 }
 
 
@@ -427,8 +373,8 @@ class SignCalcBlock extends Component{
 
 
 
-class SignsOrder extends Component{
-    render = () => {
+const SignsOrder = () => {
+   
         return(
             <>
                 <div className="order fadein">
@@ -452,8 +398,8 @@ class SignsOrder extends Component{
                 </div>
             </>
         )
-    }
+    
 }
 
-
+export default Signs;
 
