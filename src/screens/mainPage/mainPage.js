@@ -123,11 +123,12 @@ export default class MainPage extends Component{
                     <div class="footer__info">
                         <adress class="footer__addr">Белгород
                         </adress>
-                        <a href="tel:89524346863" class="footer__phone">8 (952) 434-68-63 </a>
+                        <a href="tel:89524346863" class="footer__phone">+7 952 4346863 </a>
                         <div class="footer__social">
-                            <a href="/" class="footer__social-item"><img src="icons/facebook.png" alt="facebook"/></a>
-                            <a href="/" class="footer__social-item"><img src="icons/instagram.png" alt="instagram"/></a>
-                            <a href="/" class="footer__social-item"><img src="icons/pinterest.png" alt="pinterest"/></a>        
+                            <a href="/" class="footer__social-item"><img src="icons/vk.png" alt="vk"/></a>
+                            <a href="/" class="footer__social-item"><img src="icons/telegram.png" alt="telegram"/></a>
+                            <a href="/" class="footer__social-item"><img src="icons/viber.png" alt="viber"/></a>   
+                            <a href="/" class="footer__social-item"><img src="icons/whatsapp.png" alt="whatsapp"/></a>     
                         </div>
                     </div>
                 </section>
