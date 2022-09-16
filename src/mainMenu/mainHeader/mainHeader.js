@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
 
 import './mainHeader.scss'
 
 
-export default class MainHeader extends Component{
-    render = () => {
+ const MainHeader = (props) => {
+    
         return (
             <header class="header">
 
             <div class="header__wrapper1">
-                <div class="header__burger" onClick={this.props.onMenuChange}>
+                <div class="header__burger" onClick={props.onMenuChange}>
                     <div class="header__burger-line"></div>
                     <div class="header__burger-line"></div>
                     <div class="header__burger-line"></div>
@@ -52,5 +52,7 @@ export default class MainHeader extends Component{
         </header>
 
         )
-    }
+    
 }
+
+export default MainHeader;
