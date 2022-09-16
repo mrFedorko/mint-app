@@ -1,2 +1,2 @@
-import Poligrafy from "./polygraphy";
-export default Poligrafy;
+import Polygraphy from "./polygraphy";
+export default Polygraphy;

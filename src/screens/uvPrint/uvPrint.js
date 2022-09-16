@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import './uvPrint.scss'
 
+import '../../sass/sassTemplates/hat.scss'
 import data from '../../services/pricing.json'
 import { convertCalcState, getPrice } from "../../services/services.js"
 
@@ -18,15 +19,17 @@ export default class UvPrint extends Component{
     }
     
     render = () => {
+
+        const {active} = this.state
         return(
-            <section className="uvprint">
+            <section className="hat">
                 <div className="container">
-                    <div className="uvprint__header">
+                    <div className="hat__header">
                         <div className="uvprint__buttons">
-                            <button  onClick={() => this.stateActiveSetter('useful')} className="uvprint__button btn btn-light">Информация</button>
-                            <button  onClick={() => this.stateActiveSetter('calc')}  className="uvprint__button btn btn-light">Онлайн заказ</button>
+                            <button onClick={() => this.stateActiveSetter('useful')} className={"hat__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Информация</button>
+                            <button onClick={() => this.stateActiveSetter('calc')} className={"hat__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн заказ</button>
                         </div>
-                        <h1 className="uvprint__title">УФ-печать</h1>
+                        <h1 className="hat__title">УФ-печать</h1>
                     </div>
                     <UvPrintCalculator/>
                 </div>

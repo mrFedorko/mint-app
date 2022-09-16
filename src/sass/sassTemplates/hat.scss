@@ -1,0 +1,68 @@
+@import '../../sass/base/variables';
+
+
+.hat{
+    padding: 100px 0 70px 120px;
+    
+    text-align: right;
+    animation-duration: 0.5s;
+    animation-name: fade;
+    background-color: #eaeaea;
+    
+    @keyframes fade {
+        from {
+         opacity: 0%;
+    
+        }
+      
+        to {
+          opacity: 100%;
+        }
+    }
+    
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid rgb(242, 242, 242);
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__buttons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__button{
+        padding: 1ch 1.1ch;
+        margin: 0.5em;
+        border-radius: 0.8em;
+        border: 1px solid rgb(228, 228, 228);
+        transition: 0.4s;
+        font-size: 15px;
+        &_active {
+            background-color: $main-color;
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+            color: white;
+            outline: none;
+            :active{
+                outline: none;
+    
+            }
+        }
+    }
+    &__title{
+        color: $main-color;
+        margin-right: 1.2em;
+    }
+
+    &__info{
+        margin-top: 2em;
+        text-align: left;
+        h3{
+            font-size: 25px;
+        }
+    }
+}
