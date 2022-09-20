@@ -6,9 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { convertCalcState, getPrice } from "../../services/services.js";
 
-
-import "../../sass/base/_base.scss"
-import "./signs.scss"
+import'../../sass/sassTemplates/hat.scss';
+import "../../sass/base/_base.scss";
+import "./signs.scss";
 
 import data from '../../services/pricing.json'
 import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../store/signSlice.js";
@@ -19,19 +19,25 @@ const Signs  = () => {
     const dispatch = useDispatch();
         
         return(
-           <section className="signs">
+            <>
+                <section className="hat">
                 <div className="container">
-                    <div className="signs__header">
-                        <div className="signs__buttons">
-                            <button onClick={() => dispatch(activeCh('useful'))} className={"signs__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Полезная информация</button>
-                            <button onClick={() => dispatch(activeCh('calc'))} className={"signs__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн калькулятор</button>
-                            <button onClick={() => dispatch(activeCh('order'))}  className={"signs__button"+ (active === 'order' ? ' signs__button_active' : '')}>Как заказать</button>
+                    <div className="hat__header">
+                        <div className="hat__buttons">
+                            <button onClick={() => dispatch(activeCh('useful'))} className={"hat__button"+ (active === 'useful' ? ' hat__button_active' : '')}>Полезная информация</button>
+                            <button onClick={() => dispatch(activeCh('calc'))} className={"hat__button"+ (active === 'calc' ? ' hat__button_active' : '')}>Онлайн калькулятор</button>
+                            <button onClick={() => dispatch(activeCh('order'))}  className={"hat__button"+ (active === 'order' ? ' hat__button_active' : '')}>Как заказать</button>
                         </div>
-                        <h1 className="signs__title">Вывески</h1>
+                        <h1 className="hat__title">Вывески</h1>
                     </div>
-                   {active === 'useful' ? <SignsUseful onActiveChange = {(a) => dispatch(activeCh(a)) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>}
                 </div>
            </section>
+           <section>
+                <div className="container">
+                    {active === 'useful' ? <SignsUseful onActiveChange = {(a) => dispatch(activeCh(a)) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>}
+                </div>
+           </section> 
+            </>
         )
     
 }
@@ -46,7 +52,7 @@ const Signs  = () => {
 
 const SignsUseful = (props) => {
         return(
-            <div className="signs__info fadein">
+            <div className="sign__info fadein">
                 <h3>Выбираем наружную рекламу для ваших целей и бюджета</h3>
                 <span>Наружная реклама - это первое, с чем сталкивается клиент, посещая Вашу компанию. Поэтому важно, чтобы реклама вызывала позитивные впечатления и располагала к сотрудничеству! </span>
                 <span>Давайте определимся - что вам нужно</span>

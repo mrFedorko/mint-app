@@ -1,7 +1,6 @@
 .promo {
     min-height: 100vh;
-    background-color: transparent;
-
+    background-color: #fafafa;
 }
 .content {
     display: flex;
@@ -11,6 +10,7 @@
     color: $main-color;
     &__title {
         text-transform: uppercase;
+        margin-left: 10px;
         font-size: 47px;
         font-weight: 700;
         cursor: default;
@@ -21,6 +21,7 @@
     }
     &__subtitle {
         margin-top: 30px;
+        margin-left: 10px;
         font-size: 34px;
         cursor: default;
         z-index: 2;

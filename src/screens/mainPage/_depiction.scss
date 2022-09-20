@@ -1,6 +1,6 @@
 .depiction {
     min-height: 100vh;
-    background: #d8d8d8;
+    background: #ededed;
     .container {
         display: flex;
         align-items: center;
@@ -28,7 +28,7 @@
         align-items: center;
         }
     &__title {
-        color: $main-color;
+        color:black;
         font-size: 16px;
         font-weight: 700;
         text-align: left;
@@ -36,19 +36,19 @@
         cursor: default;
     }
     &__button {
-        height: 220px;
+        height: 80px;
         width: 200px;
         background-color: $main-color;
         border-radius: 28px;
-        padding-top: 10px;
         margin-top: 10px;
         transition: 1s;
         border: none;
         &:hover {
-            border: 5px solid $back-color;
+            border: 1px solid $back-color;
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
         }
         a {
-            font-size: 26px;
+            font-size: 20px;
             text-transform: uppercase;
             text-decoration: none;
             font-weight: 700;

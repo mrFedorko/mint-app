@@ -98,7 +98,7 @@ export default class MainPage extends Component{
                             </div>
                         </div>
                         <button class="depiction__button">
-                            <a href="/">Сотруд- <br/> ничать</a>
+                            <a href="/">Сотрудничать</a>
                         </button>
                     </div>
                 </section>
@@ -113,22 +113,12 @@ export default class MainPage extends Component{
                             </h2>
                             <img class="portfolio__arrow" src="img/arrow.svg" alt="arrow"/>
                         </div>
-                        <a href="/" class="portfolio__cases">
-                            <div class="portfolio__link">Наши<br/>кейсы</div>
-                            <img class="portfolio__play" src="icons/play.png" alt=""/>
-                        </a>
-                    </div>
-                </section>
-                <section class="footer">
-                    <div class="footer__info">
-                        <adress class="footer__addr">Белгород
-                        </adress>
-                        <a href="tel:89524346863" class="footer__phone">+7 952 4346863 </a>
-                        <div class="footer__social">
-                            <a href="/" class="footer__social-item"><img src="icons/vk.png" alt="vk"/></a>
-                            <a href="/" class="footer__social-item"><img src="icons/telegram.png" alt="telegram"/></a>
-                            <a href="/" class="footer__social-item"><img src="icons/viber.png" alt="viber"/></a>   
-                            <a href="/" class="footer__social-item"><img src="icons/whatsapp.png" alt="whatsapp"/></a>     
+
+                        <div class="portfolio__link">
+                            <a href="/">
+                                <div class="portfolio__link-title">Наши кейсы</div>
+                                <div class="portfolio__link-img"><img src="img/folder.png" alt=""/></div>
+                            </a>
                         </div>
                     </div>
                 </section>

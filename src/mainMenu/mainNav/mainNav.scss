@@ -21,7 +21,7 @@
       padding: 10px 0 10px 0;
       span{
         color: #000000;
-        font-size: 11px;
+        font-size: 12px;
       }
       &:hover{
         background-color: #cecece;     
@@ -50,7 +50,7 @@
     animation-name: slidein;
     
     &__list{
-      width: 160px;
+      width: 169px;
       display: flex;
       flex-direction: column;
       padding-left: 0;
@@ -74,7 +74,7 @@
     }
     &__link{
       color: #000000;
-      font-size: 11px;
+      font-size: 12px;
       text-decoration: none;
       margin-top: 5px;
       &:hover {
