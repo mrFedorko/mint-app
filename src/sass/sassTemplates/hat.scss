@@ -2,11 +2,11 @@
 
 
 .hat{
-    padding: 100px 0 70px 120px;
+    padding: 100px 0 40px 0;
     text-align: right;
     animation-duration: 0.5s;
     animation-name: fade;
-    background-color: #eaeaea;
+    background-color: #efefef;
     
     @keyframes fade {
         from {
@@ -23,7 +23,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        border-bottom: 2px solid rgb(242, 242, 242);
+        border-bottom: 2px solid rgb(255, 255, 255);
         width: 100%;
         margin: 0 auto;
     }
@@ -56,10 +56,16 @@
         color: $main-color;
         margin-right: 1.2em;
         font-size: 2rem;
+        font-weight: 700;
     }
 }
 
 @media (max-width: 1200px) {
+    .hat{
+        &__buttons {
+            margin-left: 80px;
+        }
+    }
 }
 @media (max-width: 991px) {
     .hat{
@@ -70,9 +76,12 @@
 }
 @media (max-width: 767px) {
     .hat{
-        padding: 120px 10px 70px 10px;
+        padding: 120px 10px 20px 10px;
         text-align: center;
 
+        &__buttons {
+            margin-left: 0px;
+        }
         &__header{
             flex-direction: column-reverse;
             align-items: center;

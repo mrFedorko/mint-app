@@ -1,32 +1,43 @@
 @import '../../sass/base/variables';
 
+
+.signs{
+    background-color: #efefef;
+    .container{
+        padding: 30px;
+    }
+}
 .sign{
-    &__info{
-        margin-top: 2em;
-        text-align: left;
-        h3{
-            font-size: 25px;
-        }
+    text-align: left;
+    &__header{
+        font-size: 25px;
+    }
+    &__subheader {
+        text-align: center;
     }
     &__block{
         background-color: white;
         display: flex;
         flex-direction: column;
         margin-top: 3em;
-        border-radius: 20px;
-        padding: 20px;
+        border-radius: 30px;
+        padding: 30px;
     }
     &__group{
         display: flex;
+        align-items: center;
         justify-content: space-between;
         margin-top: 0.7em;
     }
     &__img{
-        max-width: 30%;
+        width: 45%;
         margin-right: 2em;
         img{
             width: 100%;
         }
+    }
+    &__descr{
+        width: 55%;
     }
 }
 
@@ -37,14 +48,12 @@
     text-align: left;
     height: 76vh;
     h3{
-        font-size: 25px;
-        
+        font-size: 25px;     
     }
 
     &__group{
         display: flex;
         height: 60vh;
-
     }
 
     &__input{
@@ -69,7 +78,35 @@
     text-align: left;
     height: 76vh;
     h3{
-        font-size: 25px;
-        
+        font-size: 25px;  
     }
+}
+
+@media (max-width: 1200px) {
+    .sign{
+        margin-left: 80px;
+    }
+}
+@media (max-width: 991px) {
+    .sign{
+        &__group{
+            flex-direction: column;
+        }
+        &__img{
+            width: 100%;
+            margin: 0;
+        }
+        &__descr{
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
+@media (max-width: 767px) {
+    .sign{
+        margin-left: 0;
+    }
+}
+@media (max-width: 575px) {
 }
