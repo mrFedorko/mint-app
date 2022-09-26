@@ -9,6 +9,7 @@ import { convertCalcState, getPrice } from "../../services/services.js";
 import'../../sass/sassTemplates/hat.scss';
 import "../../sass/base/_base.scss";
 import "./signs.scss";
+import "../../sass/sassTemplates/calculator.scss"
 
 import data from '../../services/pricing.json'
 import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../store/signSlice.js";
@@ -54,7 +55,10 @@ const SignsUseful = (props) => {
         return(
             <div className="sign fadein">
                 <h3 className="sign__header">Выбираем наружную рекламу для ваших целей и бюджета</h3>
-                <div className="sign__subheader">Наружная реклама - это первое, с чем сталкивается клиент, посещая Вашу компанию. Поэтому важно, чтобы реклама вызывала позитивные впечатления и располагала к сотрудничеству! <br/> Давайте определимся - что вам нужно</div>
+                <div className="sign__wrapper">
+                    <div className="sign__subheader">Наружная реклама - это первое, с чем сталкивается клиент, посещая Вашу компанию. Поэтому важно, чтобы реклама вызывала позитивные впечатления и располагала к сотрудничеству! <br/> Давайте определимся - что вам нужно</div>
+                    <img className="sign__subheader-pic" src="./img/wat.png" alt="letters"></img>
+                </div>
                 
                 <div className="sign__block">
                     <h5 className="sign__title">Объемные буквы</h5>
@@ -76,8 +80,7 @@ const SignsUseful = (props) => {
                     <div className="sign__group">
                         <div className="sign__img"><img className="rounded float-start" src="./img/lettersMainPhoto.jpg" alt="letters"></img></div>
                         <div className="sign__descr">Нанесенное на пластик ПВХ изображение методом прямой печати. Ее главные преимущества - низкая цена, сжатые сроки изготовления и монтажа.<br/>
-                        Чаще всего их используют внутри помещений, в качестве временных вывесок на фасаде, а также на специально согласованных рекламных площадях (на фасадах торговых центров).
-                        
+                        Чаще всего их используют внутри помещений, в качестве временных вывесок на фасаде, а также на специально согласованных рекламных площадях (на фасадах торговых центров).                  
                         </div>
 
                     </div>
@@ -120,6 +123,8 @@ const SignCalculator = () => {
     const calculator = useSelector(state => state.sign.calculator);
     const {signType, type, colored, sideColor, faceColor, word} = calculator;
     const dispatch = useDispatch();
+
+    console.log(sideColor);
         
 
        
@@ -135,14 +140,15 @@ const SignCalculator = () => {
                     fontFamily:  "'Ubuntu', sans-serif",
                     color: `${faceColor}`,
                     WebkitTextStroke : `${colored === 'stroke' ? '3px white' : ''}`,
-                    marginBottom : '0.3em'
+                    marginBottom : '0.3em',
+                   
                 }
             },
             'sign' : { 
                 left : <SignCalcBlock/>,
                 right: <SignDescrBlock calcState = {calculator}/>,
                 style : {
-                    width: "25px",
+                    width: "300px",
                     height: "200px",
                     background: 'url("icons/logo_main.png") center no-repeat',
                     backgroundColor: 'white',
@@ -171,13 +177,13 @@ const SignCalculator = () => {
 
         return(
             <div className="calculator fadein">
-                <h3 className = "mb-2">Калькулятор</h3>
+                <h3 className = "mb-4">Калькулятор</h3>
                 <div className="calculator__group">
                     <div className="calculator__input">
                         <div class="input-group mb-3">
                             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Тип вывески</label>
                             <select value={signType} onChange={(e) =>  dispatch(signTypeCh(e.target.value))} class="form-select" id="">
-                            <option defaultValue={''} />
+                                <option defaultValue=""/>
                                 <option value="letter">Объемные буквы</option>
                                 <option value="sign">Таблички с УФ-печатью</option>
                                 <option value="banner">Баннер 440</option>
@@ -189,7 +195,8 @@ const SignCalculator = () => {
                     </div>
                     <div className="calculator__render">
                         <div className="calculator__render_img" style={content[signType].style}>{signType === 'letter' ? word : ''}</div>
-                        {content[signType].right}
+                        <div className = "calculator__render_description">{content[signType].right}</div>
+                        
                     </div>
                 </div>
             </div>
@@ -204,7 +211,8 @@ const LetterDescrBlock= (props) => {
 
 
         return(
-            <div className = "calculator__render_description">
+           
+            <>
                 <span>{+light && type!=='plate' ? 'Световые': 'Не световые'} {type === 'volume' ? 'объемные' : 'плоские'} буквы "{word}"</span>
                 <ul>
                     <li> Средняя высота буквы: {size} см </li>
@@ -215,7 +223,8 @@ const LetterDescrBlock= (props) => {
                 </ul>
                 <span>Итоговая стоимость (без учета монтажа): {
                     getPrice(props.calcState, data.pricing) } руб</span>
-            </div>
+            </>
+            
         )
     
 }
@@ -231,7 +240,7 @@ const LetterCalcBlock = () =>  {
         <div class="input-group mb-3">
             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Исполнение</label>
             <select value={type} onChange={(e) => dispatch(typeCh(e.target.value))}  class="form-select" id="">
-                <option defaultValue={'plate'} />
+                <option  defaultValue="" children= 'не выбран'/>
                 <option value="plate">Из ПВХ 8мм</option>
                 <option value="volume">Объемные</option>
             </select>
@@ -239,7 +248,7 @@ const LetterCalcBlock = () =>  {
         <div class="input-group mb-3">
             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Подсветка</label>
             <select value={light} onChange={(e) => dispatch(lightCh(e.target.value))} class="form-select" id="">
-                <option defaultValue={0} />
+                <option defaultValue="" children= 'не выбран'/>
                 <option value={1}>С подсветкой</option>
                 <option value={0}>Без подсветки</option>
             </select>
@@ -247,7 +256,7 @@ const LetterCalcBlock = () =>  {
         <div class="input-group mb-3">
             <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Лицевая часть</label>
             <select value={colored} onChange={(e) => dispatch(coloredCh(e.target.value))} class="form-select" id="">
-                <option defaultValue={'full'} />
+                <option defaultValue="" children= 'не выбран'/>
                 <option value="full">Сплошная</option>
                 <option value="stroke">С контуром</option>
             </select>
@@ -255,7 +264,7 @@ const LetterCalcBlock = () =>  {
         <div class="input-group mb-3">
             <label class="input-group-text" htmlFor="inputGroupSelect01">Цвет боковой части</label>
             <select value={sideColor} onChange={(e) => dispatch(sideColorCh(e.target.value))} class="form-select" id="">
-                <option defaultValue={'white'} />
+                <option defaultValue="" children= 'не выбран'/>
                 <option value="lightgrey"> Белый</option>
                 <option value="black"> Черный</option>
                 <option value="crimson"> Красный</option>
@@ -268,7 +277,7 @@ const LetterCalcBlock = () =>  {
         <div class="input-group mb-3">
             <label class="input-group-text" htmlFor="inputGroupSelect01">Цвет лицевой части</label>
             <select value ={faceColor} onChange={(e) => dispatch(faceColorCh(e.target.value))} class="form-select" id="">
-                <option defaultValue={'white'} />
+                <option defaultValue="" children= 'не выбран'/>
                 <option value="white"> Белый</option>
                 <option value="black"> Черный</option>
                 <option value="red"> Красный</option>
@@ -320,8 +329,8 @@ const BannerCalcBlock = () => {
                 <div class="input-group mt-3">
                     <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Пост обработка</label>
                     <select value={bannerPostWork} onChange={(e) => dispatch(bannerPostWorkCh(e.target.value))}  class="form-select" id="">
-                        <option defaultValue={true} />
-                        <option value="1">Проклейка + люверсы по контуру</option>
+                    <option defaultValue="" children= 'не выбран'/>                        
+                    <option value="1">Проклейка + люверсы по контуру</option>
                         <option value="0">Без обработки</option>
                     </select>
                 </div>
@@ -360,7 +369,7 @@ const SignCalcBlock = () => {
                 <div class="input-group mt-3">
                     <label class="input-group-text w-40" htmlFor="inputGroupSelect01">Материал</label>
                     <select value={signMaterial} onChange={(e) => dispatch(signMaterialCh(e.target.value))}  class="form-select" id="">
-                        <option defaultValue={''} />
+                        <option defaultValue="" children= 'не выбран'/>
                         <option value="PVC3">пластик ПВХ 3мм</option>
                         <option value="PVC5">пластик ПВХ 5мм</option>
                         <option value="ACP3">алюминиевая композитная панель 3мм</option>
@@ -384,7 +393,7 @@ const SignsOrder = () => {
             <>
                 <div className="order fadein">
                     <h3 >Как заказать...</h3>
-                    <div className="oredr__descr">
+                    <div className="order__descr">
                         Для вашего удобства мы создали сервис заказов онлайн.
                         Оформите заказ через личный кабинет и оцените приимущества
                         сотрудничества с нами. Наблюдайте за стадией готовности вашего заказа

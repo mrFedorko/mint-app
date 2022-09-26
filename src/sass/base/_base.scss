@@ -3,9 +3,13 @@
     margin: 0;
     padding: 0;
 }
+body{
+    overflow-y: scroll;
+}
 .container {
     max-width: 1070px;
     margin: 0 auto;
+    padding-left: 70px;
 }
 .fadein {
     animation-name: fade;
@@ -17,5 +21,24 @@
         to {
             opacity: 100%;
         }
+    }
+}
+@media (max-width: 1200px) {
+    .container {
+        max-width: 880px;
+        margin: 0 auto;
+        padding-left: 70px;
+    }
+}
+@media (max-width: 991px) {
+    .container {
+        max-width: 727px;
+        margin: 0 auto;
+        padding-left: 108px;
+    }
+}
+@media (max-width: 767px){
+    .container {
+        padding: 20px;
     }
 }

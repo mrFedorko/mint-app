@@ -9,13 +9,13 @@ function convertCalcState(state){
         case "red" || "crimson":
             return "красный";
         case "orange" || "tomato":
-        return "оранжевый";
+            return "оранжевый";
         case "yellow" || "gold":
             return "желтый";
         case "green" || "darkolivegreen":
             return "зеленый";
-        case "navy":
-            return "синий" || "midnightblue";
+        case "navy"|| "midnightblue":
+            return "синий" ;
         case "PVC3":
             return "ПВХ 3мм";
         case "PVC5":

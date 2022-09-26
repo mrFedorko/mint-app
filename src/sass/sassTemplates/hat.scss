@@ -54,18 +54,12 @@
     }
     &__title{
         color: $main-color;
-        margin-right: 1.2em;
         font-size: 2rem;
         font-weight: 700;
     }
 }
 
 @media (max-width: 1200px) {
-    .hat{
-        &__buttons {
-            margin-left: 80px;
-        }
-    }
 }
 @media (max-width: 991px) {
     .hat{
@@ -85,6 +79,7 @@
         &__header{
             flex-direction: column-reverse;
             align-items: center;
+            margin-left: 14px;
         }
         &__title{
             margin-right: 0;

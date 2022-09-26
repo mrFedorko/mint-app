@@ -1,11 +1,11 @@
 .depiction {
-    min-height: 100vh;
+
     background: #ededed;
     .container {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        padding: 20px 70px;
+        padding-bottom: 50px;
     }
     &__cards {
         display: flex;
@@ -62,8 +62,7 @@
         .container {
             flex-direction: column;
             padding-top: 30px;
-            padding-left: 20px;
-            padding-bottom: 20px;
+            padding-bottom: 50px;
         }
         &__cards {
             justify-content: center;
