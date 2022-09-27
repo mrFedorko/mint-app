@@ -48,7 +48,7 @@
     display: block;
     animation-duration: 0.3s;
     animation-name: slidein;
-    
+    z-index: 1;
     &__list{
       width: 169px;
       display: flex;

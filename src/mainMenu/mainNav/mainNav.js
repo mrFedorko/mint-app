@@ -41,25 +41,25 @@ const  MenuWide = () => {
                     <nav>
                         <ul class="wide__list">
                             <li class="wide__item">
-                                <a href="/" class="wide__link-main mt-2" >Главная</a>
+                                <Link to="/" class="wide__link-main mt-2" >Главная</Link>
                             </li>
                             <li class="wide__item">
                                 <Link to="/signs" class="wide__link-main pb-0" >Вывески</Link>
-                                <a href="/" class="wide__link" >Объемные буквы</a>
-                                <a href="/" class="wide__link" >Таблички</a>
-                                <a href="/" class="wide__link pb-3" >Калькулятор вывески</a>
+                                <Link to="/signs" class="wide__link" >Объемные буквы</Link>
+                                <Link to="/signs" class="wide__link" >Таблички</Link>
+                                <Link to="/signs" class="wide__link pb-3" >Калькулятор вывески</Link>
                             </li>
                             <li class="wide__item">
-                                <a href="/" class="wide__link-main" >УФ печать</a>
+                                <Link to="/uvprint" class="wide__link-main" >УФ печать</Link>
                             </li>
                             <li class="wide__item">
-                                <a href="/" class="wide__link-main pb-0" >Полиграфия</a>
-                                <a href="/" class="wide__link" >Заказ онлайн</a>
-                                <a href="/" class="wide__link" >Доставка</a>
-                                <a href="/" class="wide__link pb-3" >Дополнительные услуги</a>
+                                <Link to="/polygraphy" class="wide__link-main pb-0" >Полиграфия</Link>
+                                <Link to="/polygraphy" class="wide__link" >Заказ онлайн</Link>
+                                <Link to="/polygraphy" class="wide__link" >Доставка</Link>
+                                <Link to="/polygraphy" class="wide__link pb-3" >Дополнительные услуги</Link>
                             </li>
                             <li class="wide__item">
-                                <a href="/" class="wide__link-main" >Дизайн</a>
+                                <Link to="/design" class="wide__link-main" >Дизайн</Link>
                             </li>
                         </ul>
                     </nav>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import './mainPage.scss'
 
@@ -25,28 +26,28 @@ export default class MainPage extends Component{
                     <div class="container">
                         <div class="services">
                             <div class="services__item">
-                                <a href="/">
+                                <Link to="/signs">
                                     <div class="services__item-title">Объемные <br/> буквы</div>
                                     <img src="img/letters.png" alt="" class="services__item-img"/>
-                                </a>
+                                </Link>
                             </div>
                             <div class="services__item">
-                                <a href="/">
+                                <Link to="/uvprint">
                                     <div class="services__item-title">УФ печать</div>
                                     <div class="services__item-img"><img src="img/uv-printer.png" alt=""/></div>
-                                </a>
+                                </Link>
                             </div>
                             <div class="services__item">
-                                <a href="/">
+                                <Link to="/polygraphy">
                                     <div class="services__item-title">Полиграфия</div>
                                     <div class="services__item-img"><img src="img/booklet.png" alt=""/></div>
-                                </a>
+                                </Link>
                             </div>
                             <div class="services__item">
-                                <a href="/">
+                                <Link to="/design">
                                     <div class="services__item-title">Дизайн</div>
                                     <div class="services__item-img"><img src="img/lamp.png" alt=""/></div>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
