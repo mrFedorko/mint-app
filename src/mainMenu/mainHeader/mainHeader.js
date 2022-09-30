@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 import './mainHeader.scss'
@@ -37,17 +38,17 @@ import './mainHeader.scss'
                         <img src="./icons/phone-yellow.svg" alt="logo"/>
                     </a>
                 </button>
-                <a href="index.html" class="header__login">
+                <Link to="/personal" class="header__login">
                     <div class="header__login-text">Войти</div>
                     <div class="header__login-block">
                         <img src="./icons/log_in_icon.png" alt="logo"/>
                     </div>
-                </a>
-                <a href="index.html" class="header__login-mini">
+                </Link>
+                <Link to="/personal" class="header__login-mini">
                     <div class="header__login-block-mini">
                         <img src="./icons/login-yellow.svg" alt="logo"/>
                     </div>
-                </a>
+                </Link>
             </div>
         </header>
 

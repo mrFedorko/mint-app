@@ -69,6 +69,9 @@
     .calculator{
         margin-left: 0;
         height: 900px;
+        h3{
+            font-size: 19px;
+        }
         &__group{
             flex-direction: column;
         }
