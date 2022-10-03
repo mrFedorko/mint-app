@@ -38,7 +38,6 @@ const Personal = () => {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
