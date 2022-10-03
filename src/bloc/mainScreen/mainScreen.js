@@ -9,7 +9,7 @@ import UvPrint from "../screens/uvPrint";
 import Design from "../screens/design";
 import Footer from "../footer";
 import Personal from "../screens/personalCab";
-
+import AuthPage from "../authPage/authPage";
 
 
 
@@ -26,6 +26,7 @@ const MainScreen = () => {
                                 <Route path="/signs" element = {<Signs/>}/>
                                 <Route path="/polygraphy" element = {<Polygraphy/>}/>
                                 <Route path="/personal" element = {<Personal/>}/>
+                                <Route path="/auth" element = {<AuthPage/>}/>
 
                         </Routes>
                         <Footer/>
