@@ -29,7 +29,7 @@ const Personal = () => {
                         </div>
                         <div className="personal__menu-item">
                             <img src="icons/review.png" alt="" className="personal__item-pic"/>
-                            <div className="personal__item-title">Оставить отзывы</div>
+                            <div className="personal__item-title">Оставить отзыв</div>
                         </div>
                         <div className="personal__menu-item">
                             <img src="icons/settings.png" alt="" className="personal__item-pic"/>

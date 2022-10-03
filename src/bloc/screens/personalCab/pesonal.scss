@@ -49,6 +49,57 @@
     }
     &__item-title{
         font-size: 10px;
+        line-height: 1.2;
         cursor: default;
     }
+}
+@media (max-width: 1200px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 767px) {
+    .personal{
+        &__menu{
+            padding-top: 80px;
+        }
+        &__menu-item{
+            padding: 6px 3px;
+            margin: 3px;
+            height: 76px;
+            width: 70px;
+            border-radius: 12px;
+        }
+        &__item-pic {
+            height: 33px;  
+        }
+        &__item-title{
+            font-size: 9px;
+            }
+        
+    }
+}
+@media (max-width: 575px) {
+    .personal{
+        .container{
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        &__menu{
+            padding-top: 80px;
+        }
+        &__menu-item{
+            padding: 6px 3px;
+            margin: 1px;
+            height: 76px;
+            width: 50px;
+            border-radius: 10px;
+        }
+        &__item-pic {
+            height: 27px;  
+        }
+        &__item-title{
+            font-size: 7px;
+            }
+    } 
+
 }
