@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../sass/sassTemplates/hat.scss"
+import "../../../sass/sassTemplates/hat.scss"
 export default class Design extends Component{
     render = () => {
         return(

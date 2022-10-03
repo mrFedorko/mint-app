@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 
-import { convertCalcState, getPrice } from "../../services/services.js";
+import { convertCalcState, getPrice } from "../../../services/services.js";
 
-import'../../sass/sassTemplates/hat.scss';
-import "../../sass/base/_base.scss";
+import'../../../sass/sassTemplates/hat.scss';
+import "../../../sass/base/_base.scss";
 import "./signs.scss";
-import "../../sass/sassTemplates/calculator.scss"
+import "../../../sass/sassTemplates/calculator.scss"
 
-import data from '../../services/pricing.json'
-import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../store/signSlice.js";
+import data from '../../../services/pricing.json'
+import { activeCh, bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../../store/signSlice.js";
 
 
 const Signs  = () => {

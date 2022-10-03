@@ -76,17 +76,20 @@
         }
 
         &__header {
-            font-size: 16px;
+            font-size: 12px;
         }
         &__arrow {
             width: 70px;
             margin-right: 20px;
         }
         &__link {
+            &-title{
+                font-size: 16px;
+            }
             &-img{
                 margin-bottom: 13px;
                 img{
-                   height: 140px; 
+                   height: 110px; 
                 }
             }
         }

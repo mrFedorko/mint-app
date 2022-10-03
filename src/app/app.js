@@ -1,7 +1,7 @@
 import React from "react";
 
-import MainScreen from "../mainScreen";
-import MainMenu from "../mainMenu/mainMenu";
+import MainScreen from "../bloc/mainScreen";
+import MainMenu from "../bloc/mainMenu/mainMenu";
 
 
 

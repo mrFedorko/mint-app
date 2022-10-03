@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import '../../sass/sassTemplates/hat.scss'
-import "../../sass/base/_base.scss"
+import '../../../sass/sassTemplates/hat.scss'
+import "../../../sass/base/_base.scss"
 import "./polygraphy.scss"
 export default class Polygraphy extends Component {
     

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import './uvPrint.scss'
-import "../../sass/sassTemplates/calculator.scss"
+import "../../../sass/sassTemplates/calculator.scss"
 
-import '../../sass/sassTemplates/hat.scss'
-import data from '../../services/pricing.json'
-import { convertCalcState, getPrice } from "../../services/services.js"
-import { heightCh, signMaterialCh, widthCh } from "../../store/uvprintSlice";
+import '../../../sass/sassTemplates/hat.scss'
+import data from '../../../services/pricing.json'
+import { convertCalcState, getPrice } from "../../../services/services.js"
+import { heightCh, signMaterialCh, widthCh } from "../../../store/uvprintSlice";
 
 const UvPrint = () => {
     

@@ -1,4 +1,4 @@
-@import '../../sass/base/_variables.scss';
+@import '../../../sass/base/_variables.scss';
 
 .header {
     position: fixed;
@@ -162,7 +162,7 @@
             &-mini {
                 display: inline;
                 img {
-                    height: 40px;
+                    height: 35px;
                 }
             }
         }
@@ -170,10 +170,10 @@
             display: none;
             &-block {
                 &-mini {
-                    margin-left: 13px;
+                    margin-left: 8px;
                     display: block;
                     img {
-                        height: 40px;
+                        height: 35px;
                     }
                 }
             }
