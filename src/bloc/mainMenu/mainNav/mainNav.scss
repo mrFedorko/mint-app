@@ -24,7 +24,7 @@
         font-size: 12px;
       }
       &:hover{
-        background-color: #cecece;     
+        background-color: $medium-gray;     
       }
     }
     
@@ -59,7 +59,7 @@
       padding-left: 24px;
       display: flex;
       flex-direction: column;
-      border-bottom: 2px solid #f1f1f1;
+      border-bottom: 2px solid $back-color;
       transition: 0.02s;
       &:last-child {
         border: none;
@@ -138,5 +138,19 @@
   @media (max-width: 767px) {
     .menu {
       display: none;
+    }
+    .wide{
+      width: 220px;
+      height: 100vh;
+      &__list{
+        width: 190px;
+      }
+      &__item{
+        padding-left: 35px;
+        &:hover {
+          width: 220px;
+          background-color: #f1f1f1;
+        }
+      }
     }
   }
