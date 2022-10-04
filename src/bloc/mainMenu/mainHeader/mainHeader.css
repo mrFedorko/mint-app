@@ -1,0 +1,236 @@
+.header {
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 59px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 36px 0 36px;
+  border-bottom: 2px solid #dcdcdc;
+  background-color: white;
+}
+
+.header__wrapper1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 164px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__burger {
+  height: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+}
+
+.header__burger-line {
+  background-color: #4d897c;
+  width: 19px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.header__logo-green {
+  width: 104px;
+}
+
+.header__logo-white {
+  display: none;
+}
+
+.header__wrapper2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header__search {
+  margin-right: 19px;
+}
+
+.header__search-form {
+  padding: 0 12px 0 12px;
+  height: 38px;
+  max-width: 113px;
+  border-radius: 19px;
+  border: 2px solid #4d897c;
+  font-size: 12px;
+}
+
+.header__search-form:active {
+  border: none;
+}
+
+.header__search-icon {
+  border: none;
+  background-color: none;
+}
+
+.header__search-icon img {
+  background-color: none;
+}
+
+.header__contact {
+  height: 38px;
+  width: 160px;
+  border-radius: 19px;
+  background-color: #4d897c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  color: white;
+  margin-right: 72px;
+}
+
+.header__contact-maxi {
+  text-decoration: none;
+  color: white;
+}
+
+.header__contact-mini {
+  display: none;
+}
+
+.header__login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-decoration: none;
+}
+
+.header__login-text {
+  font-size: 12px;
+  font-weight: 400;
+  color: black;
+  margin-right: 8px;
+  text-decoration: none;
+}
+
+.header__login-block {
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  background-color: #ffed00;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header__login-block img {
+  height: 22px;
+}
+
+.header-mini {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .header {
+    position: fixed;
+    background-color: #4d897c;
+    padding: 20px 30px;
+  }
+  .header__wrapper1 {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .header__burger {
+    height: 20px;
+    margin-right: 35px;
+  }
+  .header__burger-line {
+    background-color: white;
+  }
+  .header__logo-green {
+    display: none;
+  }
+  .header__logo-white {
+    display: inline;
+    width: 104px;
+  }
+  .header__wrapper2 {
+    width: 100%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .header__search {
+    display: none;
+  }
+  .header__contact {
+    width: 40px;
+    margin: 0;
+  }
+  .header__contact-maxi {
+    display: none;
+  }
+  .header__contact-mini {
+    display: inline;
+  }
+  .header__contact-mini img {
+    height: 35px;
+  }
+  .header__login {
+    display: none;
+  }
+  .header__login-block-mini {
+    margin-left: 8px;
+    display: block;
+  }
+  .header__login-block-mini img {
+    height: 35px;
+  }
+}
+/*# sourceMappingURL=mainHeader.css.map */

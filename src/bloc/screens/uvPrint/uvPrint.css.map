@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,QADI,CACJ,UAAU,CAAA;EACN,OAAO,EAAE,IAAI;CAChB",
+    "sources": [
+        "uvPrint.scss"
+    ],
+    "names": [],
+    "file": "uvPrint.css"
+}
