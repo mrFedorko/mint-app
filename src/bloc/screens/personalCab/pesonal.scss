@@ -61,8 +61,8 @@
     }
     &__line{
         width: 100%;
-        height: 2px;
-        background-color: $back-color;
+        height: 1px;
+        background-color: $main-color;
     }
 }
 
@@ -103,7 +103,7 @@
     }
     &__wrapper{
         display: flex;
-        justify-content: left;
+        justify-content: space-between;
         padding-bottom: 20px;
         padding-top: 25px;
         height: 408px;
@@ -139,7 +139,7 @@
         align-items: center;
     }
     &__content-icon{
-        margin-right: 15px;
+        margin-right: 20px;
         img{
             width: 30px;
         }
@@ -156,7 +156,6 @@
             background: linear-gradient(to right, rgb(225, 225, 225), rgb(243, 243, 243));
         }
     }
-
 }
 @media (max-width: 1200px) {
 }
@@ -166,6 +165,7 @@
     .personal{
         &__menu{
             padding-top: 80px;
+            padding-bottom: 9px;
         }
         &__menu-item{
             padding: 6px 3px;
@@ -179,8 +179,23 @@
         }
         &__item-title{
             font-size: 9px;
-            }
-        
+        }
+    }
+
+    .profile{
+        &__info{
+            margin-left: 20px;
+            margin-top: 0;
+        }
+        &__usersymbol{
+            font-size: 11px;
+        }
+        &__phone{
+            font-size: 14px;
+        }
+        &__masseges{
+            margin-left: 23px;
+        }
     }
 }
 @media (max-width: 575px) {
@@ -200,11 +215,39 @@
             border-radius: 10px;
         }
         &__item-pic {
-            height: 27px;  
+            height: 36px;  
         }
         &__item-title{
             font-size: 7px;
             }
-    } 
+    }
+    .profile {
+        &__info{
+            display: flex;
+            align-items: center;
+        }
+        &__phone{
+            margin-right: 166px;
+        }
+        &__wrapper{
+            flex-direction: column;
+            align-items: center;
+            min-height: 600px;
+        }
+        &__block{
+            width: 75vw;
+        }
+        &__content-icon{
+            margin-right: 40px;
+            img{
+                width: 33px;
+            }
+        }
+        &__masseges{
+            margin-left: 0;
+            width: 75vw;
+            margin-top: 10px;
+        }
+    }
 
 }

@@ -142,7 +142,6 @@ const SignCalculator = () => {
                     WebkitTextStroke: `${colored === 'stroke' ? '3px white' : ''}`,
                     marginBottom: '0.3em',
                     padding: '0 20px 70px 40px'
-                   
                 }
             },
             'sign' : { 

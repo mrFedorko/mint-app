@@ -129,7 +129,6 @@
             justify-content: flex-start;
         }
         &__burger {
-            height: 20px;
             margin-right: 35px;
                 &-line {
                     background-color: white;
@@ -182,4 +181,30 @@
     }
 }
 @media (max-width: 575px) {
+    .header {
+        height: 46px;
+        &__logo{
+            &-white {
+                width: 87px;
+            }
+        }
+        &__contact {
+            width: 40px;
+            &-mini {
+                img {
+                    height: 32px;
+                }
+            }
+        }
+        &__login {
+            &-block {
+                &-mini {
+                    img {
+                        height: 32px;
+                    }
+                }
+            }
+        }
+
+    }
 }
