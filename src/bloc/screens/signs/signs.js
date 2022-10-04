@@ -137,10 +137,11 @@ const SignCalculator = () => {
                     lineHeight: '1.2',
                     fontSize: "100px",
                     fontWeight: "700",
-                    fontFamily:  "'Ubuntu', sans-serif",
+                    fontFamily: "'Ubuntu', sans-serif",
                     color: `${faceColor}`,
-                    WebkitTextStroke : `${colored === 'stroke' ? '3px white' : ''}`,
-                    marginBottom : '0.3em',
+                    WebkitTextStroke: `${colored === 'stroke' ? '3px white' : ''}`,
+                    marginBottom: '0.3em',
+                    padding: '0 20px 70px 40px'
                    
                 }
             },

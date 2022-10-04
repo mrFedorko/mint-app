@@ -28,7 +28,13 @@
         flex-direction: column;
         justify-content: flex-start;
         width: 50%;
-        padding-left: 2em;     
+        padding-left: 2em;   
+        
+        &_img{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 140%;
+        }
     }
 }
 
@@ -51,8 +57,18 @@
 }
 
 @media (max-width: 1200px) {
+    .calculator{
+        &__render{
+            
+            &_img{
+                width: 115%;
+            }
+        }
+    }
 }
 @media (max-width: 991px) {
+
+
     .input-group {
         label {
             width: 150px;
@@ -80,12 +96,11 @@
         &__render{
             margin-top: 30px;
             width: 100%;
-            &_description {
-                margin-top: 20px;
-            }  
+
             &_img{
                 width: 100%;
-            }        
+            }
+             
         }
     }
 }
