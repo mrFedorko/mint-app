@@ -82,6 +82,10 @@
 }
 @media (max-width: 767px) {
     .depiction {
+        &__card {
+            width: 250px;
+            height: 180px;
+        }
         &__title {
             font-size: 13px;
             text-align: center;
