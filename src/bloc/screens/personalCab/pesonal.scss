@@ -114,7 +114,7 @@
     }
     &__block{
         background: linear-gradient(to right, rgb(243, 243, 243), rgb(225, 225, 225));
-        width: 280px;
+        width: 310px;
         margin-top: 10px;
         border-radius: 20px;
         padding: 10px 40px 25px 20px;
@@ -146,7 +146,7 @@
     }
     &__masseges{
         height: 100%;
-        width: 500px;
+        width: 600px;
         background: linear-gradient(to right, rgb(243, 243, 243), rgb(225, 225, 225));
         border-radius: 20px;
         padding: 10px 40px 25px 20px;
@@ -157,9 +157,74 @@
         }
     }
 }
+
+.new-order{
+    background-color: rgb(248, 248, 248);
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__heading{
+        font-size: 15px;
+        text-align: center;
+    }
+    &__wrapper{
+        padding-top: 25px;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        height: 300px;
+        width: 77%;
+    }
+    &__block{
+        border: 1px solid $medium-gray;
+        border-radius: 20px;
+        width: 31%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        cursor: pointer;
+        transition: 0.6s;
+        &:hover{
+            background-color: $back-color;
+            border: 1px solid $back-color;
+        }
+    }
+    &__group{
+        width: 31%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__little-block{
+        border: 1px solid $medium-gray;
+        border-radius: 20px;
+        height: 31%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 13px;
+        cursor: pointer;
+        transition: 0.6s;
+        &:hover{
+            background-color: $back-color;
+            border: 1px solid $back-color;
+        }
+    }
+}
 @media (max-width: 1200px) {
 }
 @media (max-width: 991px) {
+    .profile{
+        &__block{
+            width: 270px;
+        }
+        &__masseges{
+            margin-left: 40px;
+        }
+    }
 }
 @media (max-width: 767px) {
     .personal{

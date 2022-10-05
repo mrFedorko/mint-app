@@ -104,21 +104,21 @@ export default class MainPage extends Component{
                     </div>
                 </section>
                 
-                <section class="portfolio">
+                <section class="cases">
                     <div class="container">
-                        <div class="portfolio__text">
-                            <h2 class="portfolio__header">Интересно наглядно <br/>
+                        <div class="cases__text">
+                            <h2 class="cases__header">Интересно наглядно <br/>
                                 посмотреть, <br/>
                                 чем мы занимаемся?<br/>
                                 Тогда Вам сюда!
                             </h2>
-                            <img class="portfolio__arrow" src="img/arrow.svg" alt="arrow"/>
+                            <img class="cases__arrow" src="img/arrow.svg" alt="arrow"/>
                         </div>
 
-                        <div class="portfolio__link">
+                        <div class="cases__link">
                             <a href="/">
-                                <div class="portfolio__link-title">Наши кейсы</div>
-                                <div class="portfolio__link-img"><img src="img/folder.png" alt=""/></div>
+                                <div class="cases__link-title">Наши кейсы</div>
+                                <div class="cases__link-img"><img src="img/folder.png" alt=""/></div>
                             </a>
                         </div>
                     </div>
