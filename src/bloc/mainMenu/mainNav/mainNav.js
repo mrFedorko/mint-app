@@ -36,7 +36,7 @@ const Menu = () => {
 }
 
 const  MenuWide = () => {
-        return (
+    return (
             <div class="wide">
                     <nav>
                         <ul class="wide__list">

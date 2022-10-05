@@ -6,7 +6,7 @@ import './mainHeader.scss'
 
 
  const MainHeader = (props) => {
-    
+        
         return (
             <header class="header">
 
