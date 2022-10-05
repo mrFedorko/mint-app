@@ -1,5 +1,7 @@
 import React  from "react";
 import {Routes, Route} from "react-router-dom"
+import { useSelector } from "react-redux";
+
 
 
 import MainPage from "../screens/mainPage";
@@ -8,8 +10,10 @@ import Polygraphy from "../screens/polygraphy";
 import UvPrint from "../screens/uvPrint";
 import Design from "../screens/design";
 import Footer from "../footer";
-import Personal from "../screens/personalCab";
+import Cabinet from "../screens/personalCab";
 import AuthPage from "../authPage/authPage";
+
+
 
 
 
@@ -26,7 +30,6 @@ const MainScreen = () => {
                                 <Route path="/signs" element = {<Signs/>}/>
                                 <Route path="/polygraphy" element = {<Polygraphy/>}/>
                                 <Route path="/personal" element = {<Personal/>}/>
-                                <Route path="/auth" element = {<AuthPage/>}/>
 
                         </Routes>
                         <Footer/>
@@ -37,5 +40,14 @@ const MainScreen = () => {
         )
     
 }
+
+const Personal = () => {
+        const {isAuth} = useSelector(state => state.auth)
+        if (isAuth){
+        return   <Cabinet/>
+        }
+        return <AuthPage/>
+}
+
 
 export default MainScreen;
