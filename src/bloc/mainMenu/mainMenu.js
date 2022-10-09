@@ -1,30 +1,23 @@
-import React, { Component } from "react";
-
-import MainHeader from "./mainHeader";
-import MainNav from "./mainNav";
+import React, { useState } from "react";
 
 
-export default class MainMenu extends Component{
+import Header from "./header";
+import { SideNavNarrow, SideNavWide } from "./sideNav";
 
-    state = {
-        menuWide: false
-      }
-    
-      onMenuChange = () => {
-        const {menuWide} = this.state  
-        this.setState({
-            menuWide : !menuWide
-          })
-      }
+
+const MainMenu  = () => {
       
-
-    render = () => {
+    const [navWide, setNavWide] = useState(false)
+    
         return(
             <>
-                <MainHeader onMenuChange = {this.onMenuChange}/>
-                <MainNav wide = {this.state.menuWide} />
+                <Header onMenuChange = {() => 
+                setNavWide(!navWide)}/>
+                {navWide ? <SideNavWide/> : <SideNavNarrow/>}
+
             </>
         )
-    }
-
+    
 }
+
+export default MainMenu

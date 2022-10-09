@@ -1,23 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import {Link} from "react-router-dom"
+import './sideNav.scss'
 
-import './mainNav.scss'
 
-export default class MainNav extends Component{
-    
-    state = {
-        wide: false
-    }
-    
-    render = () => {
-        const wide = this.props.wide;
-        return(
-            wide ? <MenuWide/> : <Menu/>
-        )
-    }
-}
 
-const Menu = () => {
+const SideNavNarrow = () => {
     
         return(
             <div class="menu show" >
@@ -35,7 +22,7 @@ const Menu = () => {
     
 }
 
-const  MenuWide = () => {
+const  SideNavWide = () => {
     return (
             <div class="wide">
                     <nav>
@@ -66,3 +53,5 @@ const  MenuWide = () => {
                 </div>
         )
 }
+
+export {SideNavNarrow, SideNavWide}

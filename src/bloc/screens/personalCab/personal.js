@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect, useId } from "react";
+import { useState } from "react";
+import { useRef } from "react";
 import './pesonal.scss'
 
 const Personal = () => {
+    
+   
+
     return(
         <>
             <div className="personal">

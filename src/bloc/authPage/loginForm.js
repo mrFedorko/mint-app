@@ -1,23 +1,25 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { registerCh } from '../../store/authSlice';
+import { registerCh, emailCh, passwordCh } from '../../store/authSlice';
 
 
-export const LoginForm = () => {
+export const LoginForm = (props) => {
 
     const dispatch = useDispatch();
+    const {email, password} = useSelector(state=> state.auth);
+
 
     return(
         
                 <div className="auth__wrapper">
-                    <form className=' fadein'>
-                        <input type="text" className="auth__phone" placeholder="Номер телефона"/>
-                        <input type="password" className="auth__pwd" placeholder="Пароль"/>
+                    <form on className=' fadein'>
+                        <input onChange={(e) => dispatch(emailCh(e.target.value))}  type="text" className="auth__email" placeholder="email"/>
+                        <input onChange={(e) => dispatch(passwordCh(e.target.value))} type="password" className="auth__pwd" placeholder="Пароль"/>
                         <a href="/" className="auth__forgot">Забыли пароль?</a>
                     </form>
-                    
-                    <button className="auth__action-btn"><span>Войти</span></button>
+                
+                    <button onClick={() =>  props.loginHandler({email, password})} className="auth__action-btn"><span>Войти</span></button>
                     <button onClick={() => dispatch(registerCh())} className="auth__alt-btn"><span>Зарегистрироваться</span></button>
                 </div>
             
