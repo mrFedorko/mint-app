@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import './uvPrint.scss'
+import '../../../sass/sassTemplates/hat.scss'
 import "../../../sass/sassTemplates/calculator.scss"
 
 import '../../../sass/sassTemplates/hat.scss'
@@ -21,8 +22,8 @@ const UvPrint = () => {
                 <div className="container">
                     <div className="hat__header">
                         <div className="hat__buttons">
-                            <button onClick={() => setActive('useful')} className={"hat__button"+ (active === 'useful' ? ' signs__button_active' : '')}>Информация</button>
-                            <button onClick={() => setActive('calc')} className={"hat__button"+ (active === 'calc' ? ' signs__button_active' : '')}>Онлайн заказ</button>
+                            <button onClick={() => setActive('useful')} className={"hat__button"+ (active === 'useful' ? ' hat__button_active' : '')}>Информация</button>
+                            <button onClick={() => setActive('calc')} className={"hat__button"+ (active === 'calc' ? ' hat__button_active' : '')}>Онлайн заказ</button>
                         </div>
                         <h1 className="hat__title">УФ-печать</h1>
                     </div>

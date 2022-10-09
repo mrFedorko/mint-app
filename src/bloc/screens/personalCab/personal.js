@@ -1,11 +1,22 @@
+<<<<<<< HEAD
 import React from "react";
 import { useState } from "react";
+=======
+import React, { useEffect, useId } from "react";
+import { useState } from "react";
+import { useRef } from "react";
+>>>>>>> master
 import './pesonal.scss'
 
 const Personal = () => {
     
+<<<<<<< HEAD
     
     
+=======
+   
+
+>>>>>>> master
     return(
         <>
             <div className="personal">

@@ -5,13 +5,15 @@ import connectDb from './services/dbConnect.js';
 import router from './routes/auth.routes.js';
 import cors from 'cors'
 
+import async_hooks from 'node:async_hooks';
+
 
 
 const app = express();
 const PORT = config.get('port') || 5000;
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: `${config.get('client.originUrl')}:${config.get('client.originPort')}`,
     optionsSuccessStatus: 200
 } 
 
@@ -23,7 +25,7 @@ app.use('/api/auth', router);
 
 const mongoConnection  = async () => {
    await mongoose.connect(config.get('mongoUri'));
-
+    console.log(async_hooks.executionAsyncId());
 
 
     app.listen(PORT, () => {

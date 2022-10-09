@@ -6,5 +6,9 @@
         "password" : "zQGfr21D",
         "host" : "46.229.213.229"
     },
-    "jwtSecret" : "mazurV"
+    "jwtSecret" : "mazurV",
+    "client" : {
+        "originUrl" : "http://localhost",
+        "originPort" : 3000
+    }
 }

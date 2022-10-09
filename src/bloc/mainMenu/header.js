@@ -1,12 +1,18 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 
-import './mainHeader.scss'
+import { useAuth } from "../../hooks/auth.hook";
+
+import './header.scss'
 
 
- const MainHeader = (props) => {
-        
+ const Header = (props) => {
+    
+    const {isAuth, name} = useSelector(state => state.auth)
+    const auth = useAuth();
+
         return (
             <header class="header">
 
@@ -39,7 +45,8 @@ import './mainHeader.scss'
                     </a>
                 </button>
                 <Link to="/personal" class="header__login">
-                    <div class="header__login-text">Войти</div>
+                    <div class="header__login-text">{isAuth ? 'войти' : name}</div>
+                    {isAuth ? <div onClick={auth.logout} className="header__login-text">выйти</div> : <></>}
                     <div class="header__login-block">
                         <img src="./icons/log_in_icon.png" alt="logo"/>
                     </div>
@@ -56,4 +63,4 @@ import './mainHeader.scss'
     
 }
 
-export default MainHeader;
+export default Header;
