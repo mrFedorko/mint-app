@@ -7,10 +7,7 @@ const authSlice = createSlice({
         email: '',
         password: '',
         isRegister: true,
-<<<<<<< HEAD
-        isAuth: true,
-        token: ''
-=======
+
         isAuth: false,
         token: null,
         userId: null,
@@ -18,7 +15,7 @@ const authSlice = createSlice({
         errors: [],
 
         
->>>>>>> master
+
     },
     reducers: {
         nameCh : (state, action) => {state.name = action.payload},
