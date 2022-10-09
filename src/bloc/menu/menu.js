@@ -5,7 +5,7 @@ import Header from "./header";
 import { SideNavNarrow, SideNavWide } from "./sideNav";
 
 
-const MainMenu  = () => {
+const Menu  = () => {
       
     const [navWide, setNavWide] = useState(false)
     
@@ -20,4 +20,4 @@ const MainMenu  = () => {
     
 }
 
-export default MainMenu
+export default Menu

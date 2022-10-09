@@ -1,7 +1,7 @@
 import React from "react";
 
-import MainScreen from "../bloc/mainScreen";
-import MainMenu from "../bloc/mainMenu/mainMenu";
+import ContentRouter from "../bloc/contentRouter/contentRouter";
+import Menu from "../bloc/menu/menu";
 
 
 
@@ -9,8 +9,8 @@ import MainMenu from "../bloc/mainMenu/mainMenu";
 const App  = () =>  {
     return(
       <>
-        <MainMenu/>
-        <MainScreen/>
+        <Menu/>
+        <ContentRouter/>
         
       </>
     )

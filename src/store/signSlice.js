@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const signSlice = createSlice({
     name: 'sign',
     initialState: {
-        active: 'useful',
         calculator: {
             signType: '',
             type: '',
@@ -20,7 +19,6 @@ const signSlice = createSlice({
         }
     },
     reducers: {
-      activeCh : (state, action) => {state.active = action.payload},
       signTypeCh : (state, action) => {state.calculator.signType = action.payload},
       typeCh: (state, action) =>{state.calculator.type = action.payload},
       lightCh: (state, action) =>{state.calculator.light = action.payload},
@@ -37,6 +35,6 @@ const signSlice = createSlice({
     }
   })
 
-  export const {activeCh, signTypeCh, typeCh, lightCh, coloredCh, sideColorCh, faceColorCh, wordCh, sizeCh, widthCh, heightCh, signMaterialCh, bannerPostWorkCh} = signSlice.actions;
+  export const { signTypeCh, typeCh, lightCh, coloredCh, sideColorCh, faceColorCh, wordCh, sizeCh, widthCh, heightCh, signMaterialCh, bannerPostWorkCh} = signSlice.actions;
 
   export default signSlice.reducer

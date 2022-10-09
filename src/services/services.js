@@ -16,6 +16,18 @@ function convertCalcState(state){
             return "зеленый";
         case "navy"|| "midnightblue":
             return "синий" ;
+        case "lightgrey":
+            return "белый";
+        case "crimson":
+            return "красный";
+        case "tomato":
+            return "оранжевый";
+        case "gold":
+            return "желтый";
+        case "darkolivegreen":
+            return "зеленый";
+        case "midnightblue":
+            return "синий" ;
         case "PVC3":
             return "ПВХ 3мм";
         case "PVC5":
