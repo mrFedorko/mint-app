@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useCallback } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { loadingCh, errorsPush, errorsReset, tokenCh, userIdCh, authCh, reset  } from "../store/authSlice"
 
 const storageName = 'userdata';
 
 
 export const useAuth = () => {
-    const state = useSelector(state=> state.auth)
+    // const state = useSelector(state=> state.auth)
     const dispatch = useDispatch()
 
     const request = useCallback(async (url, method = 'GET', body ='null', headers = {'Content-Type': 'application/json'}) =>{
@@ -46,8 +46,7 @@ export const useAuth = () => {
     const logout = useCallback(() => {
         localStorage.removeItem(storageName);
         dispatch(reset());
-        console.log(state)
-
+        
     }, [dispatch]);
 
     useEffect(() => {

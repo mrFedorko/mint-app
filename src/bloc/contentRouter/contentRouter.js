@@ -32,7 +32,7 @@ const ContentRouter = () => {
                                 <Route path="/uvprint" element = {<UvPrint/>}/>
                                 <Route path="/signs" element = {<Signs/>}>
                                         <Route path="/signs/calculator" element = {<SignsCalculator/>}/>
-                                        <Route index path="/signs" element = {<SignsUseful/>}/>
+                                        <Route path="/signs" element = {<SignsUseful/>}/>
                                         <Route path="/signs/order" element = {<SignsOrder/>}/>
                                 </Route>
                                 <Route path="/polygraphy" element = {<Polygraphy/>}/>
