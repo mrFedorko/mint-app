@@ -49,6 +49,12 @@
             color: white;
             outline: none;
         }
+        &_active{
+            background-color: $main-color;
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+            color: white;
+            outline: none;
+        }
     }
     &__item-pic {
         height: 35px;
