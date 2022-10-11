@@ -5,7 +5,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 import './pesonal.scss'
 
-const Personal = () => {
+const Cabinet = () => {
     
     const[active, setActive]=useState('profile')
     const navigate = useNavigate();
@@ -64,4 +64,4 @@ const Personal = () => {
     )
 }
 
-export default Personal;
+export default Cabinet;

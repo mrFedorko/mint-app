@@ -13,7 +13,6 @@ const SignsCalculator = () => {
     const {signType, type, colored, sideColor, faceColor, word} = calculator;
     const dispatch = useDispatch();
 
-    console.log(sideColor);
     
         const content = {
             'letter' : {

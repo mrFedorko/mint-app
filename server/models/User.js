@@ -1,5 +1,5 @@
 import { Schema, model, Types } from "mongoose";
-
+import { organizationSchema } from "./Organization.js";
 
 
 
@@ -8,7 +8,7 @@ const userSchema = new Schema({
     email:{type: String, required: true, unique: true},
     password:{type: String, required: true},
     // phone: {type: String},
-    // organization:{type: Types.Subdocument, ref: organization.name},
+    organization: organizationSchema, 
     // documents:{type: Types.ArraySubdocument},
     // orders: {type: Types.ArraySubdocument},
     // bonuse: {type: Number},

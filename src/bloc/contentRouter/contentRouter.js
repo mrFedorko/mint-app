@@ -10,8 +10,9 @@ import Polygraphy from "../screens/polygraphy/polygraphy";
 import UvPrint from "../screens/uvPrint/uvPrint";
 import Design from "../screens/design/design";
 import Footer from "../footer/footer";
-import Cabinet from "../screens/personalCab/Personal";
+import Cabinet from "../screens/personalCab/cabinet";
 import AuthPage from "../authPage/authPage";
+
 
 import SignsOrder from "../screens/signs/signsOrder";
 import SignsUseful from '../screens/signs/signsUseful';

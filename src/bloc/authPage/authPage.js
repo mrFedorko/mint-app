@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useAuth } from '../../hooks/auth.hook';
 
-
 import { LoginForm } from './loginForm';
 import { RegisterForm } from './registerForm';
+import { authCh, registerCh } from '../../store/authSlice';
 
 
 import "./authPage.scss"
-import { authCh, registerCh } from '../../store/authSlice';
+import { Link } from 'react-router-dom';
+
 
 
 const AuthPage = () =>  {
@@ -47,7 +48,7 @@ const AuthPage = () =>  {
     return (
         <section className="overlay">
         <div className="auth">
-            <div className="auth__close">&times;</div>
+            <div className="auth__close"><Link className='auth__close-link' to = '/'>&times;</Link></div>
             <div className="auth__form">
             {isRegister ? <RegisterForm registerHandler = {registerHandler}/> : <LoginForm loginHandler = {loginHandler}/>}
             </div>

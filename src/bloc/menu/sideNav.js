@@ -22,9 +22,11 @@ const SideNavNarrow = () => {
     
 }
 
-const  SideNavWide = () => {
+const  SideNavWide = (props) => {
+
     return (
-            <div class="wide">
+            <div className="screen" onClick = {(e) => props.hideWide(e.target)}>
+                <div class="wide">
                     <nav>
                         <ul class="wide__list">
                             <li class="wide__item">
@@ -51,6 +53,7 @@ const  SideNavWide = () => {
                         </ul>
                     </nav>
                 </div>
+            </div>
         )
 }
 
