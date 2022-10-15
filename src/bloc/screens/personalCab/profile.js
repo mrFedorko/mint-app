@@ -1,16 +1,23 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+
 
 const Profile = ()=> {
+
+    const {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK} = useSelector(state => state.userSettings);
+    
+
     return(
         <div className="profile">
         <div className="container">
             <div className="profile__info">
                 <div className="profile__info-inner">
-                    <div className="profile__name">Татьяна Комарова</div>
+                    <div className="profile__name">{name}</div>
                     <div className="profile__usersymbol">✔</div>
                     <div className="profile__status">профиль подтвержден</div>
                 </div>
-                <div className="profile__phone">+79745378466</div>
+                <div className="profile__phone">{phone}</div>
             </div>
             <div className="profile__wrapper">
                 <div className="profile__col">
@@ -19,7 +26,8 @@ const Profile = ()=> {
                         <div className="profile__block-content">
                             <div className="profile__content-icon"><img src="icons/bag.png" alt=""/></div>
                             <div className="profile__content-text">
-                                ИП Комарова Т.П. <br /> ИНН 746728346274 <br /> ОГРНИП 6473847347 <br /> Р/с 87356893493489374 <br /> БИК 734578347
+                                {entity} {entityName} <br /> ИНН {TIN} <br /> {entity === 'ИП'  ? 'ОГРНИП' : 'ОГРН'} {OGRN} <br /> Р/с {check} <br /> 
+                                К/с {corCheck} <br /> Банк {bank} <br /> БИК {BIK} <br /> Адрес {adress}
                             </div>
                         </div>
                     </div>

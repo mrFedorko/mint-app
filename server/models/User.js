@@ -1,20 +1,34 @@
 import { Schema, model, Types } from "mongoose";
-import { organizationSchema } from "./Organization.js";
+
 
 
 
 const userSchema = new Schema({
-    name: {type: String},
+    
     email:{type: String, required: true, unique: true},
     password:{type: String, required: true},
     // phone: {type: String},
-    organization: organizationSchema, 
+    // organization: organizationSchema, 
     // documents:{type: Types.ArraySubdocument},
     // orders: {type: Types.ArraySubdocument},
     // bonuse: {type: Number},
     // chatMessages: {type: Types.ArraySubdocument},
     // reviews: {type: Types.ArraySubdocument},
-    // settings: {type: Types.Subdocument},
+    settings: {
+        name: {type: String, default: 'Пользователь'},
+        adress: {type: String, default: ''},
+        phone: {type: String, default: ''},
+        entity: {type: String, default: ''},
+        entityName: {type: String, default: ''},
+        TIN: {type: String, default: ''},
+        OGRN: {type: String, default: ''},
+        check: {type: String, default: ''},
+        corCheck: {type: String, default: ''},
+        bank: {type: String, default: ''},
+        BIK: {type: String, default: ''}  
+    },
+
+    orders: [{type: Types.ObjectId, ref: 'Order'}]
     // notifications: {type: Types.ArraySubdocument},
 
     // isAuth: {type: Boolean},

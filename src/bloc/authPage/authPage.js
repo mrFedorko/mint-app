@@ -1,29 +1,38 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useAuth } from '../../hooks/auth.hook';
+import { useRequest } from '../../hooks/request.hook';
 
 import { LoginForm } from './loginForm';
 import { RegisterForm } from './registerForm';
-import { authCh, registerCh } from '../../store/authSlice';
+import { registerCh } from '../../store/authSlice';
+
 
 
 import "./authPage.scss"
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/auth.context';
+
 
 
 
 const AuthPage = () =>  {
     const dispatch = useDispatch();
-    const {isRegister, email, password, name} = useSelector(state => state.auth);
-    const {request, login} = useAuth();
+    const {isRegister, email, password} = useSelector(state => state.auth);
+    const {name} = useSelector(state=> state.userSettings);
+    const auth = useContext(AuthContext)
+    const request = useRequest();
+    
 
 
     const loginHandler = async () =>  {
         try {
             const {token, userId} = await request('http://localhost:8000/api/auth/login', 'POST', {email, password}, {'Content-Type': 'application/json'});
-            login(token, userId);
-            dispatch(authCh(!!token));
+            console.log(userId);
+            auth.login(token, userId);
+
+            
 
         } catch (error) {
             throw new Error(error.message)
@@ -41,7 +50,7 @@ const AuthPage = () =>  {
             } catch (error) {
                 throw new Error(error)
             }
-        }
+    }
     
 
 

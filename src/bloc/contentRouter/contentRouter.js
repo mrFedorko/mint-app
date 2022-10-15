@@ -1,6 +1,5 @@
-import React  from "react";
+import React, { useContext }  from "react";
 import {Routes, Route} from "react-router-dom"
-import { useSelector } from "react-redux";
 
 
 
@@ -10,9 +9,7 @@ import Polygraphy from "../screens/polygraphy/polygraphy";
 import UvPrint from "../screens/uvPrint/uvPrint";
 import Design from "../screens/design/design";
 import Footer from "../footer/footer";
-import Cabinet from "../screens/personalCab/cabinet";
-import AuthPage from "../authPage/authPage";
-
+import { Personal } from "../screens/personalCab/personalCab";
 
 import SignsOrder from "../screens/signs/signsOrder";
 import SignsUseful from '../screens/signs/signsUseful';
@@ -62,13 +59,7 @@ const ContentRouter = () => {
     
 }
 
-const Personal = () => {
-        const {isAuth} = useSelector(state => state.auth)
-        if (isAuth){
-        return   <Cabinet/>
-        }
-        return <AuthPage/>
-}
+
 
 
 export default ContentRouter;

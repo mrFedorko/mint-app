@@ -34,7 +34,7 @@ router.post(
             }
 
             const hashedPassword = await bcrypt.hash(password, 7)
-            const user = new User({email, name, password: hashedPassword})
+            const user = new User({email, settings: {name}, password: hashedPassword})
 
             await user.save();
             return res.status(201).json({message: "user was successfuly created"});
@@ -78,8 +78,9 @@ router.post(
                     config.get('jwtSecret'),
                     {expiresIn: '1h'}
                 )
+                const settings = user.settings
 
-                res.json({token, userId: user.id})
+                res.json({token, userId: user.id, settings})
                
             } else {
                 return res.status(400).json({message: "wrong data during login"})
@@ -92,9 +93,5 @@ router.post(
     }
 )
 
-router.get(
-    'user/:id',
-    
-)
 
 export default router;

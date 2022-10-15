@@ -6,7 +6,7 @@ import { SideNavNarrow, SideNavWide } from "./sideNav";
 
 
 const Menu  = () => {
-    
+   
     const [navWide, setNavWide] = useState(false)
     const hideWide = (target) => {
         if(target.className.indexOf('wide') === -1){
@@ -14,7 +14,6 @@ const Menu  = () => {
         }
        
     }
-
         return(
             <>
                 <Header onMenuChange = {() => setNavWide(!navWide)}/>
