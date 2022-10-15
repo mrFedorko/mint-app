@@ -1,12 +1,11 @@
 import React from 'react';
-import { useDispatch, useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { registerCh, nameCh, passwordCh, emailCh } from '../../store/authSlice';
-
+import { registerCh, passwordCh, emailCh } from '../../store/authSlice';
+import { nameCh } from '../../store/userSettingsSlice';
 
 export const RegisterForm = ({registerHandler}) => {
      
-    const {password} = useSelector(state => state.auth)
     const dispatch = useDispatch()
     
     const confirmPassword = (e) => {
@@ -23,7 +22,7 @@ export const RegisterForm = ({registerHandler}) => {
                     </form>
                     <br/>
                     <button onClick={registerHandler} className="auth__action-btn mt-2"><span>Зарегистрироваться</span></button>
-                    <button onClick={() => dispatch(registerCh())} className="auth__alt-btn"><span>У меня уже есть аккаунт</span></button>
+                    <button onClick={() => dispatch(registerCh(false))} className="auth__alt-btn"><span>У меня уже есть аккаунт</span></button>
                 </div>  
     )
 }

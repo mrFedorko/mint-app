@@ -13,10 +13,18 @@
     &__close {
         font-size: 35px;
         cursor: pointer;
-        color: white;
         position: relative;
         right: -100%;
         top: 15px;
+        transition: 0.2s;
+        &-link{
+            text-decoration: none;
+            color: white;
+            &:hover{
+                text-decoration: none;
+                color: white
+            }
+        }
     }
     &__form {
         background-color: white;

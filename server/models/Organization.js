@@ -16,4 +16,4 @@ const Organization = model("Organization", organizationSchema);
 
 
 
-export default Organization;
+export { Organization, organizationSchema}

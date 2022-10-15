@@ -3,12 +3,14 @@ import React from "react";
 import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
+
 import './pesonal.scss'
 
-const Personal = () => {
-    
-    const[active, setActive]=useState('profile')
+const Cabinet =  () => {
+
+    const[active, setActive] = useState('profile');
     const navigate = useNavigate();
+
     
     const setActiveElement = (state) => {
         if(active === state) {
@@ -16,6 +18,7 @@ const Personal = () => {
          }else{return 'personal__menu-item'}
     }
 
+    console.log('render')
 
     return(
         <>
@@ -64,4 +67,4 @@ const Personal = () => {
     )
 }
 
-export default Personal;
+export default Cabinet;
