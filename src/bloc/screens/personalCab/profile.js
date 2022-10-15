@@ -17,7 +17,7 @@ const Profile = ()=> {
                     <div className="profile__block">
                         <div className="profile__block-heading">Реквизиты</div>
                         <div className="profile__block-content">
-                            <div className="profile__content-icon"><img src="icons/bag.png" alt=""/></div>
+                            <div className="profile__content-icon"><img src="../icons/bag.png" alt=""/></div>
                             <div className="profile__content-text">
                                 ИП Комарова Т.П. <br /> ИНН 746728346274 <br /> ОГРНИП 6473847347 <br /> Р/с 87356893493489374 <br /> БИК 734578347
                             </div>
@@ -26,14 +26,14 @@ const Profile = ()=> {
                     <div className="profile__block">
                         <div className="profile__block-heading">Адрес доставки</div>
                         <div className="profile__block-content">
-                            <div className="profile__content-icon"><img src="icons/location.png" alt=""/></div>
+                            <div className="profile__content-icon"><img src="../icons/location.png" alt=""/></div>
                             <div className="profile__content-text">7382372, г. Белгород <br /> ул.Комара, стр.6</div>
                         </div>
                     </div>
                     <div className="profile__block">
                         <div className="profile__block-heading">Расходы</div>
                         <div className="profile__block-content">
-                            <div className="profile__content-icon"><img src="icons/coins.png" alt=""/></div>
+                            <div className="profile__content-icon"><img src="../icons/coins.png" alt=""/></div>
                             <div className="profile__content-text">Общая сумма заказов: <br /> 3090 руб</div>
                         </div>
                     </div>

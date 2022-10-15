@@ -8,7 +8,7 @@ const authSlice = createSlice({
         password: '',
         isRegister: true,
 
-        isAuth: false,
+        isAuth: true,
         token: null,
         userId: null,
         loading: false,
