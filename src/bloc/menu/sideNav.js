@@ -10,11 +10,11 @@ const SideNavNarrow = () => {
             <div className="menu show" >
                     <nav>
                         <ul className="menu__list">
-                            <li className="menu__item"><Link to="/" className="menu__link" > <img src="./icons/main.png" alt="main"/><span>Главная</span></Link></li>
-                            <li className="menu__item"><Link to="/signs" className="menu__link" > <img src="./icons/sign.png" alt="sign"/><span>Вывески</span></Link></li>
-                            <li className="menu__item"><Link to="/uvprint" className="menu__link" > <img src="./icons/uv.png" alt="uv"/><span>УФ печать</span></Link></li>
-                            <li className="menu__item"><Link to="/polygraphy" className="menu__link" > <img src="./icons/poligrafy.png" alt="poligrafy"/><span>Полиграфия</span></Link></li>
-                            <li className="menu__item"><Link to="/design" className="menu__link" > <img src="./icons/design.png" alt="design"/><span>Дизайн</span></Link></li>
+                            <li className="menu__item"><Link to="/" className="menu__link" > <div className="menu__round"><img src="./icons/naw_icons/main.svg" style= {{width: "25px"}} alt="main"/></div> <span>Главная</span></Link></li>
+                            <li className="menu__item"><Link to="/signs" className="menu__link" > <div className="menu__round"><img src="./icons/naw_icons/signs.svg" style= {{width: "27px"}} alt="sign"/></div> <span>Вывески</span></Link></li>
+                            <li className="menu__item"><Link to="/uvprint" className="menu__link" > <div className="menu__round"><img src="./icons/naw_icons/uv.svg" style= {{width: "25px"}} alt="uv"/></div> <span>УФ печать</span></Link></li>
+                            <li className="menu__item"><Link to="/polygraphy" className="menu__link" > <div className="menu__round"><img src="./icons/naw_icons/poligraphy.svg" style= {{width: "19px"}} alt="poligraphy"/></div> <span>Полиграфия</span></Link></li>
+                            <li className="menu__item"><Link to="/design" className="menu__link" > <div className="menu__round"><img src="./icons/naw_icons/design.svg" style= {{width: "26px"}} alt="design"/></div> <span>Дизайн</span></Link></li>
                         </ul>
                     </nav>
             </div>

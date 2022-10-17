@@ -4,7 +4,10 @@ import { useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 
-import './pesonal.scss'
+import './sass/pesonal.scss'
+import './sass/profile.scss'
+import './sass/new-order.scss'
+import './sass/manufacture.scss'
 
 const Cabinet =  () => {
 

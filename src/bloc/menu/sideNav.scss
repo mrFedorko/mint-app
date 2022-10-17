@@ -34,9 +34,16 @@
       align-items: center;
       text-decoration: none;
       list-style: none;
-      img {
-        width: 42px;
-      }
+    }
+    &__round{
+      width: 42px;
+      height: 42px;
+      border-radius: 21px;
+      background-color: #8971B1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: -1px 1px 3px rgb(141, 141, 141);
     }
   }
   .screen{

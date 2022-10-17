@@ -19,8 +19,8 @@ export const LoginForm = (props) => {
                         <a href="/" className="auth__forgot">Забыли пароль?</a>
                     </form>
                 
-                    <button onClick={() =>  props.loginHandler({email, password})} className="auth__action-btn"><span>Войти</span></button>
-                    <button onClick={() => dispatch(registerCh(true))} className="auth__alt-btn"><span>Зарегистрироваться</span></button>
+                    <button onClick={() =>  props.loginHandler({email, password})} className="auth__action-btn" >Войти</button>
+                    <button onClick={() => dispatch(registerCh(true))} className="auth__alt-btn">Зарегистрироваться</button>
                 </div>
             
     )
