@@ -1,10 +1,14 @@
 import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+import { useRequest } from '../../../hooks/request.hook.js';
+
 
 import { convertCalcState, getPrice } from "../../../services/services.js";
 import data from '../../../services/pricing.json'
 import { bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from "../../../store/signSlice.js";
+import { orDetailsCh } from '../../../store/orderSlice'
+
 import { useContext } from 'react';
 import { AuthContext } from '../../../context/auth.context.js';
 
@@ -14,14 +18,13 @@ const SignsCalculator = () => {
     const calculator = useSelector(state => state.sign.calculator);
     const {signType, type, colored, sideColor, faceColor, word, size, width, height, signMaterial, bannerPostWork} = calculator;
     const dispatch = useDispatch();
-
-    const {isAuth} = useContext(AuthContext)
+    //*delete*//
+    const orderState = useSelector(state => state.order)
+    //*delete*//
+    const {isAuth} = useContext(AuthContext);
     
-    const order = {
-        'letter' : {type, colored, sideColor, faceColor, word, size},
-        'sign' : {width, height, signMaterial},
-        'banner' : {width, height, bannerPostWork}
-    }
+   
+
 
     const content = {
         'letter' : {
@@ -37,7 +40,8 @@ const SignsCalculator = () => {
                 WebkitTextStroke: `${colored === 'stroke' ? '3px white' : ''}`,
                 marginBottom: '0.3em',
                 padding: '0 20px 70px 40px'
-            }
+            },
+            fields:{signType, type, colored, sideColor, faceColor, word, size}
         },
         'sign' : { 
             left : <SignCalcBlock/>,
@@ -49,7 +53,8 @@ const SignsCalculator = () => {
                 backgroundColor: 'white',
                 border: '2px #4d897c solid',
                 borderRadius: '7px'
-            }
+            },
+            fields:{signType, width, height, signMaterial}
             
         },
         'banner' : {
@@ -61,12 +66,17 @@ const SignsCalculator = () => {
                 background: 'url("icons/logo_main.png") center no-repeat',
                 border: '2px #4d897c solid',
                 borderRadius: '3px'
-            }
+            },
+            fields: {signType, width, height, bannerPostWork}
         },
         '' : {
             left: <></>,
             right:<></>
         }
+    }   
+
+    const ordDetailsHandler = () => {  
+        dispatch(orDetailsCh({...content[signType].fields}));
     }
 
 
@@ -94,7 +104,8 @@ const SignsCalculator = () => {
                         
                     </div>
                 </div>
-                {isAuth ? <button className='calculator__order-btn'>Оформить заказ</button> : <span className='Calculator_auth'>\
+                {isAuth ? <button className='calculator__order-btn'
+                                  onClick={ordDetailsHandler}>Оформить заказ</button> : <span className='Calculator_auth'>\
                 Для оформления заказа необходимо <a href="/personal">войти</a></span>}
             </div>
         )

@@ -12,15 +12,15 @@ import { useSettings } from "../hooks/settings.hook";
 
 
 
-const App  = () =>  {
+const App  =  () =>  {
   const {token, login, logout, id} = useAuth();
   const isAuth = !!token;
   const {getRequest} = useSettings()
   
-  if (isAuth) {
+  
+  if (isAuth && id) {
     getRequest(`http://localhost:8000/api/user/${id}`)
   }
-
 
   return(
       <>

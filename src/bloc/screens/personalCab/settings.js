@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nameCh,  phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, TINCh, entityNameCh, entityCh } from "../../../store/userSettingsSlice";
 import { useSettings } from '../../../hooks/settings.hook';
+import { useRequest } from '../../../hooks/request.hook';
 
 
 
@@ -12,12 +13,13 @@ const Settings = () => {
     const dispatch = useDispatch();
     const {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK} = useSelector(state => state.userSettings);
    
-    const { setRequest, getId } = useSettings();
+    const { getId } = useSettings();
+    const request = useRequest();
 
     const settingsSaveHandler = async () => {
         const id = getId();
         ;
-        await setRequest(`http://localhost:8000/api/user/set/${id}`, 'POST', {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK})
+        await request(`http://localhost:8000/api/user/set/${id}`, 'POST', {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK})
     }
     
     return ( 

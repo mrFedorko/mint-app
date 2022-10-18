@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { nameCh, phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, TINCh, entityNameCh, entityCh } from "../store/userSettingsSlice";
 
@@ -18,8 +17,12 @@ import { nameCh, phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, 
         return id
     }
 
-    const getRequest = useCallback( async (url, method = 'GET', headers = {'Content-Type': 'application/json'}) => {
+    const getRequest =  async (url, method = 'GET', headers = {'Content-Type': 'application/json'}) => {
+        if(!localStorage.getItem('userdata')){
+            return new Error('no user in localstorage')
+        }
         try {
+            
             const response = await fetch(url, {method, headers})
             const settingsData = await response.json();
             
@@ -38,26 +41,9 @@ import { nameCh, phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, 
         } catch (error) {
             console.log(error)
         }
-    }, [dispatch]
-    );
+    };
 
-    const setRequest = useCallback( async (url, method = 'POST', body = null,  headers = {'Content-Type': 'application/json'}) => {
-        try {
-            const response = await fetch(url, {method, body: JSON.stringify(body), headers})
-            
-            const data = response.json()
-            console.log(data)
-
-            if(!response.ok){
-                throw new Error(data.message || `could not fetch ${url}`)
-            }
-
-        } catch (error) {
-            console.log(error)
-        }
-    }, []
-    );
     
-    return {getRequest , getId, setRequest}
+    return {getRequest , getId}
 
 } 
