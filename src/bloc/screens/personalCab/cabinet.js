@@ -21,8 +21,6 @@ const Cabinet =  () => {
          }else{return 'personal__menu-item'}
     }
 
-    console.log('render')
-
     return(
         <>
             <div className="personal">

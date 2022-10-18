@@ -7,6 +7,7 @@ import cors from 'cors'
 import settingsRouter from './routes/settings.routes.js';
 import async_hooks from 'node:async_hooks';
 import orderRouter from './routes/order.routes.js';
+import uploadRouter from './routes/upload.routes.js';
 
 
 
@@ -23,16 +24,21 @@ app.use(express.json({extended: true}));
 app.use('/api/auth', router);
 app.use('/api/user', settingsRouter);
 app.use('/api/order', orderRouter); 
+app.use('/api/upload', uploadRouter)
 
 
 
 const mongoConnection  = async () => {
-   await mongoose.connect(config.get('mongoUri'));
+    await mongoose.connect(config.get('mongoUri'));
     console.log(async_hooks.executionAsyncId());
 
+    process.on('unhandledRejection', error => {
+        console.log('unhandledRejection', error.message);
+    });
 
     app.listen(PORT, () => {
         console.log('App has been started on port ' + PORT)
+        console.log(process.env.PORT);
     });
 }
 
