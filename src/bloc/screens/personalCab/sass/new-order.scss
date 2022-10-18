@@ -79,7 +79,7 @@
             background-color: $back-color;
             box-shadow: -1px 1px 3px rgb(141, 141, 141);
         }
-        &:active{
+        &_active{
             border: 1px solid $main-color;
             border-radius: 15px;
             background-color: $back-color;

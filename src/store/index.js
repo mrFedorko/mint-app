@@ -4,7 +4,7 @@ import uvprintReducer from './uvprintSlice'
 import authReducer from './authSlice'
 import userSettingsReducer from './userSettingsSlice'
 import orderReducer from './orderSlice'
-
+import polygraphyReducer from './polygraphySlice'
 
 const store = configureStore({
     reducer: {
@@ -12,7 +12,8 @@ const store = configureStore({
         uvprint: uvprintReducer,
         auth: authReducer,
         userSettings: userSettingsReducer,
-        order: orderReducer
+        order: orderReducer,
+        polygraphy: polygraphyReducer
 
     }
 })

@@ -1,131 +1,154 @@
 {
     "card" : {
+        "descr":"Визитки",
+        "image": "../icons/poligraphy_icons/card.svg",
+        "imageWidth" : "25px",
+        "value": "card",
         "size" : [
-                  {"size": "90x50", "descr": "90×50 мм (стандарт)"},
-                  {"size": "180x50", "descr": "180×50 мм (двойная)"},
-                  {"size": "90x100", "descr": "90×100 мм (двойная)"},
-                  {"size": "85x55", "descr": "85×55 мм (евровизитка)"},
-                  {"size": "170x55", "descr": "170×55 мм (двойная)"},
-                  {"size": "85x110", "descr": "85×110 мм (двойная)"}
+                  {"size": "s90x50", "descr": "90×50 мм (стандарт)", "image" : "../icons/poligraphy_icons/card.svg"},
+                  {"size": "s180x50", "descr": "180×50 мм (двойная)", "image" : "../icons/poligraphy_icons/card_long.svg"},
+                  {"size": "s90x100", "descr": "90×100 мм (двойная)", "image" : "../icons/poligraphy_icons/card_wide.svg"},
+                  {"size": "s85x55", "descr": "85×55 мм (евровизитка)", "image" : "../icons/poligraphy_icons/card.svg"},
+                  {"size": "s170x55", "descr": "170×55 мм (двойная)", "image" : "../icons/poligraphy_icons/card_long.svg"},
+                  {"size": "s85x110", "descr": "85×110 мм (двойная)", "image" : "../icons/poligraphy_icons/card_wide.svg"}
                 ],
         "density" : [
-                  {"density" : "350", "descr": "Бумага мелованная 350 г/м²"}
+                  {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
                 ],
         "quan" : [
-                  {"quan": "500", "descr":"500 шт"},
-                  {"quan": "1000", "descr":"1000 шт"},
-                  {"quan": "2000", "descr":"2000 шт"},
-                  {"quan": "3000", "descr":"3000 шт"},
-                  {"quan": "4000", "descr":"4000 шт"},
-                  {"quan": "5000", "descr":"5000 шт"}
+                  {"quan": "q500", "descr":"500 шт"},
+                  {"quan": "q1000", "descr":"1000 шт"},
+                  {"quan": "q2000", "descr":"2000 шт"},
+                  {"quan": "q3000", "descr":"3000 шт"},
+                  {"quan": "q4000", "descr":"4000 шт"},
+                  {"quan": "q5000", "descr":"5000 шт"}
                 ]
     },
     "flyer" : {
+        "descr":"Листовки",
+        "image": "../icons/poligraphy_icons/flyer.svg",
+        "imageWidth" : "25px",
+        "value": "flyer",
         "size" : [
-                  {"size": "90x50", "descr": "90×50 мм (стандарт)"},
-                  {"size": "180x50", "descr": "180×50 мм (двойная)"},
-                  {"size": "90x100", "descr": "90×100 мм (двойная)"},
-                  {"size": "85x55", "descr": "85×55 мм (евровизитка)"},
-                  {"size": "170x55", "descr": "170×55 мм (двойная)"},
-                  {"size": "85x110", "descr": "85×110 мм (двойная)"}
+                  {"size": "s90x50", "descr": "FLAYER 90×50 мм (стандарт)"},
+                  {"size": "s180x50", "descr": "FLAYER 180×50 мм (двойная)"},
+                  {"size": "s90x100", "descr": "FLAYER 90×100 мм (двойная)"},
+                  {"size": "s85x55", "descr": "FLAYER 85×55 мм (евровизитка)"},
+                  {"size": "s170x55", "descr": "FLAYER 170×55 мм (двойная)"}
+
                 ],
         "density" : [
-                  {"density" : "350", "descr": "Бумага мелованная 350 г/м²"}
+                  {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
                 ],
         "quan" : [
-                  {"quan": "500", "descr":"500 шт"},
-                  {"quan": "1000", "descr":"1000 шт"},
-                  {"quan": "2000", "descr":"2000 шт"},
-                  {"quan": "3000", "descr":"3000 шт"},
-                  {"quan": "4000", "descr":"4000 шт"},
-                  {"quan": "5000", "descr":"5000 шт"}
+                  {"quan": "q500", "descr":"500 шт"},
+                  {"quan": "q1000", "descr":"1000 шт"},
+                  {"quan": "q2000", "descr":"2000 шт"},
+                  {"quan": "q3000", "descr":"3000 шт"},
+                  {"quan": "q4000", "descr":"4000 шт"},
+                  {"quan": "q5000", "descr":"5000 шт"}
                 ]
     },
     "broadsheet" : {
+        "descr":"Плакаты",
+        "image": "../icons/poligraphy_icons/broadsheet.svg",
+        "imageWidth" : "30px",
+        "value": "broadsheet",
         "size" : [
-                  {"size": "90x50", "descr": "90×50 мм (стандарт)"},
-                  {"size": "180x50", "descr": "180×50 мм (двойная)"},
-                  {"size": "90x100", "descr": "90×100 мм (двойная)"},
-                  {"size": "85x55", "descr": "85×55 мм (евровизитка)"},
-                  {"size": "170x55", "descr": "170×55 мм (двойная)"},
-                  {"size": "85x110", "descr": "85×110 мм (двойная)"}
+                  {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
+                  {"size": "s180x50", "descr": "180×50 мм (двойная)"},
+                  {"size": "s90x100", "descr": "90×100 мм (двойная)"},
+                  {"size": "s85x55", "descr": "85×55 мм (евровизитка)"},
+                  {"size": "s170x55", "descr": "170×55 мм (двойная)"},
+                  {"size": "s85x110", "descr": "85×110 мм (двойная)"}
                 ],
         "density" : [
-                  {"density" : "350", "descr": "Бумага мелованная 350 г/м²"}
+                  {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
                 ],
         "quan" : [
-                  {"quan": "500", "descr":"500 шт"},
-                  {"quan": "1000", "descr":"1000 шт"},
-                  {"quan": "2000", "descr":"2000 шт"},
-                  {"quan": "3000", "descr":"3000 шт"},
-                  {"quan": "4000", "descr":"4000 шт"},
-                  {"quan": "5000", "descr":"5000 шт"}
+                  {"quan": "q500", "descr":"500 шт"},
+                  {"quan": "q1000", "descr":"1000 шт"},
+                  {"quan": "q2000", "descr":"2000 шт"},
+                  {"quan": "q3000", "descr":"3000 шт"},
+                  {"quan": "q4000", "descr":"4000 шт"},
+                  {"quan": "q5000", "descr":"5000 шт"}
                 ]
     },
     "postcard" : {
+        "descr":"Открытки",
+        "image": "../icons/poligraphy_icons/postcard.svg",
+        "imageWidth" : "20px",
+        "value": "postcard",
         "size" : [
-            {"size": "90x50", "descr": "90×50 мм (стандарт)"},
-            {"size": "180x50", "descr": "180×50 мм (двойная)"},
-            {"size": "90x100", "descr": "90×100 мм (двойная)"},
-            {"size": "85x55", "descr": "85×55 мм (евровизитка)"},
-            {"size": "170x55", "descr": "170×55 мм (двойная)"},
-            {"size": "85x110", "descr": "85×110 мм (двойная)"}
+                  {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
+                  {"size": "s180x50", "descr": "180×50 мм (двойная)"},
+                  {"size": "s90x100", "descr": "90×100 мм (двойная)"},
+                  {"size": "s85x55", "descr": "85×55 мм (евровизитка)"},
+                  {"size": "s170x55", "descr": "170×55 мм (двойная)"},
+                  {"size": "s85x110", "descr": "85×110 мм (двойная)"}
           ],
-  "density" : [
-            {"density" : "350", "descr": "Бумага мелованная 350 г/м²"}
-          ],
-  "quan" : [
-            {"quan": "500", "descr":"500 шт"},
-            {"quan": "1000", "descr":"1000 шт"},
-            {"quan": "2000", "descr":"2000 шт"},
-            {"quan": "3000", "descr":"3000 шт"},
-            {"quan": "4000", "descr":"4000 шт"},
-            {"quan": "5000", "descr":"5000 шт"}
-          ]
+        "density" : [
+                {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
+              ],
+        "quan" : [
+                {"quan": "q500", "descr":"500 шт"},
+                {"quan": "q1000", "descr":"1000 шт"},
+                {"quan": "q2000", "descr":"2000 шт"},
+                {"quan": "q3000", "descr":"3000 шт"},
+                {"quan": "q4000", "descr":"4000 шт"},
+                {"quan": "q5000", "descr":"5000 шт"}
+              ]
     },
     "booklet" : {
+        "descr":"Буклеты",
+        "image": "../icons/poligraphy_icons/booklet.svg",
+        "imageWidth" : "30px",
+        "value": "booklet",
         "size" : [
-            {"size": "90x50", "descr": "90×50 мм (стандарт)"},
-            {"size": "180x50", "descr": "180×50 мм (двойная)"},
-            {"size": "90x100", "descr": "90×100 мм (двойная)"},
-            {"size": "85x55", "descr": "85×55 мм (евровизитка)"},
-            {"size": "170x55", "descr": "170×55 мм (двойная)"},
-            {"size": "85x110", "descr": "85×110 мм (двойная)"}
+              {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
+              {"size": "s180x50", "descr": "180×50 мм (двойная)"},
+              {"size": "s90x100", "descr": "90×100 мм (двойная)"},
+              {"size": "s85x55", "descr": "85×55 мм (евровизитка)"},
+              {"size": "s170x55", "descr": "170×55 мм (двойная)"},
+              {"size": "s85x110", "descr": "85×110 мм (двойная)"}
           ],
   "density" : [
-            {"density" : "350", "descr": "Бумага мелованная 350 г/м²"}
+              {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
           ],
   "quan" : [
-            {"quan": "500", "descr":"500 шт"},
-            {"quan": "1000", "descr":"1000 шт"},
-            {"quan": "2000", "descr":"2000 шт"},
-            {"quan": "3000", "descr":"3000 шт"},
-            {"quan": "4000", "descr":"4000 шт"},
-            {"quan": "5000", "descr":"5000 шт"}
+              {"quan": "q500", "descr":"500 шт"},
+              {"quan": "q1000", "descr":"1000 шт"},
+              {"quan": "q2000", "descr":"2000 шт"},
+              {"quan": "q3000", "descr":"3000 шт"},
+              {"quan": "q4000", "descr":"4000 шт"},
+              {"quan": "q5000", "descr":"5000 шт"}
           ]
     },
     "leaflet" :  {
+        "descr":"Лифлеты",
+        "image": "../icons/poligraphy_icons/leaflet.svg",
+        "imageWidth" : "20px",
+        "value": "leaflet",
         "size" : [
-            {"size": "90x50", "descr": "90×50 мм (стандарт)"},
-            {"size": "180x50", "descr": "180×50 мм (двойная)"},
-            {"size": "90x100", "descr": "90×100 мм (двойная)"},
-            {"size": "85x55", "descr": "85×55 мм (евровизитка)"},
-            {"size": "170x55", "descr": "170×55 мм (двойная)"},
-            {"size": "85x110", "descr": "85×110 мм (двойная)"}
+              {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
+              {"size": "s180x50", "descr": "180×50 мм (двойная)"},
+              {"size": "s90x100", "descr": "90×100 мм (двойная)"},
+              {"size": "s85x55", "descr": "85×55 мм (евровизитка)"},
+              {"size": "s170x55", "descr": "170×55 мм (двойная)"},
+              {"size": "s85x110", "descr": "85×110 мм (двойная)"}
           ],
-  "density" : [
-            {"density" : "350", "descr": "Бумага мелованная 350 г/м²"}
+        "density" : [
+              {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
           ],
-  "quan" : [
-            {"quan": "500", "descr":"500 шт"},
-            {"quan": "1000", "descr":"1000 шт"},
-            {"quan": "2000", "descr":"2000 шт"},
-            {"quan": "3000", "descr":"3000 шт"},
-            {"quan": "4000", "descr":"4000 шт"},
-            {"quan": "5000", "descr":"5000 шт"}
+        "quan" : [
+              {"quan": "q500", "descr":"500 шт"},
+              {"quan": "q1000", "descr":"1000 шт"},
+              {"quan": "q2000", "descr":"2000 шт"},
+              {"quan": "q3000", "descr":"3000 шт"},
+              {"quan": "q4000", "descr":"4000 шт"},
+              {"quan": "q5000", "descr":"5000 шт"}
           ]
-    }
-
-    }
+  }
+}
   
   
