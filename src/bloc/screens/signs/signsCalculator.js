@@ -100,13 +100,14 @@ const SignsCalculator = () => {
                     </div>
                     <div className="calculator__render">
                         <div className="calculator__render_img" style={content[signType].style}>{signType === 'letter' ? word : ''}</div>
-                        <div className = "calculator__render_description">{content[signType].right}</div>
+                        <div className = "calculator__render_description">{content[signType].right}
+                            {isAuth ? <button className='calculator__order-btn'>Оформить заказ</button> : <span className='Calculator_auth'>\
+                            Для оформления заказа необходимо <a href="/personal">войти</a></span>}
+                        </div>
                         
                     </div>
                 </div>
-                {isAuth ? <button className='calculator__order-btn'
-                                  onClick={ordDetailsHandler}>Оформить заказ</button> : <span className='Calculator_auth'>\
-                Для оформления заказа необходимо <a href="/personal">войти</a></span>}
+                
             </div>
         )
     
