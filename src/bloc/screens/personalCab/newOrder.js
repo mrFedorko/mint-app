@@ -5,47 +5,67 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
+import { useState } from 'react';
+
+
 
 
 
 const NewOrder = () => {
+    const [active, setActive] = useState('');
+
     const request = useRequest();
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
-    const auth = useContext(AuthContext);
+    const auth = useContext(AuthContext)
+    <PolygraphyCalc
+    const createOrderHandler = async () => {
+        const body = {
+            name: orName,
+            type: orType,
+            details: orDetails,
+            quan: orQuan,
+            comment: orComent,
+            date: Date.now(),
+            expDate: orExpDate,
+            layout: orLayout
+        }
 
-    
-    
     // const createOrderHandler = async () => {
     //     const body = {
     //         name: orName,
-    //         type: orType,
     //         details: orDetails,
-    //         quan: orQuan,
-    //         comment: orComent,
-    //         date: Date.now(),
-    //         expDate: orExpDate,
-    //         layout: orLayout
-    //     }
-
-    //     console.log(body)
+    //         type: orType,
     //     await request('http://localhost:8000/api/order/create/', "POST", {...body, status: 'created'}, {"Content-Type" : 'application/json', Authorization: `Bearer ${auth.token}`});
+    //     console.log(body)
+
+    //     }
+    //         layout: orLayout
+    //         expDate: orExpDate,
+    //         comment: orComent,
+    //         quan: orQuan,
+    //         date: Date.now(),
         
     // }
+    let content = {
+        'uv': <PolygraphyCalc/>,
+        'polyg': <PolygraphyCalc/>,
+        'banner': <PolygraphyCalc/>,
+        'sign': <PolygraphyCalc/>,
+        'no': <></>
 
+    }
     return(
         <div className="new-order">
             <div className="container">
                 <div className="new-order__heading">Новый заказ:</div>
                 <div className="new-order__wrapper">
-                    <div className="new-order__block">Полиграфия</div>
-                    <div className="new-order__block">УФ печать</div>
-                    <div className="new-order__block">Баннер</div>
-                    <div className="new-order__block">Вывеска</div>    
+                    <div className={active !== 'polyg' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('polyg')}>Полиграфия</div>
+                    <div className={active !== 'uv' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('uv')}>УФ печать</div>
+                    <div className={active !== 'banner' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('banner')}>Баннер</div>
+                    <div className={active !== 'sign' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('sign')}>Вывеска</div>    
                 </div>
                 
-                <PolygraphyCalc/>
-                <PolygraphyOrder/>
-
+                {active && content[active]}
             </div>
             
         </div>

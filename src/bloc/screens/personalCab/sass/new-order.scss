@@ -36,6 +36,12 @@
             border: 1px solid $back-color;
             box-shadow: $main-shadow;
         }
+
+        &_active{
+            background-color: $back-color;
+            border: 1px solid $back-color;
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+        }
     }
 }
 
