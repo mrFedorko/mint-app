@@ -45,13 +45,14 @@
         }
         &:hover{
             background-color: $main-color;
-            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+            box-shadow: $minor-shadow;
             color: white;
             outline: none;
         }
         &_active{
             background-color: $main-color;
-            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+            border: 1px solid white;
+            box-shadow:$main-shadow;
             color: white;
             outline: none;
         }

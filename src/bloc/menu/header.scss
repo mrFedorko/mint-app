@@ -84,10 +84,15 @@
         &-maxi{
             text-decoration: none;
             color: white;
+            &:hover{
+                color: white
+            }
+            
         }
         &-mini {
             display: none;
         }
+       
     }
     &__login {
         display: flex;
@@ -110,6 +115,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: $minor-shadow;
         img {
             height: 22px;
         }

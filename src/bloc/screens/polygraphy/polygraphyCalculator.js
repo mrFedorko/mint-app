@@ -32,7 +32,11 @@ const PolygraphyCalc = () => {
         sizeContent = data[productType].size.map((item, index) => {
             return(
                 <div key={index} className={item.size !== size ? "poligraphy__select" : "poligraphy__select poligraphy__select_active"}  onClick = {() => dispatch(sizeCh(item.size))}>
-                    <div className="poligraphy__select-img"><img src={item.image} style= {{width: "25px"}} alt="card"/></div>
+                    {
+                    productType === 'card' ? 
+                    <div className="poligraphy__select-img"><img src={item.image} style= {{width: "25px"}} alt="card"/></div>:
+                    ''
+                    }
                     <div className="poligraphy__select-text">{item.descr}</div>
                 </div>
             )
@@ -51,9 +55,14 @@ const PolygraphyCalc = () => {
         } )
     }
 
-    // if(productType && size && density && quan){
-    //     totalPrice = price[productType][size][density][quan]
-    // }
+    if(productType && size && density && quan){
+        try {
+            totalPrice = price[productType][size][density][quan]    
+        } catch (error) {
+            totalPrice = 'цена не определена'
+        }
+
+    }
 
 
     return(
@@ -86,7 +95,7 @@ const PolygraphyCalc = () => {
                 </div>
             </div>
             <div className="poligraphy__result">
-                {/* <span className="poligraphy__price">{totalPrice + ' руб'}</span> */}
+                <span className="poligraphy__price">{totalPrice + ' руб'}</span>
                 <button className="poligraphy__go-btn">Продолжить оформление</button>
             </div>
         </>

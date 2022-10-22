@@ -25,6 +25,7 @@
         flex-direction: column;
         justify-content:space-between;
         align-items: center;
+        box-shadow: $main-shadow;
         }
     &__title {
         color:black;
@@ -44,7 +45,7 @@
         border: none;
         &:hover {
             border: 1px solid $back-color;
-            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+            box-shadow: $main-shadow;
         }
         a {
             font-size: 20px;

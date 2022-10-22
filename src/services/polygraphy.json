@@ -77,7 +77,7 @@
     "postcard" : {
         "descr":"Открытки",
         "image": "../icons/poligraphy_icons/postcard.svg",
-        "imageWidth" : "20px",
+        "imageWidth" : "23px",
         "value": "postcard",
         "size" : [
                   {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
@@ -102,7 +102,7 @@
     "booklet" : {
         "descr":"Буклеты",
         "image": "../icons/poligraphy_icons/booklet.svg",
-        "imageWidth" : "30px",
+        "imageWidth" : "24px",
         "value": "booklet",
         "size" : [
               {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
@@ -127,18 +127,18 @@
     "leaflet" :  {
         "descr":"Лифлеты",
         "image": "../icons/poligraphy_icons/leaflet.svg",
-        "imageWidth" : "20px",
+        "imageWidth" : "18px",
         "value": "leaflet",
         "size" : [
               {"size": "s90x50", "descr": "90×50 мм (стандарт)"},
               {"size": "s180x50", "descr": "180×50 мм (двойная)"},
-              {"size": "s90x100", "descr": "90×100 мм (двойная)"},
-              {"size": "s85x55", "descr": "85×55 мм (евровизитка)"},
-              {"size": "s170x55", "descr": "170×55 мм (двойная)"},
-              {"size": "s85x110", "descr": "85×110 мм (двойная)"}
+              {"size": "s90x100", "descr": "90×100 мм (двойная)"}
+              
           ],
         "density" : [
-              {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"}
+              {"density" : "d350", "descr": "Бумага мелованная 350 г/м²"},
+              {"density" : "d350", "descr": "Бумага мелованная 120 г/м²"}
+
           ],
         "quan" : [
               {"quan": "q500", "descr":"500 шт"},

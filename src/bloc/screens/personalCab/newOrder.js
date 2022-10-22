@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useRequest } from '../../../hooks/request.hook';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
@@ -11,24 +11,27 @@ import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
 const NewOrder = () => {
     const request = useRequest();
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
-    const auth = useContext(AuthContext)
-    
-    const createOrderHandler = async () => {
-        const body = {
-            name: orName,
-            type: orType,
-            details: orDetails,
-            quan: orQuan,
-            comment: orComent,
-            date: Date.now(),
-            expDate: orExpDate,
-            layout: orLayout
-        }
+    const auth = useContext(AuthContext);
 
-        console.log(body)
-        await request('http://localhost:8000/api/order/create/', "POST", {...body, status: 'created'}, {"Content-Type" : 'application/json', Authorization: `Bearer ${auth.token}`});
+    
+    
+    // const createOrderHandler = async () => {
+    //     const body = {
+    //         name: orName,
+    //         type: orType,
+    //         details: orDetails,
+    //         quan: orQuan,
+    //         comment: orComent,
+    //         date: Date.now(),
+    //         expDate: orExpDate,
+    //         layout: orLayout
+    //     }
+
+    //     console.log(body)
+    //     await request('http://localhost:8000/api/order/create/', "POST", {...body, status: 'created'}, {"Content-Type" : 'application/json', Authorization: `Bearer ${auth.token}`});
         
-    }
+    // }
+
     return(
         <div className="new-order">
             <div className="container">
@@ -50,6 +53,9 @@ const NewOrder = () => {
 }
 
 const PolygraphyOrder= () => {
+    
+    const [delivery, setDelivery] = useState('');
+    
     return(
         <div className="polygraphy-order">
             <div className="polygraphy-order__close">&times;</div>
@@ -87,19 +93,75 @@ const PolygraphyOrder= () => {
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>
                 <div className="polygraphy-order__wrapper">
-                    <div className="polygraphy-order__content polygraphy-order__delivery">
+                    <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('point')}>
                         <div className="polygraphy-order__text">Доставка до пункта выдачи</div>
-                        <img src="../icons/poligraphy_icons/box.svg" style= {{width: "25px"}} alt="add" className="polygraphy-order__delivery" />
+                        <img src="../icons/poligraphy_icons/box.svg" style= {{width: "25px"}} alt="add"/>
                     </div>
-                    <div className="polygraphy-order__content polygraphy-order__delivery">
-                    <div className="polygraphy-order__text">Адресная доставка(курьер)</div>
-                        <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: "25px"}} alt="add" className="polygraphy-order__delivery" />
+                    <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('adress')}>
+                        <div className="polygraphy-order__text">Адресная доставка(курьер)</div>
+                        <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: "25px"}} alt="add"/>
                     </div>
                 </div>
+
+                {delivery === 'point' ? <PickPointDelivery/> : 
+                delivery === 'adress' ? <AdressDelivery/> :
+                ''}
+               
 
             </div>
         </div>
     )
 }
+
+const PickPointDelivery = () => {
+    return(
+        <div className="polygraphy-order__delivery-details">
+        <div class="polygraphy-order__delivery-setting">
+            <label className="polygraphy-order__delivery-attribute">Выберите город</label>
+            <select class="polygraphy-order__delivery-select" id="">
+                <option defaultValue=""/>
+                <option value="ООО">Белгород</option>
+                <option value="ИП">Щебекино</option>
+                <option value="АО">Валуйки</option>
+            </select>
+        </div>
+        <div class="polygraphy-order__delivery-setting">
+            <label className="polygraphy-order__delivery-attribute">Выберите пункт выдачи</label>
+            <select class="polygraphy-order__delivery-select" id="">
+                <option defaultValue=""/>
+                <option value="ООО">Белгород</option>
+                <option value="ИП">Щебекино</option>
+                <option value="АО">Валуйки</option>
+            </select>
+        </div>
+    </div>
+    )
+};
+
+const AdressDelivery = () => {
+    return(
+        <div className="polygraphy-order__delivery-details">
+        <div class="polygraphy-order__delivery-setting">
+            <label className="polygraphy-order__delivery-attribute">Выберите город</label>
+            <select class="polygraphy-order__delivery-select" id="">
+                <option defaultValue=""/>
+                <option value="ООО">jyggjggjgm</option>
+                <option value="ИП">Щебекино</option>
+                <option value="АО">Валуйки</option>
+            </select>
+        </div>
+        <div class="polygraphy-order__delivery-setting">
+            <label className="polygraphy-order__delivery-attribute">Выберите пункт выдачи</label>
+            <select class="polygraphy-order__delivery-select" id="">
+                <option defaultValue=""/>
+                <option value="ООО">Белгород</option>
+                <option value="ИП">Щебекино</option>
+                <option value="АО">Валуйки</option>
+            </select>
+        </div>
+    </div>
+    )
+}
+
 
 export default NewOrder

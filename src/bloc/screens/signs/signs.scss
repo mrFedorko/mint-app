@@ -52,7 +52,11 @@
         width: 55%;
     }
     .btn{
+        margin-top: 20px;
         border-radius: 20px;
+        &:active{
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+        }
     }
 }
 .order {

@@ -26,18 +26,42 @@
     &__render{
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        align-items: center;
         width: 50%;
-        padding-left: 2em;   
-        
+        padding-left: 20px;
         &_img{
             text-overflow: ellipsis;
             overflow: hidden;
+            text-align: center;
             width: 140%;
+        }
+        &_description{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 25px;
+            font-size: 13px;
+            background-color: #f7f7f7;
+            border-radius: 20px;
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
         }
     }
     &__order-btn{
-        margin-top: 30px;
+        margin-left: 20px;
+        margin-top: 20px;
+        background-color: $main-color;
+        box-shadow: -1px 1px 3px rgb(141, 141, 141);
+        border: none;
+        border-radius: 20px;
+        padding: 5px;
+        height: 55px;
+        width: 200px;
+        font-size: 12px;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
     }
 }
 
@@ -47,7 +71,11 @@ input{
 }
 
 .input-group {
+    &-text{
+        font-size: 12px;
+    }
     label {
+        font-size: 14px;
         background-color: $main-color;
         color: white;
         border-radius: 24px;
@@ -55,6 +83,7 @@ input{
         box-shadow: -1px 1px 3px rgb(141, 141, 141);
     }
     select {
+        font-size: 14px;
         border-radius: 24px;
         border: none;
         box-shadow: -1px 1px 3px rgb(141, 141, 141);
@@ -64,8 +93,23 @@ input{
         }
     }
 }
+.form-select{
+    cursor: pointer;
+    &:focus{
+        box-shadow: none;
+    }
+}
 .form-control {
+    margin-top: 0;
+    font-size: 14px;
     border-radius: 24px;
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+.input_definition{
+    font-size: 12px;
 }
 
 @media (max-width: 1200px) {

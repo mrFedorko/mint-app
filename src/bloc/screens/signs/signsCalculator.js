@@ -198,9 +198,10 @@ const LetterCalcBlock = () =>  {
         </div>
            
 
-        
+        <label className="input_definition">Название</label>
         <input value={word} onChange={(e) => dispatch(wordCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите название"/>
-        <input value={size} onChange={(e) => dispatch(sizeCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите высоту буквы, cм"/>
+        <label className="input_definition mt-2">Высота буквы</label>
+        <input value={size} onChange={(e) => dispatch(sizeCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"          aria-describedby="inputGroup-sizing-sm" placeholder="Введите высоту буквы, cм"/>
         </>
     )
 
@@ -212,7 +213,7 @@ const BannerDescrBlock = (props) => {
         
 
         return(
-            <div className = "calculator__render_description">
+            <>
                 <span>Баннер плотностью 440гр/м.кв.</span>
                 <ul>
                     <li> Ширина: {width} см</li>
@@ -222,7 +223,7 @@ const BannerDescrBlock = (props) => {
                 </ul>
                 <span>Итоговая стоимость (без учета монтажа): {
                     getPrice(props.calcState, data.pricing) } руб</span>
-            </div>
+            </>
         )
     
 }
@@ -233,8 +234,10 @@ const BannerCalcBlock = () => {
 
         return(
             <>
+                <label className="input_definition">Ширина</label>
                 <input value={width} onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
-                <input value = {height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
+                <label className="input_definition mt-2">Высота</label>
+                <input value = {height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
                 <div className="input-group mt-3">
                     <label className="input-group-text w-40" htmlFor="inputGroupSelect01">Пост обработка</label>
                     <select value={bannerPostWork} onChange={(e) => dispatch(bannerPostWorkCh(e.target.value))}  className="form-select" id="">
@@ -252,7 +255,7 @@ const SignDescrBlock = (props) => {
     
     const {width, height, signMaterial} = useSelector(state=>state.sign.calculator)
         return(
-            <div className = "calculator__render_description">
+            <>
                 <span>Табличка с уф-печатью</span>
                 <ul>
                     <li> Ширина: {width} см</li>
@@ -262,7 +265,7 @@ const SignDescrBlock = (props) => {
                 </ul>
                 <span>Итоговая стоимость (без учета монтажа): {
                     getPrice(props.calcState, data.pricing) } руб</span>
-            </div>
+            </>
         )
     
 }
@@ -273,8 +276,10 @@ const SignCalcBlock = () => {
 
         return(
             <>
+                <label className="input_definition">Ширина</label>
                 <input value={width} onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
-                <input value={height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control mt-3" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
+                <label className="input_definition mt-2">Высота</label>
+                <input value={height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
                 <div className="input-group mt-3">
                     <label className="input-group-text w-40" htmlFor="inputGroupSelect01">Материал</label>
                     <select value={signMaterial} onChange={(e) => dispatch(signMaterialCh(e.target.value))}  className="form-select" id="">
