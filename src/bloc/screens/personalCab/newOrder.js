@@ -5,7 +5,6 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
-import { useState } from 'react';
 
 
 
@@ -17,19 +16,20 @@ const NewOrder = () => {
     const request = useRequest();
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
     const auth = useContext(AuthContext)
-    <PolygraphyCalc
-    const createOrderHandler = async () => {
-        const body = {
-            name: orName,
-            type: orType,
-            details: orDetails,
-            quan: orQuan,
-            comment: orComent,
-            date: Date.now(),
-            expDate: orExpDate,
-            layout: orLayout
-        }
 
+
+    // const createOrderHandler = async () => {
+    //     const body = {
+    //         name: orName,
+    //         type: orType,
+    //         details: orDetails,
+    //         quan: orQuan,
+    //         comment: orComent,
+    //         date: Date.now(),
+    //         expDate: orExpDate,
+    //         layout: orLayout
+    //     }
+    // }
     // const createOrderHandler = async () => {
     //     const body = {
     //         name: orName,
