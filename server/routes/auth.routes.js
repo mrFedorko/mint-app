@@ -24,23 +24,24 @@ router.post(
                 return res.status(400).json({
                     errs: errs.array(),
                     message: 'input data not valid',
+                    clientMsg: 'Некорректные данные',
                 });
             }
             /////get data and find same
             const {email, password, name} = await req.body;
             const candidate = await User.findOne({email});
             if (candidate) {
-                return res.status(400).json({message: 'user with such email has already existed'});
+                return res.status(400).json({message: 'user with such email has already existed', clientMsg: 'Пользователь с таким email уже существует'});
             }
 
             const hashedPassword = await bcrypt.hash(password, 7);
             const user = new User({email, settings: {name}, password: hashedPassword});
 
             await user.save();
-            return res.status(201).json({message: 'user was successfuly created'});
+            return res.status(201).json({message: 'user was successfuly created', clientMsg: 'Пользователь успешно создан'});
 
         } catch (error) {
-            res.status(500).json({message: 'server side error during registration'});
+            res.status(500).json({message: 'server side error during registration', clientMsg: 'Ошибка сервера, обратитесь в поддержку'});
         }
     }
 );
@@ -59,6 +60,7 @@ router.post(
                 return res.status(400).json({
                     errs: errs.array(),
                     message: 'input data not valid',
+                    clientMsg: 'Некорректные данные',
                 });
             }
             /////get data and find same
@@ -66,13 +68,12 @@ router.post(
             const user = await User.findOne({email});
            
             if (!user) {
-                return res.status(400).json({message: 'user with such email has not existed'});
+                return res.status(400).json({message: 'user with such email has not existed', clientMsg: 'Пользователь с таким email не найден'});
             }
             
             const isPassword = await bcrypt.compare(password, user.password);
             
             if (user && isPassword){
-                console.log('match');
                 const token = jwt.sign(
                     {userId: user.id},
                     config.get('jwtSecret'),
@@ -80,15 +81,15 @@ router.post(
                 );
                 const settings = user.settings;
 
-                res.json({token, userId: user.id, settings});
+                res.json({token, userId: user.id, settings, message: 'success', clientMsg: 'Вход выполнен'});
                
             } else {
-                return res.status(400).json({message: 'wrong data during login'});
+                return res.status(400).json({message: 'wrong data during login', clientMsg: 'Не верные данные при авторизации'});
             }
 
 
         } catch (error) {
-            res.status(500).json({message: 'server side error during login'});
+            res.status(500).json({message: 'server side error during login', clientMsg: 'Ошибка сервера, обратитесь в поддержку'});
         }
     }
 );
