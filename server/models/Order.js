@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model, Types } from 'mongoose';
 
 const orderSchema = new Schema({
     name: {type: String, default: ''},
@@ -14,12 +14,12 @@ const orderSchema = new Schema({
     owner: {type: Types.ObjectId, ref: 'User'},
     delivery: {
         adress: {type: String},
-        destination: {type: String}
-     },
+        destination: {type: String},
+    },
     
 });
 
-const Order = model("Order", orderSchema);
+const Order = model('Order', orderSchema);
 
 
 

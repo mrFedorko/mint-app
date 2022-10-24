@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
 const organizationSchema = new Schema({
     name: {type: String},
@@ -9,11 +9,11 @@ const organizationSchema = new Schema({
     bankName: {type: String},
     checkingAccount: {type: String},
     corresponding: {type: String},
-    head: {type: String}
+    head: {type: String},
 });
 
-const Organization = model("Organization", organizationSchema);
+const Organization = model('Organization', organizationSchema);
 
 
 
-export { Organization, organizationSchema}
+export { Organization, organizationSchema};

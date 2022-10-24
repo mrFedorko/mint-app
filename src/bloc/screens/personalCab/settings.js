@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { nameCh,  phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, TINCh, entityNameCh, entityCh } from "../../../store/userSettingsSlice";
+
+import { nameCh,  phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, TINCh, entityNameCh, entityCh } from '../../../store/userSettingsSlice';
 import { useSettings } from '../../../hooks/settings.hook';
 import { useRequest } from '../../../hooks/request.hook';
 
-import './sass/settings.scss'
+import './sass/settings.scss';
 
 
 
@@ -20,11 +21,11 @@ const Settings = () => {
     const settingsSaveHandler = async () => {
         const id = getId();
         ;
-        await request(`http://localhost:8000/api/user/set/${id}`, 'POST', {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK})
-    }
+        await request(`http://localhost:8000/api/user/set/${id}`, 'POST', {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK});
+    };
     
     return ( 
-        <div className='container'>
+        <div className="container">
             <div className="settings__group">
                 <label className="settings__input_definition">Ваше имя</label>
                 <input value={name} onChange={(e) => dispatch(nameCh(e.target.value))} type="text" className="settings__form-control"  placeholder="Введите Ваше имя"/>
@@ -56,11 +57,11 @@ const Settings = () => {
                 <label className="settings__input_definition">Телефон</label>
                 <input value={phone} onChange={(e) => dispatch(phoneCh(e.target.value))} type="text" className="settings__form-control"  placeholder="Введите номер телефона"/>
 
-                <button onClick={settingsSaveHandler} className='settings__btn'>Сохранить изменения</button>
+                <button onClick={settingsSaveHandler} className="settings__btn">Сохранить изменения</button>
                     
             </div>
         </div>
-     );
-}
+    );
+};
 
 export default Settings ;

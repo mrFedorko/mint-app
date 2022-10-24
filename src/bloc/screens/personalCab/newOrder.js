@@ -1,7 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useRequest } from '../../../hooks/request.hook';
+
 import { useContext, useState } from 'react';
+
+import { useRequest } from '../../../hooks/request.hook';
 import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
@@ -15,7 +17,7 @@ const NewOrder = () => {
 
     const request = useRequest();
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
-    const auth = useContext(AuthContext)
+    const auth = useContext(AuthContext);
 
 
     // const createOrderHandler = async () => {
@@ -46,14 +48,14 @@ const NewOrder = () => {
     //         date: Date.now(),
         
     // }
-    let content = {
+    const content = {
         'uv': <PolygraphyCalc/>,
         'polyg': <PolygraphyCalc/>,
         'banner': <PolygraphyCalc/>,
         'sign': <PolygraphyCalc/>,
-        'no': <></>
+        'no': <></>,
 
-    }
+    };
     return(
         <div className="new-order">
             <div className="container">
@@ -69,8 +71,8 @@ const NewOrder = () => {
             </div>
             
         </div>
-    )
-}
+    );
+};
 
 const PolygraphyOrder= () => {
     
@@ -101,12 +103,12 @@ const PolygraphyOrder= () => {
                 <div className="polygraphy-order__wrapper">
                     <div className="polygraphy-order__content polygraphy-order__maquette">
                         <div className="polygraphy-order__text">1 сторона</div>
-                        <img src="../icons/poligraphy_icons/add.svg" style= {{width: "25px"}} alt="add" className="polygraphy-order__add" />
+                        <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
                         <label>нажмите, чтобы добавить файл</label>
                     </div>
                     <div className="polygraphy-order__content polygraphy-order__maquette">
-                    <div className="polygraphy-order__text">2 сторона</div>
-                        <img src="../icons/poligraphy_icons/add.svg" style= {{width: "25px"}} alt="add" className="polygraphy-order__add" />
+                        <div className="polygraphy-order__text">2 сторона</div>
+                        <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
                         <label>нажмите, чтобы добавить файл </label>
                     </div>
                 </div>
@@ -115,73 +117,73 @@ const PolygraphyOrder= () => {
                 <div className="polygraphy-order__wrapper">
                     <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('point')}>
                         <div className="polygraphy-order__text">Доставка до пункта выдачи</div>
-                        <img src="../icons/poligraphy_icons/box.svg" style= {{width: "25px"}} alt="add"/>
+                        <img src="../icons/poligraphy_icons/box.svg" style= {{width: '25px'}} alt="add"/>
                     </div>
                     <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('adress')}>
                         <div className="polygraphy-order__text">Адресная доставка(курьер)</div>
-                        <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: "25px"}} alt="add"/>
+                        <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: '25px'}} alt="add"/>
                     </div>
                 </div>
 
                 {delivery === 'point' ? <PickPointDelivery/> : 
-                delivery === 'adress' ? <AdressDelivery/> :
-                ''}
+                    delivery === 'adress' ? <AdressDelivery/> :
+                        ''}
                
 
             </div>
         </div>
-    )
-}
+    );
+};
 
 const PickPointDelivery = () => {
     return(
         <div className="polygraphy-order__delivery-details">
-        <div class="polygraphy-order__delivery-setting">
-            <label className="polygraphy-order__delivery-attribute">Выберите город</label>
-            <select class="polygraphy-order__delivery-select" id="">
-                <option defaultValue=""/>
-                <option value="ООО">Белгород</option>
-                <option value="ИП">Щебекино</option>
-                <option value="АО">Валуйки</option>
-            </select>
+            <div class="polygraphy-order__delivery-setting">
+                <label className="polygraphy-order__delivery-attribute">Выберите город</label>
+                <select class="polygraphy-order__delivery-select" id="">
+                    <option defaultValue=""/>
+                    <option value="ООО">Белгород</option>
+                    <option value="ИП">Щебекино</option>
+                    <option value="АО">Валуйки</option>
+                </select>
+            </div>
+            <div class="polygraphy-order__delivery-setting">
+                <label className="polygraphy-order__delivery-attribute">Выберите пункт выдачи</label>
+                <select class="polygraphy-order__delivery-select" id="">
+                    <option defaultValue=""/>
+                    <option value="ООО">Белгород</option>
+                    <option value="ИП">Щебекино</option>
+                    <option value="АО">Валуйки</option>
+                </select>
+            </div>
         </div>
-        <div class="polygraphy-order__delivery-setting">
-            <label className="polygraphy-order__delivery-attribute">Выберите пункт выдачи</label>
-            <select class="polygraphy-order__delivery-select" id="">
-                <option defaultValue=""/>
-                <option value="ООО">Белгород</option>
-                <option value="ИП">Щебекино</option>
-                <option value="АО">Валуйки</option>
-            </select>
-        </div>
-    </div>
-    )
+    );
 };
 
 const AdressDelivery = () => {
     return(
         <div className="polygraphy-order__delivery-details">
-        <div class="polygraphy-order__delivery-setting">
-            <label className="polygraphy-order__delivery-attribute">Выберите город</label>
-            <select class="polygraphy-order__delivery-select" id="">
-                <option defaultValue=""/>
-                <option value="ООО">jyggjggjgm</option>
-                <option value="ИП">Щебекино</option>
-                <option value="АО">Валуйки</option>
-            </select>
+            <div class="polygraphy-order__delivery-setting">
+                <label className="polygraphy-order__delivery-attribute">Выберите город</label>
+                <select class="polygraphy-order__delivery-select" id="">
+                    <option defaultValue=""/>
+                    <option value="ООО">jyggjggjgm</option>
+                    <option value="ИП">Щебекино</option>
+                    <option value="АО">Валуйки</option>
+                </select>
+            </div>
+            <div class="polygraphy-order__delivery-setting">
+                <label className="polygraphy-order__delivery-attribute">Выберите пункт выдачи</label>
+                <select class="polygraphy-order__delivery-select" id="">
+                    <option defaultValue=""/>
+                    <option value="ООО">Белгород</option>
+                    <option value="ИП">Щебекино</option>
+                    <option value="АО">Валуйки</option>
+                </select>
+            </div>
         </div>
-        <div class="polygraphy-order__delivery-setting">
-            <label className="polygraphy-order__delivery-attribute">Выберите пункт выдачи</label>
-            <select class="polygraphy-order__delivery-select" id="">
-                <option defaultValue=""/>
-                <option value="ООО">Белгород</option>
-                <option value="ИП">Щебекино</option>
-                <option value="АО">Валуйки</option>
-            </select>
-        </div>
-    </div>
-    )
-}
+    );
+};
 
 
-export default NewOrder
+export default NewOrder;

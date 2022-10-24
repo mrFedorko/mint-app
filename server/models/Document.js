@@ -1,14 +1,14 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
 const documentSchema = new Schema({
     name: {type: String},
     docType: {type: String},
     numbering: {type: String},
     expDate: {type: String},
-    link: {type: String}
+    link: {type: String},
 });
 
-const Document = model("Document", documentSchema);
+const Document = model('Document', documentSchema);
 
 
 

@@ -1,12 +1,12 @@
-import { Schema, model} from "mongoose";
+import { Schema, model} from 'mongoose';
 
 const chatMessageSchema = new Schema({
     text: {type: String},
     expDate: {type: String},
-    source: {type: String}
+    source: {type: String},
 });
 
-const ChatMessage = model("ChatMessage", chatMessageSchema);
+const ChatMessage = model('ChatMessage', chatMessageSchema);
 
 
 

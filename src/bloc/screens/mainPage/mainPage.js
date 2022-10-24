@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-import './mainPage.scss'
+import './mainPage.scss';
 
 export default class MainPage extends Component{
 
@@ -9,17 +9,17 @@ export default class MainPage extends Component{
         return(
             <div className="mainPage">
                 <section className="promo">
-                <div className="container">
-                    <div className="content">
-                        <div className="content__text">
-                            <h1 className="content__title">Рекламно- производственная  компания  “Мята”</h1>
-                            <div className="content__title-mini">РПК “Мята”</div>
-                            <h2 className="content__subtitle">Каждый день работаем для Вас</h2>
+                    <div className="container">
+                        <div className="content">
+                            <div className="content__text">
+                                <h1 className="content__title">Рекламно- производственная  компания  “Мята”</h1>
+                                <div className="content__title-mini">РПК “Мята”</div>
+                                <h2 className="content__subtitle">Каждый день работаем для Вас</h2>
+                            </div>
+                            <div className="content__img"><img src="img/hand.png" alt=""/></div>
                         </div>
-                        <div className="content__img"><img src="img/hand.png" alt=""/></div>
-                    </div>
 
-                </div>
+                    </div>
                 </section>
                 
                 <section className="advantage">
@@ -56,18 +56,18 @@ export default class MainPage extends Component{
                             <div className="why__title">Почему Мята?</div>
                             <div className="why__wrapper">
                                 
-                                    <div className="why__block">
+                                <div className="why__block">
                                         Мы используем только качественные материалы, проверенные временем
-                                    </div>
-                                    <div className="why__block">
+                                </div>
+                                <div className="why__block">
                                         Цены на услуги ниже средних, гибкая система скидок
-                                    </div>
-                                    <div className="why__block">
+                                </div>
+                                <div className="why__block">
                                         Сострудничать с нами <br/> удобно и приятно,<br/>работаем без выходных  
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                    
                 </section>
                 <section className="depiction">
@@ -124,7 +124,7 @@ export default class MainPage extends Component{
                     </div>
                 </section>
             </div>
-        )
-    }
+        );
+    };
 
 }

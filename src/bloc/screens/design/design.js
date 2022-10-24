@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "../../../sass/sassTemplates/hat.scss"
+import React, { Component } from 'react';
+import '../../../sass/sassTemplates/hat.scss';
 export default class Design extends Component{
     render = () => {
         return(
@@ -13,9 +13,9 @@ export default class Design extends Component{
                         </div>
                         <h1 className="hat__title">Дизайн</h1>
                     </div>
-                   {/* {active === 'useful' ? <SignsUseful onActiveChange = {(a) => this.stateActiveSetter(a) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>} */}
+                    {/* {active === 'useful' ? <SignsUseful onActiveChange = {(a) => this.stateActiveSetter(a) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>} */}
                 </div>
-           </section>
-        )
-    }
+            </section>
+        );
+    };
 }

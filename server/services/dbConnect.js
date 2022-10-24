@@ -8,18 +8,18 @@ const conf = {
     port:22,
     dstPort:27017,
     localHost:'127.0.0.1',
-    localPort: 27000
-  };
+    localPort: 27000,
+};
 
 function connectDb(dbConnection){
     tunnel(conf, (error, server) =>  {
 
         if(error){
-            console.log("SSH connection error: " + error);
+            console.log('SSH connection error: ' + error);
         }
 
         dbConnection();
-    })
+    });
 }
 
-export default connectDb
+export default connectDb;

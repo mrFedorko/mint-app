@@ -22,7 +22,7 @@ const SignsOrder = () => {
                 </div>
             </div>
         </>
-    )
+    );
 
-}
-export default SignsOrder
+};
+export default SignsOrder;

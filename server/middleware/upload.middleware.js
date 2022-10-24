@@ -3,13 +3,13 @@ import multer from 'multer';
 
 const fileStorageEng = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './upload')
+        cb(null, './upload');
     },
     filename: (req, file , cb) => {
-        cb(null,Date.now()  + '--' + file.originalname)
-    }
+        cb(null,Date.now()  + '--' + file.originalname);
+    },
 });
 
 const uploadMW = multer({storage: fileStorageEng});
 
-export default uploadMW
+export default uploadMW;

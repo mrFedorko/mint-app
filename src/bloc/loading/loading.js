@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './loading.scss'
+import './loading.scss';
 
 const Loading = (props) => {
     const style = {
@@ -9,18 +9,18 @@ const Loading = (props) => {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100vw',
-        height: '100vh'
+        height: '100vh',
     };
 
     return(
         <div style={style}>
 
             <div className="loadingio-spinner-eclipse-5y7bbwtghr7"><div className="ldio-mn2uy3rxpen">
-            <div></div>
+                <div></div>
             </div></div>
 
         </div>
-    )
-}
+    );
+};
 
 export default Loading;

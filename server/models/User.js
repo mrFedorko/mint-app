@@ -1,4 +1,4 @@
-import { Schema, model, Types } from "mongoose";
+import { Schema, model, Types } from 'mongoose';
 
 
 
@@ -25,10 +25,10 @@ const userSchema = new Schema({
         check: {type: String, default: ''},
         corCheck: {type: String, default: ''},
         bank: {type: String, default: ''},
-        BIK: {type: String, default: ''}  
+        BIK: {type: String, default: ''},  
     },
 
-    orders: [{type: Types.ObjectId, ref: 'Order'}]
+    orders: [{type: Types.ObjectId, ref: 'Order'}],
     // notifications: {type: Types.ArraySubdocument},
 
     // isAuth: {type: Boolean},
@@ -39,7 +39,7 @@ const userSchema = new Schema({
     
 });
 
-const User = model("User", userSchema);
+const User = model('User', userSchema);
 
 
 

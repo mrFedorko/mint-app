@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/auth.context";
+import React, { useContext } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { AuthContext } from '../../context/auth.context';
 
 
-import './header.scss'
+import './header.scss';
 
 
- const Header = (props) => {
+const Header = (props) => {
     
     const {name} = useSelector(state => state.userSettings);
     const {isAuth, logout} = useContext(AuthContext);
-        return (
-            <header className="header">
+    return (
+        <header className="header">
 
             <div className="header__wrapper1">
                 <div className="header__burger" onClick={props.onMenuChange}>
@@ -57,8 +58,8 @@ import './header.scss'
             </div>
         </header>
 
-        )
+    );
     
-}
+};
 
 export default Header;

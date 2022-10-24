@@ -1,11 +1,11 @@
-import React from "react"
-import { useNavigate } from "react-router-dom"
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignsUseful = () => {
     
     const navigate = useNavigate();
-    const navigateToCalc = () => { navigate('/signs/calculator');}
-    const navigateToCase = () => { navigate('/case');}
+    const navigateToCalc = () => { navigate('/signs/calculator');};
+    const navigateToCase = () => { navigate('/case');};
     
     return(
         <div className="useful fadein">
@@ -61,8 +61,8 @@ const SignsUseful = () => {
             </div>
 
         </div>
-    )
+    );
 
-}
+};
 
-export default SignsUseful
+export default SignsUseful;
