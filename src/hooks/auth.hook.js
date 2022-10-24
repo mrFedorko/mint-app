@@ -11,6 +11,7 @@ export const useAuth = () => {
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
 
+    
     const {getRequest} = useSettings();
 
     const login = useCallback((jwt, id)=> {
