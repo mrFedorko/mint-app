@@ -7,9 +7,9 @@ import data from '../../../services/polygraphy.json';
 import price from '../../../services/polygraphyPrise.json';
 
 
-const PolygraphyCalc = () => {
 
-const PolygraphyCalc = () => {
+
+const PolygraphyCalc = (props) => {
     const {productType, quan, size, density} = useSelector((state) => state.polygraphy);
     const dispatch = useDispatch();
     

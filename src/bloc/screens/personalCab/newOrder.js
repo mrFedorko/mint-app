@@ -38,14 +38,14 @@ const NewOrder = () => {
     }
         
 
-    const signCalculator = <SignsCalculator blocked={!!orType}/>
+    const signCalculator = <SignsCalculator blocked={!!orType} handlerResume = {handlerResume}/>
 
     
     let content = {
-        'uv': {calc: <signCalculator handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'banner': {calc: <signCalculator handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'polyg': {calc: <PolygraphyCalc handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'sign': {calc: <signCalculator handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'uv': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'banner': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'polyg': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'sign': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'no': <></>
 
     };
