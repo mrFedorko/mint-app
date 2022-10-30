@@ -24,7 +24,6 @@
     "lint": "eslint -c .eslintrc --ext .js .",
     "lint-fix": "npm run lint -- --fix"
   },
-
   "browserslist": {
     "production": [
       ">0.2%",

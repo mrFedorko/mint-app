@@ -1,0 +1,164 @@
+@import '../../sass/base/variables';
+@import '../../sass/base/base.scss';
+
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 0;
+    padding-bottom: 30px;
+    h3{
+        font-size: 25px; 
+    }
+
+    &__group{
+        display: flex;
+    }
+
+    &__input{
+        width: 50%;
+        padding-right: 2em;
+        label{
+            width: 186px;
+        }
+    }
+    &__render{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        padding-left: 20px;
+        &_img{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            text-align: center;
+            width: 140%;
+        }
+        &_description{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 25px;
+            font-size: 13px;
+            background-color: #f7f7f7;
+            border-radius: 20px;
+            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+        }
+    }
+    &__order-btn{
+        margin-left: 20px;
+        margin-top: 20px;
+        background-color: $main-color;
+        box-shadow: -1px 1px 3px rgb(141, 141, 141);
+        border: none;
+        border-radius: 20px;
+        padding: 5px;
+        height: 55px;
+        width: 200px;
+        font-size: 12px;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+input{
+    border: none;
+    box-shadow: -1px 1px 3px rgb(141, 141, 141);
+}
+
+.input-group {
+    &-text{
+        font-size: 12px;
+    }
+    label {
+        font-size: 14px;
+        background-color: $main-color;
+        color: white;
+        border-radius: 24px;
+        border: none;
+        box-shadow: -1px 1px 3px rgb(141, 141, 141);
+    }
+    select {
+        font-size: 14px;
+        border-radius: 24px;
+        border: none;
+        box-shadow: -1px 1px 3px rgb(141, 141, 141);
+        &:focus {     
+            outline-color: $main-color;
+            border: 1px solid #737373;
+        }
+    }
+}
+.form-select{
+    cursor: pointer;
+    &:focus{
+        box-shadow: none;
+    }
+}
+.form-control {
+    margin-top: 0;
+    font-size: 14px;
+    border-radius: 24px;
+    &:focus{
+        box-shadow: none;
+    }
+}
+
+.input_definition{
+    font-size: 12px;
+}
+
+@media (max-width: 1200px) {
+    .calculator{
+        &__render{
+            
+            &_img{
+                width: 115%;
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+
+
+    .input-group {
+        label {
+            width: 150px;
+            font-size: 13px;
+        }
+        select {
+            font-size: 13px;
+        }
+    }
+
+}
+@media (max-width: 767px) {
+    .calculator{
+        h3{
+            font-size: 19px;
+        }
+        &__group{
+            flex-direction: column;
+        }
+        &__input{
+            width: 100%;
+            padding-right: 0;
+            margin: 0 auto;
+        }
+        &__render{
+            margin-top: 30px;
+            width: 100%;
+
+            &_img{
+                width: 100%;
+            }
+             
+        }
+    }
+}
+@media (max-width: 575px) {
+}

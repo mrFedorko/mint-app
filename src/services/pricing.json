@@ -1,0 +1,32 @@
+{
+    "pricing":{
+        "letters" : {
+            "plateW" : 22,
+            "plateC" : 27,
+            "volumeWL" : 102,
+            "volumeCL" : 111,
+            "volumeUVL" : 116,
+            "volumeWwoL" : 75,
+            "volumeCwoL" : 81,
+            "volumeUVwoL" : 102
+        },
+
+        "uv" : {
+            "PVC3": 2600,
+            "PVC5" : 3000,
+            "ACP3" : 4000
+        },
+
+        "banner" : {
+            "banner" : 520,
+            "postWork" : 170
+        },
+
+        "frame" :{
+            "aluminium" : 630
+        }
+            
+        }
+    }
+  
+  
