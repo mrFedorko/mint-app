@@ -5,7 +5,6 @@ import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
 import { useState } from 'react';
 
 
-import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
 import SignsCalculator from '../signs/signsCalculator';
 import { signTypeCh } from '../../../store/signSlice';
 import { orTypeCh } from '../../../store/orderSlice';
@@ -17,7 +16,6 @@ import { orTypeCh } from '../../../store/orderSlice';
 const NewOrder = () => {
     const [resume, setResume] = useState(false)
 
-    const [dispetcher, setDispetcher] = useState('order')
 
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
     const dispatch = useDispatch();
@@ -38,20 +36,16 @@ const NewOrder = () => {
             return 'new-order__block new-order__block_active'
         } 
     }
-        'no': <></>,
-        'banner': signCalculator,
-        'letter': signCalculator,
-        'polyg': <PolygraphyCalc/>,
+        
 
     const signCalculator = <SignsCalculator blocked={!!orType}/>
 
-    const content = {
-        'uv': signCalculator,
+    
     let content = {
-        'uv': <PolygraphyCalc/>,
-        'banner': <PolygraphyCalc/>,
+        'uv': {calc: <signCalculator handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'banner': {calc: <signCalculator handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'polyg': {calc: <PolygraphyCalc handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'sign': <PolygraphyCalc/>,
+        'sign': {calc: <signCalculator handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'no': <></>
 
     };
