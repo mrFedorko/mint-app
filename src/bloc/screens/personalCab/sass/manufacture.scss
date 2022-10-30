@@ -1,7 +1,6 @@
 @import '../../../../sass/base/variables';
 
 .manu{
-    background-color: rgb(248, 248, 248);
     .container{
         display: flex;
         flex-direction: column;
@@ -29,7 +28,7 @@
     }
     &__wrapper{
         width: 100%;
-        padding: 10px 40px 40px 40px;
+        padding: 10px 30px 30px 30px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -43,13 +42,15 @@
     }
     &__info{
         width: 100%;
-        height: 120px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     &__icon{
         margin-right: 20px;
+        img{
+            height: 17px;
+        }
     }
     &__definition{
         padding: 11px;
@@ -64,10 +65,12 @@
     &__order-name{
         font-size: 11px;
         font-weight: 700;
+        margin-bottom: 10px;
     }
     &__order-detales{
         font-size: 11px;
         font-weight: 700;
+        margin-bottom: 10px;
     }
     &__comment{
         font-size: 12px;
@@ -88,6 +91,10 @@
     }
     &__control-group{
         font-size: 12px;
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0;
+        }
     }
     &__control-parametr{
         font-size: 12px;
@@ -99,7 +106,7 @@
         line-height: 1.2;
     }
     &__buttons{
-        height: 100%;
+        height: 120px;
         width: 200px;
         display: flex;
         flex-direction: column;
@@ -133,7 +140,7 @@
         }
     }
     &__documents{
-        height: 100%;
+        height: 120px;
         width: 100px;
         display: flex;
         flex-direction: column;
@@ -162,164 +169,45 @@
     }
 }
 
-.manu{
-    background-color: rgb(248, 248, 248);
-    .container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 30px;
-        padding-bottom: 30px;
-    }
-    &__heading{
-        font-size: 15px;
-        margin-bottom: 20px;
-    }
-    &__strip{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-    &__number{
-        text-align: right;
-        width: 24px;
-        font-size: 11px;
-        color: $main-color;
-        margin-right: 7px;
-        font-weight: 700;
-    }
-    &__wrapper{
-        width: 100%;
-        padding: 10px 40px 40px 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        background-color: $back-color;
-        border-radius: 30px;
-    }
-    &__date{
-        font-size: 10px;
-        color: $main-color;
-    }
-    &__info{
-        width: 100%;
-        height: 120px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    &__icon{
-        margin-right: 20px;
-    }
-    &__definition{
-        padding: 11px;
-        height: 100%;
-        max-width: 185px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-right: 20px;
-    }
-    &__order-name{
-        font-size: 11px;
-        font-weight: 700;
-    }
-    &__order-detales{
-        font-size: 11px;
-        font-weight: 700;
-    }
-    &__comment{
-        font-size: 12px;
-        font-weight: 700;
-        color: $main-color;
-    }
-    &__control{
-        height: 100%;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        border: 1px solid $main-color;
-        border-radius: 16px;
-        padding: 10px;
-        margin-right: 20px;
-    }
-    &__control-group{
-        font-size: 12px;
-    }
-    &__control-parametr{
-        font-size: 12px;
-        font-weight: 700;
-        color: black;
-    }
-    &__control-value{
-        font-size: 11px;
-        line-height: 1.2;
-    }
-    &__buttons{
-        height: 100%;
-        width: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 10px;
-    }
-    &__button{
-        width: 100%;
-        height: 26px;
-        border-radius: 13px;
-        border: none;
-        color: white;
-        font-size: 11px;
-        font-weight: 700;
-        padding-left: 20px;
-        padding-right: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        &_edit{
-            color: black;
-            background-color: $yellow-color;
+@media (max-width: 1200px) {
+}
+@media (max-width: 991px) {
+    .manu{
+        &__info{
+            flex-wrap: wrap;
+            justify-content: flex-start;
         }
-        &_cansel{
-            background-color: #8971b1;
-            padding-left: 23px;
+        &__icon{
+            width: 20%;
+            margin: 0;
         }
-        &_pay{
-            background-color: $main-color;
+        &__definition{
+            width: 70%;
+            margin: 0;
+        }
+        &__control{
+            max-width: 210px;
+            width: 100%;
+            margin: 0;
+        }
+        &__buttons{
+            max-width: 210px;
+            width: 100%;
+            margin: 0;
+        }
+        &__documents{
+            flex-direction: row;
+            max-width: 210px;
+            width: 100%;
+            height: 45px;
+        }
+        &__chek{
+            width: 49%;
+        }
+        &__invoice{
+            width: 49%;
         }
     }
-    &__documents{
-        height: 100%;
-        width: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        padding: 10px;
-    }
-    &__chek{
-        width: 100%;
-        height: 45px;
-        border: 2px solid $main-color;
-        border-radius: 14px;
-        padding: 5px;
-        font-size: 12px;
-        color: $main-color;
-        text-align: center;
-    }
-    &__invoice{
-        width: 100%;
-        height: 45px;
-        border: 2px solid $main-color;
-        border-radius: 14px;
-        padding: 5px;
-        font-size: 12px;
-        color: $main-color;
-    }
+}
+@media (max-width: 575px) {
 }
