@@ -5,7 +5,6 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
-import { useState } from 'react';
 
 
 
@@ -13,42 +12,36 @@ import { useState } from 'react';
 
 const NewOrder = () => {
     const [active, setActive] = useState('');
+    const [resume, setResume] = useState(false)
 
     const request = useRequest();
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
     const auth = useContext(AuthContext)
-    <PolygraphyCalc
+
     const createOrderHandler = async () => {
         const body = {
             name: orName,
-            type: orType,
             details: orDetails,
-            quan: orQuan,
-            comment: orComent,
-            date: Date.now(),
+            type: orType,
+            layout: orLayout,
             expDate: orExpDate,
-            layout: orLayout
+            comment: orComent,
+            quan: orQuan,
+            date: Date.now(),
         }
-
-    // const createOrderHandler = async () => {
-    //     const body = {
-    //         name: orName,
-    //         details: orDetails,
-    //         type: orType,
-    //     await request('http://localhost:8000/api/order/create/', "POST", {...body, status: 'created'}, {"Content-Type" : 'application/json', Authorization: `Bearer ${auth.token}`});
-    //     console.log(body)
-
-    //     }
-    //         layout: orLayout
-    //         expDate: orExpDate,
-    //         comment: orComent,
-    //         quan: orQuan,
-    //         date: Date.now(),
+        await request('http://localhost:8000/api/order/create/', "POST", {...body, status: 'created'}, {"Content-Type" : 'application/json', Authorization: `Bearer ${auth.token}`});
+            console.log(body)
+    
         
-    // }
+    }
+
+    const handlerResume = (v) => {
+        setResume(v)
+    }
+
     let content = {
         'uv': <PolygraphyCalc/>,
-        'polyg': <PolygraphyCalc/>,
+        'polyg': {calc: <PolygraphyCalc handlerResume = {handlerResume}/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'banner': <PolygraphyCalc/>,
         'sign': <PolygraphyCalc/>,
         'no': <></>
@@ -65,20 +58,23 @@ const NewOrder = () => {
                     <div className={active !== 'sign' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('sign')}>Вывеска</div>    
                 </div>
                 
-                {active && content[active]}
+                {active && content[active].calc}
+                {resume && content[active].order}
+
+                
             </div>
             
         </div>
     )
 }
 
-const PolygraphyOrder= () => {
+const PolygraphyOrder= (props) => {
     
     const [delivery, setDelivery] = useState('');
     
     return(
         <div className="polygraphy-order">
-            <div className="polygraphy-order__close">&times;</div>
+            <div className="polygraphy-order__close" onClick={() => props.handlerResume(false)}>&times;</div>
             <div className="polygraphy-order__window">
                 <h2 className="polygraphy-order__heading">Оформление  заказа</h2>
                 <h3 className="polygraphy-order__title">Параметры</h3>
@@ -93,8 +89,8 @@ const PolygraphyOrder= () => {
 
                 <h3 className="polygraphy-order__title">Название</h3>
                 <div className="polygraphy-order__content polygraphy-order__col">
-                    <label>Введите название для данного заказа (для удобства ориентирования по заказам)</label>
-                    <input type="text" className="polygraphy-order__name" placeholder="Введите название для данного заказа (для удобства ориентирования по заказам) " />
+                    <label>Необходимо для удобства ориентирования по заказам</label>
+                    <input type="text" className="polygraphy-order__name" placeholder="Введите название для данного заказа" />
                 </div>
 
                 <h3 className="polygraphy-order__title">Макет</h3>
@@ -113,12 +109,12 @@ const PolygraphyOrder= () => {
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>
                 <div className="polygraphy-order__wrapper">
-                    <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('point')}>
+                    <div className={delivery === 'point' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>setDelivery('point')}>
                         <div className="polygraphy-order__text">Доставка до пункта выдачи</div>
                         <img src="../icons/poligraphy_icons/box.svg" style= {{width: "25px"}} alt="add"/>
                     </div>
-                    <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('adress')}>
-                        <div className="polygraphy-order__text">Адресная доставка(курьер)</div>
+                    <div className={delivery === 'adress' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>setDelivery('adress')}>
+                        <div className="polygraphy-order__text">Адресная доставка (курьер)</div>
                         <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: "25px"}} alt="add"/>
                     </div>
                 </div>
