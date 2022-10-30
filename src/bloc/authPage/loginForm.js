@@ -1,26 +1,46 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { registerCh, emailCh, passwordCh } from '../../store/authSlice';
-
+import { isAuthCh, setCredentials, userIdCh } from '../../store/authSlice';
+import { useLoginMutation } from '../../store/api/authApi';
 
 export const LoginForm = (props) => {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+ 
+    const [login, {isLoading} ] = useLoginMutation();
     const dispatch = useDispatch();
-    const {email, password} = useSelector(state=> state.auth);
 
+    const handleLogin = async () =>  {
+        try {
+            const userData = await login({email, password}).unwrap();
+            dispatch(setCredentials({...userData, email}));
+            dispatch(isAuthCh(true));
+            dispatch(userIdCh(userData));
+            setEmail('');
+            setPassword('');
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    let content;
+
+    // isLoading ?
+    // content = 
 
     return(
         
         <div className="auth__wrapper">
             <form on className=" fadein">
-                <input onChange={(e) => dispatch(emailCh(e.target.value))}  type="email" className="auth__email" placeholder="email" value ={email}/>
-                <input onChange={(e) => dispatch(passwordCh(e.target.value))} type="password" className="auth__pwd" placeholder="Пароль" value = {password}/>
+                <input onChange={(e) => setEmail(e.target.value)}  type="email" className="auth__email" placeholder="email" value ={email}/>
+                <input onChange={(e) => setPassword(e.target.value)} type="password" className="auth__pwd" placeholder="Пароль" value = {password}/>
                 <a href="/" className="auth__forgot">Забыли пароль?</a>
             </form>
                 
-            <button onClick={() =>  props.loginHandler({email, password})} className="auth__action-btn" >Войти</button>
-            <button onClick={() => dispatch(registerCh(true))} className="auth__alt-btn">Зарегистрироваться</button>
+            <button onClick={handleLogin} className="auth__action-btn" >Войти</button>
+            <button onClick={() => {props.handleIsRegister(false)}} className="auth__alt-btn">Зарегистрироваться</button>
         </div>
             
     );

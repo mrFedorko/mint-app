@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import { useContext, useState } from 'react';
 
-import { useRequest } from '../../../hooks/request.hook';
 import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
@@ -15,7 +14,6 @@ import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
 const NewOrder = () => {
     const [active, setActive] = useState('');
 
-    const request = useRequest();
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
     const auth = useContext(AuthContext);
 

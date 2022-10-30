@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 
@@ -8,13 +8,21 @@ import './sass/pesonal.scss';
 import './sass/profile.scss';
 import './sass/new-order.scss';
 import './sass/manufacture.scss';
+import { useSelector } from 'react-redux';
+import { useGetSettingsQuery } from '../../../store/api/settingsApi';
 
 const Cabinet =  () => {
 
     const[active, setActive] = useState('profile');
     const navigate = useNavigate();
+    const {userId, isAuth} = useSelector(state=>state.auth);
 
+    useGetSettingsQuery(userId);
     
+    useEffect(() => {
+        setActive('profile')
+    }, [isAuth])
+
     const setActiveElement = (state) => {
         if(active === state) {
             return 'personal__menu-item personal__menu-item_active';

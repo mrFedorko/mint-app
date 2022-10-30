@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import { AuthContext } from '../../../context/auth.context';
 
 import AuthPage from '../../authPage/authPage';
 
 import Cabinet from './cabinet';
 
 export const Personal = () => {
-    const {isAuth} = useContext(AuthContext);
-    if (isAuth){
+    const {isAuth} = useSelector(state => state.auth);
+    if ((isAuth.toString())=== 'true'){
         return   <Cabinet/>;
     }
     return <AuthPage/>;

@@ -1,17 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
-import { AuthContext } from '../../context/auth.context';
+import { useLogoutMutation } from '../../store/api/authApi';
+import { selectCurrentIsAuth } from '../../store/authSlice';
 
 
 import './header.scss';
 
 
 const Header = (props) => {
-    
+    const [logout, {isLoading}] = useLogoutMutation()
     const {name} = useSelector(state => state.userSettings);
-    const {isAuth, logout} = useContext(AuthContext);
+    
+    const isAuth = useSelector(selectCurrentIsAuth);
+    
     return (
         <header className="header">
 
@@ -44,8 +46,8 @@ const Header = (props) => {
                     </a>
                 </button>
                 <Link to="/personal" className="header__login">
-                    <div className="header__login-text">{!isAuth ? 'войти' : `${name}`}</div>
-                    {isAuth ? <div onClick={logout} className="header__login-text">выйти</div> : <></>}
+                    <div className="header__login-text">{isAuth && name ? `${name}` : 'войти'}</div>
+                    {isAuth ? <div onClick={() => {logout()}} className="header__login-text">выйти</div> : <></>}
                     <div className="header__login-block">
                         <img src="./icons/log_in_icon.png" alt="logo"/>
                     </div>
@@ -61,5 +63,4 @@ const Header = (props) => {
     );
     
 };
-
 export default Header;

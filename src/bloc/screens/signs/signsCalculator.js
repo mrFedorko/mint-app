@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useContext } from 'react';
 
-import { useRequest } from '../../../hooks/request.hook.js';
 
 
 import { convertCalcState, getPrice } from '../../../services/services.js';
@@ -237,9 +236,9 @@ const BannerCalcBlock = () => {
     return(
         <>
             <label className="input_definition">Ширина</label>
-            <input value={width} onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите ширину, см"/>
+            <input value={width} onChange={(e) => dispatch(widthCh(e.target.value))} type="text" className="form-control"  placeholder="Введите ширину, см"/>
             <label className="input_definition mt-2">Высота</label>
-            <input value = {height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control" aria-label="Sizing example input"  aria-describedby="inputGroup-sizing-sm" placeholder="Введите длину, cм"/> 
+            <input value = {height} onChange={(e) => dispatch(heightCh(e.target.value))} type="text" className="form-control"  placeholder="Введите длину, cм"/> 
             <div className="input-group mt-3">
                 <label className="input-group-text w-40" htmlFor="inputGroupSelect01">Пост обработка</label>
                 <select value={bannerPostWork} onChange={(e) => dispatch(bannerPostWorkCh(e.target.value))}  className="form-select" id="">
