@@ -11,7 +11,7 @@ const Manufacture = () => {
                  <div className="manu__wrapper">
                      <div className="manu__date">12:57  08.08.2020</div>
                      <div className="manu__info">
-                         <div className="manu__icon"><img src="../icons/poligrafy_icons/cards.png" alt="" /></div>
+                         <div className="manu__icon"><img src="../icons/poligraphy_icons/card.svg" alt="card" /></div>
                          <div className="manu__definition">
                              <div className="manu__inner">
                                  <div className="manu__order-name">Визитные карточки 4+4</div>

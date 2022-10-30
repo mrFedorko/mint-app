@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
-import { useState } from 'react';
 
 
 import SignsCalculator from '../signs/signsCalculator';
@@ -29,23 +28,23 @@ const NewOrder = () => {
         dispatch(orTypeCh(state));
         dispatch(signTypeCh(state));
     }
+            return 'new-order__block'
     const handleActiveClass = (state) => {
         if(active !== state) {
-            return 'new-order__block'
         }  else {
             return 'new-order__block new-order__block_active'
         } 
     }
-        
 
+        
     const signCalculator = <SignsCalculator blocked={!!orType} handlerResume = {handlerResume}/>
 
     
     let content = {
         'uv': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'banner': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'polyg': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'sign': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'polyg': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'no': <></>
 
     };
@@ -115,8 +114,8 @@ const PolygraphyOrder= (props) => {
                         <div className="polygraphy-order__text">Доставка до пункта выдачи</div>
                         <img src="../icons/poligraphy_icons/box.svg" style= {{width: '25px'}} alt="add"/>
                     </div>
-                    <div className="polygraphy-order__content polygraphy-order__delivery" onClick={()=>setDelivery('adress')}>
-                        <div className="polygraphy-order__text">Адресная доставка(курьер)</div>
+                    <div className={delivery === 'adress' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>setDelivery('adress')}>
+                        <div className="polygraphy-order__text">Адресная доставка (курьер)</div>
                         <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: "25px"}} alt="add"/>
                     </div>
                 </div>
