@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const polygraphySlice = createSlice({
     name: 'polygraphy',
     initialState: {
-        
+        main: 'polygraphy',
         productType: '',
         density: '',
         quan:'',

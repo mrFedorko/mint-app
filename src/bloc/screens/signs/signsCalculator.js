@@ -2,30 +2,20 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { useContext } from 'react';
-
-
-
 import { convertCalcState, getPrice } from '../../../services/services.js';
 import data from '../../../services/pricing.json';
 import { bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from '../../../store/signSlice.js';
-import { orDetailsCh } from '../../../store/orderSlice';
-
-import { AuthContext } from '../../../context/auth.context.js';
+import { orDetailsCh, orTypeCh } from '../../../store/orderSlice';
 
 
-const SignsCalculator = () => {
-    
+const SignsCalculator = (props) => {
+    const {isAuth} = useSelector(state=>state.auth)
     const calculator = useSelector(state => state.sign.calculator);
     const {signType, type, colored, sideColor, faceColor, word, size, width, height, signMaterial, bannerPostWork} = calculator;
-    const dispatch = useDispatch();
-    //*delete*//
-    const orderState = useSelector(state => state.order);
-    //*delete*//
-    const {isAuth} = useContext(AuthContext);
-    
-   
+    const {orType} = useSelector(state=> state.order);
 
+    
+    const dispatch = useDispatch();
 
     const content = {
         'letter' : {
@@ -44,13 +34,13 @@ const SignsCalculator = () => {
             },
             fields:{signType, type, colored, sideColor, faceColor, word, size},
         },
-        'sign' : { 
+        'uv' : { 
             left : <SignCalcBlock/>,
             right: <SignDescrBlock calcState = {calculator}/>,
             style : {
                 width: '300px',
                 height: '200px',
-                background: 'url("icons/logo_main.png") center no-repeat',
+                backgroundImg: 'url("icons/logo_main.png") center no-repeat',
                 backgroundColor: 'white',
                 border: '2px #4d897c solid',
                 borderRadius: '7px',
@@ -76,9 +66,14 @@ const SignsCalculator = () => {
         },
     };   
 
-    const ordDetailsHandler = () => {  
-        dispatch(orDetailsCh({...content[signType].fields}));
+    const handleOrderDetails = () => {  
+        signType && dispatch(orDetailsCh({...content[signType].fields}));
     };
+
+    const handleSignType = (e) => {
+        dispatch(signTypeCh(e.target.value));
+
+    }
 
 
     return(
@@ -88,10 +83,10 @@ const SignsCalculator = () => {
                 <div className="calculator__input">
                     <div className="input-group mb-3">
                         <label className="input-group-text w-40" htmlFor="inputGroupSelect01">Тип вывески</label>
-                        <select value={signType} onChange={(e) =>  dispatch(signTypeCh(e.target.value))} className="form-select" id="">
+                        <select value={signType} onChange={handleSignType} className="form-select" id="" disabled={props.blocked}>
                             <option defaultValue=""/>
                             <option value="letter">Объемные буквы</option>
-                            <option value="sign">Таблички с УФ-печатью</option>
+                            <option value="uv">Таблички с УФ-печатью</option>
                             <option value="banner">Баннер 440</option>
                         </select>
                     </div>
@@ -102,10 +97,21 @@ const SignsCalculator = () => {
                 <div className="calculator__render">
                     <div className="calculator__render_img" style={content[signType].style}>{signType === 'letter' ? word : ''}</div>
                     <div className = "calculator__render_description">{content[signType].right}
-                        {isAuth ? <button className="calculator__order-btn">Оформить заказ</button> : <span className="Calculator_auth">\
-                            Для оформления заказа необходимо <a href="/personal">войти</a></span>}
-                    </div>
-                        
+                        {!isAuth ? 
+                                <span className="Calculator_auth">
+                                    Для оформления заказа необходимо <a href="/personal">войти</a>
+                                </span>
+                            : !signType ?
+                                <span className="Calculator_auth">
+                                    Выберите параметры заказа
+                                </span> :
+                                <button 
+                                    className="calculator__order-btn"
+                                    children="Оформитть заказ"
+                                    onClick={handleOrderDetails}/> 
+                        } 
+    
+                    </div>     
                 </div>
             </div>
                 

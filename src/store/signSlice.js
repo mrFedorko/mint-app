@@ -4,6 +4,7 @@ const signSlice = createSlice({
     name: 'sign',
     initialState: {
         calculator: {
+            main: 'sign',
             signType: '',
             type: '',
             light:'',

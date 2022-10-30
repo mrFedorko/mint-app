@@ -76,14 +76,14 @@ function getPrice(state, pricing){
     if(signType === 'banner' && !(+bannerPostWork)){
         return  Math.floor(pricing.banner.banner*width*height/100/100);
     }
-    if(signType === 'sign' && signMaterial === 'PVC3'){
-        return  Math.floor(pricing.sign.PVC3*height*width/100/100);
+    if(signType === 'uv' && signMaterial === 'PVC3'){
+        return  Math.floor(pricing.uv.PVC3*height*width/100/100);
     }
-    if(signType === 'sign' && signMaterial === 'PVC5'){
-        return  Math.floor(pricing.sign.PVC5*height*width/100/100);
+    if(signType === 'uv' && signMaterial === 'PVC5'){
+        return  Math.floor(pricing.uv.PVC5*height*width/100/100);
     }
-    if(signType === 'sign' && signMaterial === 'ACP3'){
-        return  Math.floor(pricing.sign.ACP3*height*width/100/100);
+    if(signType === 'uv' && signMaterial === 'ACP3'){
+        return  Math.floor(pricing.uv.ACP3*height*width/100/100);
     }
 }
 

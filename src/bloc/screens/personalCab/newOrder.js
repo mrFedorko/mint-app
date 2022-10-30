@@ -1,21 +1,26 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
-import { AuthContext } from '../../../context/auth.context';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
+import SignsCalculator from '../signs/signsCalculator';
+import { signTypeCh } from '../../../store/signSlice';
+import { orTypeCh } from '../../../store/orderSlice';
 
 
 
 
 
 const NewOrder = () => {
-    const [active, setActive] = useState('');
+
+    const [dispetcher, setDispetcher] = useState('order')
 
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
-    const auth = useContext(AuthContext);
+    const dispatch = useDispatch();
+
+    const active = orType;
 
 
     // const createOrderHandler = async () => {
@@ -46,11 +51,26 @@ const NewOrder = () => {
     //         date: Date.now(),
         
     // }
+    const handleSetActive = (state) => {
+        dispatch(orTypeCh(state));
+        dispatch(signTypeCh(state));
+    }
+
+    const handleActiveClass = (state) => {
+        if(active !== state) {
+            return 'new-order__block'
+        }  else {
+            return 'new-order__block new-order__block_active'
+        } 
+    }
+
+    const signCalculator = <SignsCalculator blocked={!!orType}/>
+
     const content = {
-        'uv': <PolygraphyCalc/>,
+        'uv': signCalculator,
         'polyg': <PolygraphyCalc/>,
-        'banner': <PolygraphyCalc/>,
-        'sign': <PolygraphyCalc/>,
+        'banner': signCalculator,
+        'letter': signCalculator,
         'no': <></>,
 
     };
@@ -59,10 +79,10 @@ const NewOrder = () => {
             <div className="container">
                 <div className="new-order__heading">Новый заказ:</div>
                 <div className="new-order__wrapper">
-                    <div className={active !== 'polyg' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('polyg')}>Полиграфия</div>
-                    <div className={active !== 'uv' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('uv')}>УФ печать</div>
-                    <div className={active !== 'banner' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('banner')}>Баннер</div>
-                    <div className={active !== 'sign' ? 'new-order__block' : 'new-order__block new-order__block_active'} onClick={() =>  setActive('sign')}>Вывеска</div>    
+                    <div className={handleActiveClass('polyg')} onClick={() =>  handleSetActive('polyg')}>Полиграфия</div>
+                    <div className={handleActiveClass('uv')} onClick={() =>  handleSetActive('uv')}>УФ печать</div>
+                    <div className={handleActiveClass('banner')} onClick={() =>  handleSetActive('banner')}>Баннер</div>
+                    <div className={handleActiveClass('letter')} onClick={() =>  handleSetActive('letter')}>Вывеска</div>    
                 </div>
                 
                 {active && content[active]}

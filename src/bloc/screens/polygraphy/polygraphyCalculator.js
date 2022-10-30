@@ -9,7 +9,6 @@ import price from '../../../services/polygraphyPrise.json';
 
 
 const PolygraphyCalc = () => {
-    const d = 2;
     const {productType, quan, size, density} = useSelector((state) => state.polygraphy);
     const dispatch = useDispatch();
     
