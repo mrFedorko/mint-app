@@ -6,7 +6,7 @@ import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
 
 import SignsCalculator from '../signs/signsCalculator';
 import { signTypeCh } from '../../../store/signSlice';
-import { orTypeCh } from '../../../store/orderSlice';
+import { orTypeCh, orDeliveryTypeCh, orDeliveryAdressCh, orDeliveryDestinationCh } from '../../../store/orderSlice';
 
 
 
@@ -72,8 +72,13 @@ const NewOrder = () => {
 };
 
 const PolygraphyOrder= (props) => {
-    
-    const [delivery, setDelivery] = useState('');
+    const {orDelivery} = useSelector(state => state.order);
+    const dispatch = useDispatch();
+
+
+    const handleDelivery = (state) => {
+        dispatch(orDeliveryTypeCh(state))
+    }
     
     return(
         <div className="polygraphy-order">
@@ -112,18 +117,18 @@ const PolygraphyOrder= (props) => {
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>
                 <div className="polygraphy-order__wrapper">
-                    <div className={delivery === 'point' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>setDelivery('point')}>
+                    <div className={orDelivery.type === 'point' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>handleDelivery('point')}>
                         <div className="polygraphy-order__text">Доставка до пункта выдачи</div>
                         <img src="../icons/poligraphy_icons/box.svg" style= {{width: '25px'}} alt="add"/>
                     </div>
-                    <div className={delivery === 'adress' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>setDelivery('adress')}>
+                    <div className={orDelivery.type === 'adress' ? "polygraphy-order__content polygraphy-order__delivery polygraphy-order__delivery_active" : "polygraphy-order__content polygraphy-order__delivery"} onClick={()=>handleDelivery('adress')}>
                         <div className="polygraphy-order__text">Адресная доставка (курьер)</div>
                         <img src="../icons/poligraphy_icons/delivery-man.svg" style= {{width: "25px"}} alt="add"/>
                     </div>
                 </div>
 
-                {delivery === 'point' ? <PickPointDelivery/> : 
-                    delivery === 'adress' ? <AdressDelivery/> :
+                {orDelivery.type === 'point' ? <PickPointDelivery/> : 
+                    orDelivery.type === 'adress' ? <AdressDelivery/> :
                         ''}
                
 
