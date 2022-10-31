@@ -19,7 +19,7 @@ const NewOrder = () => {
     const {orName, orType, orDetails, orQuan, orComent, orExpDate, orLayout, orDelivery} = useSelector(state => state.order);
     const dispatch = useDispatch();
 
-    const handlerResume = (v) => {
+    const handleResume = (v) => {
         setResume(v)
     }
     const active = orType;
@@ -39,14 +39,14 @@ const NewOrder = () => {
     }
 
         
-    const signCalculator = <SignsCalculator blocked={!!orType} handlerResume = {handlerResume}/>
+    const signCalculator = <SignsCalculator blocked={!!orType} handleResume = {handleResume}/>
 
     
     let content = {
-        'uv': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'banner': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'sign': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'polyg': {calc: <PolygraphyCalc/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'uv': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
+        'banner': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
+        'letter': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
+        'polyg': {calc: <PolygraphyCalc handleResume = {handleResume}/>, 'order': <PolygraphyOrder handlerResume = {handleResume}/>},
         'no': <></>
 
     };

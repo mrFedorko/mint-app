@@ -108,7 +108,10 @@ const SignsCalculator = (props) => {
                                 <button 
                                     className="calculator__order-btn"
                                     children="Оформитть заказ"
-                                    onClick={handleOrderDetails}/> 
+                                    onClick={() => {
+                                        handleOrderDetails();
+                                        props.handleResume(true)
+                                    }}/> 
                         } 
     
                     </div>     

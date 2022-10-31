@@ -115,7 +115,7 @@ const PolygraphyCalc = (props) => {
                 </div>
                 <div className="polygraphy__result">
                     <span className="polygraphy__price">{totalPrice + ' руб'}</span>
-                    <button onClick={()=> props.handlerResume(true)} className="polygraphy__go-btn">Продолжить оформление</button>
+                    <button onClick={()=> props.handleResume(true)} className="polygraphy__go-btn">Продолжить оформление</button>
                 </div>
             </div>
         </>
