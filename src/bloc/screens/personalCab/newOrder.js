@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PolygraphyCalc from '../polygraphy/polygraphyCalculator';
@@ -28,9 +28,11 @@ const NewOrder = () => {
         dispatch(orTypeCh(state));
         dispatch(signTypeCh(state));
     }
-            return 'new-order__block'
+            
     const handleActiveClass = (state) => {
+        
         if(active !== state) {
+            return 'new-order__block'
         }  else {
             return 'new-order__block new-order__block_active'
         } 
@@ -44,7 +46,7 @@ const NewOrder = () => {
         'uv': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'banner': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'sign': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
-        'polyg': {calc: signCalculator, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
+        'polyg': {calc: <PolygraphyCalc/>, order: <PolygraphyOrder handlerResume = {handlerResume}/>},
         'no': <></>
 
     };
