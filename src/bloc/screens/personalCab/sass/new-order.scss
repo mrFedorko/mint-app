@@ -30,7 +30,7 @@
         align-items: center;
         font-size: 13px;
         cursor: pointer;
-        transition: 0.6s;
+        transition: 0.3s;
         &:hover{
             background-color: $back-color;
             border: 1px solid $back-color;
@@ -42,6 +42,12 @@
             border: 1px solid $back-color;
             box-shadow: $main-shadow;
             border: 1px solid $main-color;
+            &:hover{
+                background-color: $back-color;
+                border: 1px solid $back-color;
+                box-shadow: $minor-shadow;
+                border: 1px solid $main-color;
+            }
         }
     }
 }

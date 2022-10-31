@@ -100,12 +100,27 @@
         justify-content: space-between;
         text-decoration: none;
     }
+    &__login-wrapper{
+        height: 38px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        cursor: default;
+    }
     &__login-text {
         font-size: 12px;
+        line-height: 15px;
         font-weight: 400;
         color: black;
         margin-right: 8px;
         text-decoration: none;
+    }
+    &__login-text_bold{
+        font-size: 11px;
+        font-weight: 800;
+        color: #8971B1;
+        cursor: pointer;
     }
     &__login-block{
         width: 38px;

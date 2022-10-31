@@ -46,8 +46,10 @@ const Header = (props) => {
                     </a>
                 </button>
                 <Link to="/personal" className="header__login">
-                    <div className="header__login-text">{isAuth && name ? `${name}` : 'войти'}</div>
-                    {isAuth ? <div onClick={() => {logout()}} className="header__login-text">выйти</div> : <></>}
+                    <div className="header__login-wrapper">
+                        <div className="header__login-text">{isAuth && name ? `${name}` : 'войти'}</div>
+                        {isAuth ? <div onClick={() => {logout()}} className="header__login-text header__login-text_bold">выйти</div> : <></>}
+                    </div>
                     <div className="header__login-block">
                         <img src="./icons/log_in_icon.png" alt="logo"/>
                     </div>
