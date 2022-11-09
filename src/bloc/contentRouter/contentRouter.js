@@ -8,18 +8,18 @@ import Polygraphy from '../screens/polygraphy/polygraphy';
 import UvPrint from '../screens/uvPrint/uvPrint';
 import Design from '../screens/design/design';
 import Footer from '../footer/footer';
-import { Personal } from '../screens/personalCab/personalCab';
+import { Personal } from '../personalCab/personalCab';
 
 import SignsOrder from '../screens/signs/signsOrder';
 import SignsUseful from '../screens/signs/signsUseful';
 import SignsCalculator from '../screens/signs/signsCalculator';
-import Profile from '../screens/personalCab/profile';
-import NewOrder from '../screens/personalCab/newOrder';
-import Manufacture from '../screens/personalCab/manufacture';
-import History from '../screens/personalCab/history';
-import Help from '../screens/personalCab/help';
-import Review from '../screens/personalCab/review';
-import Settings from '../screens/personalCab/settings';
+import Profile from '../personalCab/profile/profile';
+import NewOrder from '../personalCab/newOrder/newOrder';
+import Manufacture from '../personalCab/manufacture/manufacture';
+import History from '../personalCab/history';
+import Help from '../personalCab/help';
+import Review from '../personalCab/review';
+import Settings from '../personalCab/settings';
 
 
 const ContentRouter = () => {

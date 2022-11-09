@@ -6,19 +6,24 @@ const orderSlice = createSlice({
         orName: '',
         orType: '',
         orDetails: {},
-        orQuan: '',
-        orComment: '',
+        orQuan: '1',
+        orComment: 'you can add comment',
         orStatus: 'notCreated',
         orDate: '',
         orOwner: '',
         orExpDate: '',
-        orLayout: '',
+        orLayout: [],
+        orPrice: 0,
         orDelivery: {
             type: '',
+            town:'',
             adress: '',
-            destination: '',
-
+            comment:'',
         },
+        orReceiver:{  
+            name: '',
+            phone:'',     
+        }
     },
     reducers: {
         orNameCh: (state, action) => {state.orName = action.payload;},
@@ -30,11 +35,52 @@ const orderSlice = createSlice({
         orExpDateCh: (state, action) => {state.orExpDate = action.payload;},
         orLayoutCh: (state, action) => {state.orLayout = action.payload;},
         orDeliveryTypeCh: (state, action) => {state.orDelivery.type = action.payload;},
+        orDeliveryTownCh: (state, action) => {state.orDelivery.town = action.payload;},
+        orDeliveryCommentCh: (state, action) => {state.orDelivery.comment = action.payload;},
         orDeliveryAdressCh: (state, action) => {state.orDelivery.adress = action.payload;},
-        orDeliveryDestinationCh: (state, action) => {state.orDelivery.destination = action.payload;},
+        orReceiverNameCh: (state, action) => {state.orReceiver.name = action.payload;},
+        orReceiverPhoneCh: (state, action) => {state.orReceiver.phone = action.payload;},
+        orPriceCh: (state, action) => {state.orPrice = action.payload;}, 
+
+        orReset: (state) => {
+           state.orName = '';
+           state.orType = '';
+           state.orDetails = {};
+           state.orQuan = '1';
+           state.orComment = 'you can add comment';
+           state.orStatus = 'notCreated';
+           state.orDate = '';
+           state.orOwner = '';
+           state.orExpDate = '';
+           state.orLayout = [];
+           state.orPrice = '';
+           state.orDelivery.type = '';
+           state.orDelivery.town = '';
+           state.orDelivery.adress = '';
+           state.orDelivery.comment = ''; 
+           state.orReceiver.name = '';
+           state.orReceiver.phone = '';
+        }
     },
 });
 
-export const {orNameCh, orTypeCh, orStatusCh, orCommentCh, orDeliveryTypeCh, orDeliveryAdressCh, orDeliveryDestinationCh, orDetailsCh, orExpDateCh, orLayoutCh, orQuanCh} = orderSlice.actions;
+export const {
+    orNameCh, 
+    orTypeCh, 
+    orStatusCh, 
+    orCommentCh, 
+    orDeliveryTypeCh, 
+    orDeliveryAdressCh, 
+    orDeliveryDestinationCh, 
+    orDeliveryTownCh, 
+    orDeliveryCommentCh,
+    orReceiverNameCh,
+    orReceiverPhoneCh,
+    orDetailsCh, 
+    orExpDateCh, 
+    orLayoutCh, 
+    orQuanCh,
+    orPriceCh,
+    orReset} = orderSlice.actions;
 
 export default orderSlice.reducer;

@@ -75,6 +75,7 @@ const SignsCalculator = (props) => {
 
     }
 
+    console.log(signType);
 
     return(
         <div className="calculator fadein">

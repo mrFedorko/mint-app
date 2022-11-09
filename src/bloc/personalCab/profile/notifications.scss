@@ -1,0 +1,12 @@
+@import '../../../sass/base/variables';
+
+.note{
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+
+    &__time{
+        font-weight: 500;
+    }
+}

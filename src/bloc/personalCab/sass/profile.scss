@@ -1,4 +1,4 @@
-@import '../../../../sass/base/variables';
+@import '../../../sass/base/variables';
 
 .profile{
     &__info{
@@ -77,14 +77,15 @@
             width: 30px;
         }
     }
-    &__masseges{
+    &__messages{
         width: 600px;
         background: $back-color;
         border-radius: 20px;
-        padding: 10px 40px 25px 20px;
+        padding: 10px 20px 25px 20px;
         margin-left: 50px;
         transition: 0.5s;
         box-shadow: $main-shadow;
+        overflow-y: scroll;
     }
 }
 

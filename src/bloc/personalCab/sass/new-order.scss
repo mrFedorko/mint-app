@@ -1,4 +1,4 @@
-@import '../../../../sass/base/variables';
+@import '../../../sass/base/variables';
 
 .new-order{
     .container{
@@ -50,6 +50,22 @@
             }
         }
     }
+
+    &__confirm{
+        margin-bottom: 20px;
+        background-color: $main-color;
+        border: none;
+        border-radius: 20px;
+        padding: 5px;
+        height: 45px;
+        width: 225px;
+        font-size: 12px;
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        
+    }
+
 }
 
 .polygraphy{

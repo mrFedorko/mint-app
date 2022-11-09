@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Notifications } from './notifications';
 
 
 
@@ -9,7 +10,7 @@ const Profile = ()=> {
     
 
     return(
-        <div className="profile">
+        <div className="profile fadein">
             <div className="container">
                 <div className="profile__info">
                     <div className="profile__info-inner">
@@ -46,9 +47,12 @@ const Profile = ()=> {
                             </div>
                         </div>
                     </div>
-                    <div className="profile__masseges">
-                    <div className="profile__block-heading">Уведомления</div>
+                    <div className="profile__messages">
+                    <div className="profile__block-heading">Уведомления
+                        <Notifications/>
                     </div>
+                    </div>
+
                 </div>
             </div>
         </div>

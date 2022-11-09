@@ -17,14 +17,25 @@ const baseQuery = fetchBaseQuery({
 })
 
 const baseQueryWithReauth = async (args, api, extraOptions) => {
+    console.log('args____', args);
+    console.log('api____', api);
+    console.log('extra____', extraOptions);
+
     let result = await baseQuery(args, api, extraOptions);
+    
+    if(result?.error?.status){
+        result?.error?.status === "FETCH_ERROR" && api.dispatch(sMessageCh('Ошибка соединения с сервером'));
+        console.log(result)
+    }
+    
+    
     if(result?.data?.clientMessage){
         api.dispatch(sMessageCh(result.data.clientMessage))
     };
     if(result?.error?.data.clientMessage){
         api.dispatch(sMessageCh(result.error.data.clientMessage))
     };
-    if(result?.error?.originalStatus === (401 || 403)) {
+    if(result?.error?.originalStatus === 401 || result?.error?.originalStatus === 403 ) {
         console.log('sending refresh token');
         const refreshResult = await baseQuery('/refresh', api, extraOptions);
         if(refreshResult?.data) {
@@ -42,5 +53,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
 export const api = createApi({
     baseQuery: baseQueryWithReauth,
+    tagTypes: ['Order'],
     endpoints: builder => ({})
 })

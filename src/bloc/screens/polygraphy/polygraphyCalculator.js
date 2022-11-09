@@ -1,21 +1,52 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { productTypeCh, densityCh, quanCh, sizeCh } from '../../../store/polygraphySlice.js';
+import { productTypeCh, densityCh, quanCh, sizeCh, descrCh, polygPriceCh, descrSizeCh, polygSideCh, descrQuanCh, descrDensityCh } from '../../../store/polygraphySlice.js';
 
 import data from '../../../services/polygraphy.json';
 import price from '../../../services/polygraphyPrise.json';
 
 
 
-
 const PolygraphyCalc = (props) => {
-    const {productType, quan, size, density} = useSelector((state) => state.polygraphy);
+    const {productType, quan, size, density, side} = useSelector((state) => state.polygraphy);
     const dispatch = useDispatch();
-    
+
+
+   
+    const handleProuctType = (item) => {
+        dispatch(productTypeCh(item[1].value));
+        dispatch(descrCh(item[1].descr));
+    };
+
+    const handleQuan = (item) => {
+        dispatch(quanCh(item.quan));
+        dispatch(descrQuanCh(item.descr));
+    };
+
+    const handleDensity = (item) => {
+        dispatch(densityCh(item.density));
+        dispatch(descrDensityCh(item.descr));
+    };
+
+    const handleSize = (item) => {
+        dispatch(sizeCh(item.size));
+        dispatch(descrSizeCh(item.descr));
+    };
+
+    const handleActiveClass = (comparable, match) => {
+        if(comparable !== match){
+            return 'polygraphy__select'
+        } else {
+            return 'polygraphy__select polygraphy__select_active'
+        }
+    }
+
+
+
     const productContent = Object.entries(data).map((item, index) => {
         return(
-            <div key = {index} className={item[1].value !== productType ? "polygraphy__select" : "polygraphy__select polygraphy__select_active"} onClick={() => dispatch(productTypeCh(item[1].value))}>
+            <div key = {index} className={handleActiveClass(item[1].value, productType)} onClick={() => handleProuctType(item)}>
                 <div className="polygraphy__select-img"><img src={item[1].image} style= {{width: item[1].imageWidth}} alt={item[1].value}/></div>
                 <div className="polygraphy__select-text">{item[1].descr}</div>
             </div>
@@ -32,9 +63,9 @@ const PolygraphyCalc = (props) => {
         
         sizeContent = data[productType].size.map((item, index) => {
             return(
-                <div key={index} className={item.size !== size ? "polygraphy__select" : "polygraphy__select polygraphy__select_active"}  onClick = {() => dispatch(sizeCh(item.size))}>
+                <div key={index} className={handleActiveClass(item.size, size)}  onClick = {() => handleSize(item)}>
                     {
-                    productType === 'card' ? 
+                    item.image ? 
                     <div className="polygraphy__select-img"><img src={item.image} style= {{width: "25px"}} alt="card"/></div>:
                     ''
                     }
@@ -45,26 +76,25 @@ const PolygraphyCalc = (props) => {
 
         quanContent = data[productType].quan.map((item, index) => {
             return(
-                <div key={index} active className={item.quan !== quan ? "polygraphy__select" : "polygraphy__select polygraphy__select_active"} onClick={() => dispatch(quanCh(item.quan))}>{item.descr} </div>
+                <div key={index} active className={handleActiveClass(item.quan, quan)} onClick={() => handleQuan(item)}>{item.descr} </div>
             )
         });
 
         densityContent = data[productType].density.map((item, index) =>{
             return(
-                <div key={index} className={item.density !== density ? "polygraphy__select" : "polygraphy__select polygraphy__select_active"} onClick={() => dispatch(densityCh(item.density))}>{item.descr}</div>
+                <div key={index} className={handleActiveClass(item.density, density)} onClick={() => handleDensity(item)}>{item.descr}</div>
             )
         } )
     }
 
     if(productType && size && density && quan){
         try {
-            totalPrice = price[productType][size][density][quan];    
+            totalPrice = price[productType][size][density][quan];
+            dispatch(polygPriceCh(totalPrice));
         } catch (error) {
             totalPrice = 'цена не определена';
         }
-
     }
-
 
     return(
         <>
@@ -97,21 +127,25 @@ const PolygraphyCalc = (props) => {
             </div>
             <div className="polygraphy__row">
                 <div className="polygraphy__sides">
-                    {/* <label className='polygraphy__sides-wrap' >
-                        <input className="polygraphy__cell" type="checkbox"/>Односторонняя печать
+                    <label className='polygraphy__sides-wrap' >
+                        <input 
+                            className="polygraphy__cell" 
+                            type="checkbox" 
+                            value={'single'}
+                            checked = {side === 'single'}  
+                            onChange = {(e) => dispatch(polygSideCh(e.target.value))}
+                        />Односторонняя печать
                     </label>
                     <label className='polygraphy__sides-wrap' >
-                        <input className="polygraphy__cell"type="checkbox"/>Двусторонняя печать
-                    </label> */}
+                        <input 
+                            className="polygraphy__cell" 
+                            type="checkbox" 
+                            value={'double'}
+                            checked = {side === 'double'}  
+                            onChange = {(e) => dispatch(polygSideCh(e.target.value))}
+                        />Двусторонняя печать
+                    </label>
 
-                    <div className="polygraphy__sides-wrap">
-                        <div className="polygraphy__cell"></div>
-                        <span className="polygraphy__sides-need">Односторонняя печать</span>
-                    </div>
-                    <div className="polygraphy__sides-wrap">
-                        <div className="polygraphy__cell"></div>
-                        <span className="polygraphy__sides-need">Двусторонняя печать</span>
-                    </div>
                 </div>
                 <div className="polygraphy__result">
                     <span className="polygraphy__price">{totalPrice + ' руб'}</span>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGetSettingsQuery, useSetSettingsMutation } from '../../../store/api/settingsApi';
+import { useGetSettingsQuery, useSetSettingsMutation } from '../../store/api/settingsApi';
 
-import { nameCh,  phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, TINCh, entityNameCh, entityCh, settingsCh } from '../../../store/userSettingsSlice';
+import { nameCh,  phoneCh, adressCh, BIKCh, bankCh, corCheckCh, checkCh, OGRNCh, TINCh, entityNameCh, entityCh, settingsCh } from '../../store/userSettingsSlice';
 
 import './sass/settings.scss';
 
@@ -24,8 +24,6 @@ const Settings = () => {
         await setSettings({id: userId, settings});
     };
 
-    console.log('data from servv=er-------------------', data) ///del
-    console.log('data from STORE-------------------', settings) ///del
 
     return ( 
         <div className="container">

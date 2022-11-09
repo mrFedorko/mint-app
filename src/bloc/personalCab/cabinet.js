@@ -9,7 +9,7 @@ import './sass/profile.scss';
 import './sass/new-order.scss';
 import './sass/manufacture.scss';
 import { useSelector } from 'react-redux';
-import { useGetSettingsQuery } from '../../../store/api/settingsApi';
+import { useGetSettingsQuery } from '../../store/api/settingsApi';
 
 const Cabinet =  () => {
 

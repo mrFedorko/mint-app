@@ -22,7 +22,6 @@ export const ServerMessage = () => {
     useEffect(() => {
         const timerId = setTimeout(() => {
             dispatch(sMessageCh(''));
-            console.log('dispatch');
             clearTimeout(timerId);
         }, 3000);
 

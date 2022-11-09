@@ -30,11 +30,11 @@
         "imageWidth" : "25px",
         "value": "flyer",
         "size" : [
-                  {"size": "s90x50", "descr": "FLAYER 90×50 мм (стандарт)"},
-                  {"size": "s180x50", "descr": "FLAYER 180×50 мм (двойная)"},
-                  {"size": "s90x100", "descr": "FLAYER 90×100 мм (двойная)"},
-                  {"size": "s85x55", "descr": "FLAYER 85×55 мм (евровизитка)"},
-                  {"size": "s170x55", "descr": "FLAYER 170×55 мм (двойная)"}
+                  {"size": "s90x50f", "descr": "FLAYER 90×50 мм (стандарт)"},
+                  {"size": "s180x50f", "descr": "FLAYER 180×50 мм (двойная)"},
+                  {"size": "s90x100f", "descr": "FLAYER 90×100 мм (двойная)"},
+                  {"size": "s85x55f", "descr": "FLAYER 85×55 мм (евровизитка)"},
+                  {"size": "s170x55f", "descr": "FLAYER 170×55 мм (двойная)"}
 
                 ],
         "density" : [

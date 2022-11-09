@@ -32,10 +32,26 @@ const signSlice = createSlice({
         heightCh: (state, action) =>{state.calculator.height = action.payload;},
         signMaterialCh: (state, action) =>{state.calculator.signMaterial = action.payload;},
         bannerPostWorkCh: (state, action) =>{state.calculator.bannerPostWork = action.payload;},
+
+        resetSign: (state) => {
+            state.calculator.main = 'sign';
+            state.calculator.signType = '';
+            state.calculator.type = '';
+            state.calculator.light ='';
+            state.calculator.colored = '';
+            state.calculator.sideColor = '';
+            state.calculator.faceColor = '';
+            state.calculator.word = '';
+            state.calculator.size = '';
+            state.calculator.width  = '';
+            state.calculator.height = '';
+            state.calculator.signMaterial = '';
+            state.calculator.bannerPostWork = '';
+        }
       
     },
 });
 
-export const { signTypeCh, typeCh, lightCh, coloredCh, sideColorCh, faceColorCh, wordCh, sizeCh, widthCh, heightCh, signMaterialCh, bannerPostWorkCh} = signSlice.actions;
+export const { signTypeCh, typeCh, lightCh, coloredCh, sideColorCh, faceColorCh, wordCh, sizeCh, widthCh, heightCh, signMaterialCh, bannerPostWorkCh, resetSign} = signSlice.actions;
 
 export default signSlice.reducer;

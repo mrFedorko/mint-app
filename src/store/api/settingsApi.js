@@ -13,7 +13,7 @@ export const settingsApi = api.injectEndpoints({
                 try {
                     const data = (await queryFulfilled).data;
                     dispatch(settingsCh(data))
-                    console.log(data)
+
 
                 } catch (error) {
                     console.error(error, ' couldnt fetch userdata')
