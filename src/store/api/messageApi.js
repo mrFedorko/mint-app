@@ -22,7 +22,7 @@ export const socketApi = api.injectEndpoints({
             },
           }),
         getMessages: builder.query({
-            query: () => ({data:[]}),
+            query: () => ({url: '/', data:[]}),
             async onCacheEntryAdded(
                 _, {cacheDataLoaded, cacheEntryRemoved, updateCachedData}
             ){
@@ -31,6 +31,7 @@ export const socketApi = api.injectEndpoints({
                     const socket = io(c.baseApiUrl,{withCredentials: true});
 
                     socket.on('connect', () => {
+                        console.log('connect from client')
                         socket.emit(events.getMessages);
                     });
 
