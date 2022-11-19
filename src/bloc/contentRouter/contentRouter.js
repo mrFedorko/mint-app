@@ -16,7 +16,7 @@ import Profile from '../personalCab/profile/profile';
 import NewOrder from '../personalCab/newOrder/newOrder';
 import Manufacture from '../personalCab/manufacture/manufacture';
 import History from '../personalCab/history';
-import Help from '../personalCab/help';
+import Help from '../personalCab/help/help';
 import Review from '../personalCab/review';
 import Settings from '../personalCab/settings';
 
