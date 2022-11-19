@@ -24,7 +24,7 @@
         border: 1px solid $medium-gray;
         border-radius: 20px;
         height: 90px;
-        width: 220px;
+        width: 210px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -76,7 +76,7 @@
         width: 100%;
     }
     &__inner{
-        width: 220px;
+        width: 210px;
         background-color: #f7f7f7;
         box-shadow: $main-shadow;
         border-radius: 20px;
@@ -351,6 +351,11 @@
         }
         &__sides-need{
             font-size: 11px;
+        }
+        &__cell{
+            box-shadow: none;
+            accent-color: gray;
+
         }
 
         &__go-btn{

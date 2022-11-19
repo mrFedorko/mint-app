@@ -1,0 +1,225 @@
+@import '../../../sass/base/variables';
+p{
+    margin-bottom: 0;
+}
+
+.help{
+    .container{
+        padding-top: 30px;
+        padding-bottom: 20px;
+    }
+
+    &__heading{
+        font-size: 15px;
+        margin-bottom: 5px;
+        text-align: center;
+    }
+    &__slogan{
+        width: 100%;
+        font-size: 13px;
+        background-color: $back-color;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    &__wrap{
+        display: flex;
+        justify-content: space-between;
+    }
+   
+}
+
+.chat{
+    width: 47%;
+    height: 400px;
+    background-color: $medium-gray;
+    border-radius: 15px;
+    padding: 10px 5px 5px 20px;
+    transition: 0.5s;
+    box-shadow: $main-shadow;
+    &__block-heading{
+        font-size: 11px;
+        color: $main-color;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__messages{
+        // scroll settings
+        height: 295px;
+        font-size: 13px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        padding: 2px 10px 2px 0px;
+
+        &::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: rgb(219, 219, 219);
+            border-radius: 100px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: white;
+            border-radius: 100px;
+            border: 3px solid white;
+        }
+    }
+    &__message{
+        border-radius: 25px;
+        position: relative;
+        padding: 10px 15px 25px 15px;
+        margin: 10px 0 ;
+        &-answer{
+            background-color: $main-color;
+            color: white;
+            border-bottom-left-radius: 0;
+            margin-right: 40px;
+        }
+        &-question{
+            background-color: white;
+            color: black;
+            border-bottom-right-radius: 0;
+            margin-left: 40px;
+        }
+        &-text{
+            font-size: 13px;
+        }
+        &-time{
+            position: absolute;
+            font-size: 10px;
+            font-weight: 500;
+            color: $medium-gray;
+            bottom: 2px;
+            
+            &-left{
+                left: 10px;
+            }
+
+            &-right{
+                right: 10px;
+            }
+        }
+    }
+    &__input-group{
+        height: 44px;
+        border-radius: 22px;
+        border-bottom-right-radius: 0;
+        padding: 8px;
+        margin: 10px 0 ;
+        background-color: white;
+        color: black;
+        margin-left: 40px;
+        margin-right: 26px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__input-text{
+        width: calc(100% - 70px);
+        box-shadow: none;
+        &:focus-visible{
+            border: none;
+            outline-style: none;
+        }
+    }
+    &__send{
+        height: 34px;
+        width: 34px;
+        border-radius: 17px;
+        // border: 2px solid black;
+        border: none;
+        background-color: $medium-gray;
+        box-shadow: $minor-shadow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.1s;
+        &:hover{
+            height: 35px;
+            width: 35px;
+    
+        }
+    }
+    &__bottom{
+        width: 100%;
+    }
+
+}
+
+.faq{
+    width: 47%;
+    height: 400px;
+    background-color: $medium-gray;
+    border-radius: 15px;
+    padding: 10px 5px 5px 20px;
+    transition: 0.5s;
+    box-shadow: $main-shadow;
+    &__block-heading{
+        font-size: 11px;
+        color: $main-color;
+        font-weight: 700;
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__content{
+        height: 360px;
+        font-size: 13px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+        padding: 2px 10px 2px 0px;
+
+        &::-webkit-scrollbar {
+            width: 11px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: rgb(219, 219, 219);
+            border-radius: 100px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: white;
+            border-radius: 100px;
+            border: 3px solid white;
+        }
+    }
+
+    &__chapter{
+        width: 100%;
+        background-color: white;
+        padding: 7px;
+        border-radius: 15px;
+        border-bottom-right-radius: 0;
+        transition: 1s;
+        margin-bottom: 10px;
+    }
+}
+
+
+@media (max-width: 767px){
+    .help{
+        .container{
+            padding-top: 20px;
+        }
+        &__wrap{
+            flex-direction: column;
+            justify-content: center;
+        }
+       
+    }
+    .chat{
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .faq{
+        width: 100%;
+    }
+}

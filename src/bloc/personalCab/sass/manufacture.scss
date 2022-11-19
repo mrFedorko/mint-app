@@ -182,7 +182,7 @@
             margin: 0;
         }
         &__definition{
-            width: 70%;
+            max-width: 70%;
             margin: 0;
         }
         &__control{
@@ -210,4 +210,15 @@
     }
 }
 @media (max-width: 575px) {
+    .manu{
+        &__strip{
+            justify-content: center;
+        }
+        &__wrapper{
+            max-width: 360px;
+        }
+        &__info{
+            justify-content: center;
+        }
+    }    
 }

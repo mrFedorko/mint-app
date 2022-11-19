@@ -7,7 +7,6 @@ import Signs from '../screens/signs/signs';
 import Polygraphy from '../screens/polygraphy/polygraphy';
 import UvPrint from '../screens/uvPrint/uvPrint';
 import Design from '../screens/design/design';
-import Footer from '../footer/footer';
 import { Personal } from '../personalCab/personalCab';
 
 import SignsOrder from '../screens/signs/signsOrder';
@@ -49,8 +48,6 @@ const ContentRouter = () => {
                 </Route>
 
             </Routes>
-            <Footer/>
-
         
         </>
 
