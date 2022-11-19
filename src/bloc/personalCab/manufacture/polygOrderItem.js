@@ -3,12 +3,12 @@ import { retranslate } from "../../../services/retranslate"
 
 export const PolygOrderItem = (props) => {
     
-    const {date, details, name, status, price, payStatus, expDate} = props.order
+    const {date, details, name, status, price, payStatus, expDate, key} = props.order
     const index = props.index
     const { rtlData, rtlStatus, rtlPayStatus, rtlSide } = retranslate()
 
     return (
-        <div className="manu__strip">
+        <div className="manu__strip" key={key}>
             <div className="manu__number">{index}</div>
             <div className="manu__wrapper">
                 <div className="manu__date">Заказ от {rtlData(date, true)}</div>

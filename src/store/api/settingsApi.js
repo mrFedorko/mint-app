@@ -7,7 +7,7 @@ export const settingsApi = api.injectEndpoints({
     endpoints: builder => ({
         getSettings: builder.query({
             query: (id) => ({
-                url: `/settings/get/${id}`,
+                url: `/api/settings/get/${id}`,
             }),
             async onQueryStarted (_, {dispatch, queryFulfilled}){
                 try {

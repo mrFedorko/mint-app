@@ -18,6 +18,7 @@ const Cabinet =  () => {
     const {userId, isAuth} = useSelector(state=>state.auth);
 
     useGetSettingsQuery(userId);
+
     
     useEffect(() => {
         setActive('profile')

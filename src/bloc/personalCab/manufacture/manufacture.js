@@ -5,18 +5,15 @@ import { PolygOrderItem } from './polygOrderItem';
 const Manufacture =  () => {
     const {userId} = useSelector(state => state.auth)
     const {data, isSuccess} =  useGetAllOrdersQuery(userId);
-    let content = <></>
 
-    
+    let content;
 
     if(isSuccess){
         
-        const {orders} = data;
+        const {orders} =  data;
+
         content = orders.map((item, index) => {
-            const {id} = item;
-            return (
-                <PolygOrderItem index={index+1} order={item} key={id}/>
-            )
+               return  <PolygOrderItem key={item.id}  index={index+1} order={item} /> 
         } )
 
         if(data.orders.length === 0){

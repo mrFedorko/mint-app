@@ -3,8 +3,11 @@ import { setCredentials, clearStore } from '../authSlice';
 import c from '../../config.json'
 import { sMessageCh } from '../sMessageSlice';
 
+let baseUrl = (c.mode === 'dev' ? c.baseLocalApiUrl :  c.baseApiUrl)
+
+
 const baseQuery = fetchBaseQuery({
-    baseUrl: c.baseApiUrl,
+    baseUrl,
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
 

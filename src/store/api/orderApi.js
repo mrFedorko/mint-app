@@ -6,7 +6,7 @@ export const newOrderApi = api.injectEndpoints({
     endpoints: builder => ({
         createOrder: builder.mutation({
             query: (orderData) => ({
-                url: `/order/create`,
+                url: `/api/order/create`,
                 method: 'POST',
                 body: orderData,
             }),
@@ -22,7 +22,7 @@ export const newOrderApi = api.injectEndpoints({
         }),
         getAllOrders: builder.query({
             query: (userId) => ({
-                url: `/order/getall/${userId}`,
+                url: `/api/order/getall/${userId}`,
             }),
             providesTags: ['Order'],
         }),

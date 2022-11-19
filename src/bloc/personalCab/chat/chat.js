@@ -1,56 +1,57 @@
+
+import { ChatMessage } from "./chatMessage";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useGetMessagesQuery, useSendMessageMutation } from "../../../store/api/messageApi"
-import { ChatMessage } from "./chatMessage";
+import { wsConnection } from "../../../store/ws/ws";
+import { useEffect } from "react";
+import { useGetAllMessagesQuery } from "../../../store/api/chatApi";
+
 
 export const Chat = () => {
-
+    const {userId} = useSelector(state=>state.auth)
     const [message, setMessage] = useState('');
-    const userId = useSelector(state=> state.auth)
-    const {data, isLoading} = useGetMessagesQuery();
-    const [sendMessage, {_}] = useSendMessageMutation();
+    const {data, isLoading, isSuccess, isError} = useGetAllMessagesQuery(userId);
+    
+    
 
-    if(!data){
-        return(
-            <h3>Сообщений нет</h3>
-        )
-    }
+  
 
-    const messages = data.map(msg=>{
-        const {time, text, sender} = msg
-        return (
-            <ChatMessage time = {time} text={text} sender={sender}/>
-        )
-    })
 
-    const handleSendMsg = () => {
-        if(!message || message.split('')
-        .filter(item=> item !== ' ')
-        .length === 0){
-            return 
+    
+    const handleMsg = async (event) => {
+        if(!message || message.split('').filter(item=> item !== ' ').length === 0){
+            return
         }
         const body = {
             text: message,
-            time: Date.now(),
-            sender: 'user',
+            date: Date.now(),
             owner: userId,
+            from: 'user'
         }
-        sendMessage(body)
-    }
+        
+        wsConnection.send(JSON.stringify(body));
+        setMessage('')
+
+        return false;
+    };
+ 
 
 
     return(
         <div className="chat">
-            {isLoading ? <h3>Загрузка сообщений...</h3> : {messages}}
+             <h3>Загрузка сообщений...</h3> 
             <div className="chat__input-group">
                 <input 
                     type="text" 
                     className="chat__input"
-                    onChange={(e) => setMessage(e.target.value)} 
+                    onChange={(e) => setMessage(e.target.value)}
+                    value={message}
+                    
                 />
                 <button 
                     className="chat__btn"
-                    onclick = {handleSendMsg}
+                    children="отправить"
+                    onClick = {handleMsg}
                 />
             </div>
         </div>

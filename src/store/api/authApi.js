@@ -6,13 +6,12 @@ export const authApi = api.injectEndpoints({
     endpoints: builder => ({
         login: builder.mutation({
             query: credentials => ({
-                url: '/auth',
+                url: '/api/auth',
                 method: 'POST',
                 body: {...credentials}
             }),
             async onQueryStarted (args, {dispatch, getState}){
                 try {
-                    console.log(args)
                 } catch (error) {
                     dispatch(sMessageCh('Ошибка соединения с сервером'))
                 }
