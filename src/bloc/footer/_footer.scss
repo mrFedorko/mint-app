@@ -1,9 +1,12 @@
 .footer {
     height: 40vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #3a2957;
+    position: absolute;
+    bottom: 0;
     &__info {
         display: flex;
         flex-direction: column;

@@ -46,6 +46,13 @@
         color: white;
         border: none;
         box-shadow: $main-shadow;
+        &-exit{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $yellow-color;
+            color: black;
+        }
     }
 }
 
