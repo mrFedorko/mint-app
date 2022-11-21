@@ -8,9 +8,9 @@ export const ChatMessage = (props) =>  {
     let style;
 
     if(from && from === 'admin'){
-        style = "chat__message chat__message-answer"
+        style = "chat__message chat__message-answer animate__animated animate__slideInRight"
     } else {
-        style = 'chat__message chat__message-question'
+        style = 'chat__message chat__message-question animate__animated animate__slideInRight'
     }
     
     return(

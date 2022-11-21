@@ -4,6 +4,7 @@ export const Faq = () => {
         <div className="faq">
             <div className="faq__block-heading">
                 <div className="faq__block-title">Частые вопросы</div>
+                <div className="faq__block-heading-shadow"></div>
             </div>
             <div className="faq__content">
                 <details className="faq__chapter">

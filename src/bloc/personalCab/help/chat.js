@@ -47,6 +47,7 @@ export const Chat = () => {
                               
                             <div className="chat__block-heading">
                                 <div className="chat__block-title">Чат</div>
+                                <div className="chat__block-heading-shadow"></div>
                             </div>
                             <div className="chat__messages">
                                 <h5>Нет сообщений.</h5>
@@ -80,6 +81,7 @@ export const Chat = () => {
         'isError':  <div className="chat">      
                         <div className="chat__block-heading">
                             <div className="chat__block-title">Чат</div>
+                            <div className="chat__block-heading-shadow"></div>
                         </div>
                         <h4>Произошла ошибка, <br/>поробуйте обновить страницу</h4>
                     </div>,
@@ -87,6 +89,7 @@ export const Chat = () => {
                               
                             <div className="chat__block-heading">
                                 <div className="chat__block-title">Чат</div>
+                                <div className="chat__block-heading-shadow"></div>
                             </div>
                             <h4>Загрузка сообщений...</h4>
                         </div>,
@@ -94,6 +97,7 @@ export const Chat = () => {
                               
                         <div className="chat__block-heading">
                             <div className="chat__block-title">Чат</div>
+                            <div className="chat__block-heading-shadow"></div>
                         </div>
                         <div className="chat__messages">
 
@@ -102,12 +106,13 @@ export const Chat = () => {
                         </div>
 
                         <div className="chat__bottom">
+                            <div className="chat__bottom-shadow"></div>
                             <div className="chat__input-group">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
                                     <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
                                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                                 </svg>
-                                <input 
+                                <textarea 
                                     type="text" 
                                     className="chat__input-text"  
                                     placeholder="Напишите нам..."

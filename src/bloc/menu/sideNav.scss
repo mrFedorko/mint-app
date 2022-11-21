@@ -6,7 +6,7 @@
     width: 88px;
     height: 100vh;
     padding-top: 59px;
-    z-index: 4;
+    z-index: 1;
     
     &__list {
       margin: 0 auto;
@@ -66,7 +66,7 @@
         display: block;
         animation-duration: 0.3s;
         animation-name: slidein;
-        z-index: 2;
+        z-index: 1008;
         overflow: auto;
         overflow-x: hidden;
         scrollbar-width: thin;
