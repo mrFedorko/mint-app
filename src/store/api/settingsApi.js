@@ -22,7 +22,7 @@ export const settingsApi = api.injectEndpoints({
         }),
         setSettings: builder.mutation({
             query: (user) => ({
-               url: `/settings/set/${user.id}`,
+               url: `/api/settings/set/${user.id}`,
                method: 'POST',
                body: user.settings,
             }),

@@ -1,28 +1,30 @@
 
 import { ChatMessage } from "./chatMessage";
 import { useState } from "react";
-import { connect, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { wsConnection } from "../../../store/ws/ws";
-import { useEffect } from "react";
 import { useGetAllMessagesQuery } from "../../../store/api/chatApi";
+import { useEffect } from "react";
 
 
 export const Chat = () => {
     const {userId} = useSelector(state=>state.auth)
     const [message, setMessage] = useState('');
+    const [allMessages, setAllMessages] = useState([]);
     const {data, isLoading, isSuccess, isError} = useGetAllMessagesQuery(userId);
 
-    let messages = [];
-
-    if(data && isSuccess){
-        messages = data.currentChat.messages.map((item, index) => {
-            const {from, text, date, like, _id} = item;
-            console.log(item)
-            return <ChatMessage key={_id} from={from}  text={text} date={date} like={like} />
-        })
-    }
+    useEffect(() => {
+        if(data && isSuccess){
+            setAllMessages(data.currentChat.messages.map((item) => {
+                const {from, text, date, like, _id} = item;
+                return <ChatMessage key={_id} from={from}  text={text} date={date} like={like} />
+            }))
+        }
+    }, [data, isSuccess])
+    
 
     const handleMsg = async (event) => {
+
         if(!message || message.split('').filter(item=> item !== ' ').length === 0){
             return
         }
@@ -34,10 +36,16 @@ export const Chat = () => {
         }
         
         wsConnection.send(JSON.stringify(body));
-        setMessage('')
+        setMessage('');
 
         return false;
     };
+
+    wsConnection.addEventListener('message', (event) => {
+        const {from, text, date, like, _id} = JSON.parse(event.data);
+        const newMessage = <ChatMessage key={_id} from={from}  text={text} date={date} like={like} />
+        setAllMessages([...allMessages, newMessage])
+    });
     
 
  
@@ -51,7 +59,7 @@ export const Chat = () => {
                             </div>
                             <div className="chat__messages">
                                 <h5>Нет сообщений.</h5>
-                                {messages}
+                                {allMessages}
 
                             </div>
 
@@ -61,7 +69,8 @@ export const Chat = () => {
                                         <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                                     </svg>
-                                    <input 
+                                    <input
+                                        value={message} 
                                         type="text" 
                                         className="chat__input-text"  
                                         placeholder="Напишите нам..."
@@ -82,6 +91,7 @@ export const Chat = () => {
                         <div className="chat__block-heading">
                             <div className="chat__block-title">Чат</div>
                             <div className="chat__block-heading-shadow"></div>
+
                         </div>
                         <h4>Произошла ошибка, <br/>поробуйте обновить страницу</h4>
                     </div>,
@@ -90,6 +100,7 @@ export const Chat = () => {
                             <div className="chat__block-heading">
                                 <div className="chat__block-title">Чат</div>
                                 <div className="chat__block-heading-shadow"></div>
+
                             </div>
                             <h4>Загрузка сообщений...</h4>
                         </div>,
@@ -98,15 +109,17 @@ export const Chat = () => {
                         <div className="chat__block-heading">
                             <div className="chat__block-title">Чат</div>
                             <div className="chat__block-heading-shadow"></div>
+
                         </div>
                         <div className="chat__messages">
 
-                            {messages}
+                            {allMessages}
 
                         </div>
 
                         <div className="chat__bottom">
-                            <div className="chat__bottom-shadow"></div>
+                        <div className="chat__bottom-shadow"></div>
+
                             <div className="chat__input-group">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-file-plus" viewBox="0 0 16 16">
                                     <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>

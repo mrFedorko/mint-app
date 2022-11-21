@@ -23,7 +23,6 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReauth = async (args, api, extraOptions) => {
 
     let result = await baseQuery(args, api, extraOptions);
-    
     if(result?.error?.status){
         result?.error?.status === "FETCH_ERROR" && api.dispatch(sMessageCh('Ошибка соединения с сервером'));
         console.log(result)
@@ -38,7 +37,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     };
     if(result?.error?.originalStatus === 401 || result?.error?.originalStatus === 403 ) {
         console.log('sending refresh token');
-        const refreshResult = await baseQuery('/refresh', api, extraOptions);
+        const refreshResult = await baseQuery('/api/refresh', api, extraOptions);
         if(refreshResult?.data) {
             const email = api.getState().auth.email;
             api.dispatch(setCredentials({...refreshResult.data, email}))
