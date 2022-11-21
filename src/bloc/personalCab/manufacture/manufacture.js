@@ -13,7 +13,7 @@ const Manufacture =  () => {
         const {orders} =  data;
 
         content = orders.map((item, index) => {
-               return  <PolygOrderItem key={item.id}  index={index+1} order={item} /> 
+               return  <PolygOrderItem key={item._id}  index={index+1} order={item} /> 
         } )
 
         if(data.orders.length === 0){

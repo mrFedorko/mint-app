@@ -9,9 +9,9 @@ export const chatApi = api.injectEndpoints({
             // async onQueryStarted(_,{dispatch}){
             //     console.log('fetching')
             // },
-            providesTags: ['Order'],
         }),
+       
     }),
 });
 
-export const { useGetAllMessagesQuery } = chatApi
+export const { useGetAllMessagesQuery, useSendMessageMutation } = chatApi
