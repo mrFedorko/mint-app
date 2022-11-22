@@ -4,7 +4,7 @@ import { useState } from "react";
 import {  useSelector } from "react-redux";
 import { wsConnection } from "../../../store/ws/ws";
 import { useGetAllMessagesQuery } from "../../../store/api/chatApi";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 
 export const Chat = () => {
@@ -12,6 +12,8 @@ export const Chat = () => {
     const [message, setMessage] = useState('');
     const [allMessages, setAllMessages] = useState([]);
     const {data, isLoading, isSuccess, isError} = useGetAllMessagesQuery(userId);
+    const bottomRef = useRef(null);
+    const inputRef = useRef(null);
 
     useEffect(() => {
         if(data && isSuccess){
@@ -44,8 +46,12 @@ export const Chat = () => {
     wsConnection.addEventListener('message', (event) => {
         const {from, text, date, like, _id} = JSON.parse(event.data);
         const newMessage = <ChatMessage key={_id} from={from}  text={text} date={date} like={like} />
-        setAllMessages([...allMessages, newMessage])
+        setAllMessages([...allMessages, newMessage]);
     });
+
+    useEffect( () => {
+        bottomRef.current?.scrollIntoView({behavior: 'smooth', block: "nearest"});
+    }, [allMessages])
     
 
  
@@ -69,8 +75,8 @@ export const Chat = () => {
                                         <path d="M8.5 6a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V10a.5.5 0 0 0 1 0V8.5H10a.5.5 0 0 0 0-1H8.5V6z"/>
                                         <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                                     </svg>
-                                    <input
-                                        value={message} 
+                                    <textarea 
+                                        value={message}
                                         type="text" 
                                         className="chat__input-text"  
                                         placeholder="Напишите нам..."
@@ -114,7 +120,7 @@ export const Chat = () => {
                         <div className="chat__messages">
 
                             {allMessages}
-
+                            <div className="" ref={bottomRef}></div>
                         </div>
 
                         <div className="chat__bottom">
@@ -126,6 +132,7 @@ export const Chat = () => {
                                     <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
                                 </svg>
                                 <textarea 
+                                    value={message}
                                     type="text" 
                                     className="chat__input-text"  
                                     placeholder="Напишите нам..."

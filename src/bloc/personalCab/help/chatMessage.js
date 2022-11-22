@@ -8,15 +8,15 @@ export const ChatMessage = (props) =>  {
     let style;
 
     if(from && from === 'admin'){
-        style = "chat__message chat__message-answer animate__animated animate__slideInRight"
+        style = {wrap: "chat__message chat__message-answer animate__animated animate__backInLeft", time: "chat__message-time chat__message-time-left"}
     } else {
-        style = 'chat__message chat__message-question animate__animated animate__slideInRight'
+        style = {wrap: "chat__message chat__message-question animate__animated animate__backInRight", time: "chat__message-time chat__message-time-right"}
     }
     
     return(
-            <div className={style}>
+            <div className={style.wrap}>
                 <p className="chat__message-text">{text}</p>
-                <p className="chat__message-time chat__message-time-left">{rtlData(date, true)}</p>
+                <p className={style.time}>{rtlData(date, true)}</p>
             </div>        
     )
 }
