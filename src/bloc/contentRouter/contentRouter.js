@@ -7,7 +7,7 @@ import Signs from '../screens/signs/signs';
 import Polygraphy from '../screens/polygraphy/polygraphy';
 import UvPrint from '../screens/uvPrint/uvPrint';
 import Design from '../screens/design/design';
-import { Personal } from '../personalCab/personalCab';
+import { PersonalEnter } from '../personalCab/personalEnter';
 
 import SignsOrder from '../screens/signs/signsOrder';
 import SignsUseful from '../screens/signs/signsUseful';
@@ -37,7 +37,7 @@ const ContentRouter = () => {
                     <Route path="/signs/order" element = {<SignsOrder/>}/>
                 </Route>
                 <Route path="/polygraphy" element = {<Polygraphy/>}/>
-                <Route path="/personal" element = {<Personal/>}>
+                <Route path="/personal" element = {<PersonalEnter/>}>
                     <Route index path="/personal" element = {<Profile/>}/>
                     <Route path="/personal/neworder" element = {<NewOrder/>}/>
                     <Route path="/personal/manufacture" element = {<Manufacture/>}/>

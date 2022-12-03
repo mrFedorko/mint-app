@@ -20,11 +20,11 @@ export const authApi = api.injectEndpoints({
         }),
         logout: builder.mutation({
             query: () => ({
-                url: '/logout'
+                url: '/api/logout'
             }),
             async onQueryStarted (_, {dispatch, getState}){
                 try {
-                     await dispatch(clearStore());
+                    dispatch(clearStore());
                 } catch (error) {
                     console.error(error, ' error during clear store')
                 }

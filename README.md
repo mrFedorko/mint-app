@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### mode
+
+You may switch modes in 'config.json' file in src folder. "mode" must be "prod", that means 'production' and "dev" that means 'development'
+"prod" provides real server IP or URL, "dev" provides local server IP or URL 

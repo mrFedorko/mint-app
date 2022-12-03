@@ -24,10 +24,10 @@ const Header = (props) => {
                     <div className="header__burger-line"></div>
                 </div>
                 <div className="header__logo">
-                    <a href="/">
+                    <Link to="/">
                         <img className="header__logo-green" src="./icons/main_logo.svg" alt="logo"/>
                         <img className="header__logo-white" src="./icons/main_logo-white.svg" alt="logo"/>
-                    </a>
+                    </Link>
                 </div>
             </div>
 

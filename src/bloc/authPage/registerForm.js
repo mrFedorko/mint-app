@@ -43,7 +43,7 @@ export const RegisterForm = (props) => {
             </form>
             <br/>
             <button disabled={handleValidation([name, email, password, confirm && isMatch])}  onClick={handleRegister} className="auth__action-btn mt-2"><span>Зарегистрироваться</span></button>
-            <button onClick={() => props.handleIsRegister(true)} className="auth__alt-btn"><span>У меня уже есть аккаунт</span></button>
+            <button onClick={() => props.handleIsRegister(1)} className="auth__alt-btn"><span>У меня уже есть аккаунт</span></button>
         </div>  
     );
 };

@@ -6,9 +6,9 @@ import AuthPage from '../authPage/authPage';
 
 import Cabinet from './cabinet';
 
-export const Personal = () => {
+export const PersonalEnter = () => {
     const {isAuth} = useSelector(state => state.auth);
-    if ((isAuth.toString())=== 'true'){
+    if (isAuth){
         return   <Cabinet/>;
     }
     return <AuthPage/>;

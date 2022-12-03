@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { isAuthCh, setCredentials, userIdCh } from '../../store/authSlice';
 import { useLoginMutation } from '../../store/api/authApi';
+import { sMessageCh } from '../../store/sMessageSlice';
 
 export const LoginForm = (props) => {
 
@@ -13,6 +14,10 @@ export const LoginForm = (props) => {
     const dispatch = useDispatch();
 
     const handleLogin = async () =>  {
+        if(!email || !password){
+            dispatch(sMessageCh('Введите e-mail и пароль'));
+            return
+        }
         try {
             const userData = await login({email, password}).unwrap();
             dispatch(setCredentials({...userData, email}));
@@ -25,10 +30,6 @@ export const LoginForm = (props) => {
         }
     };
 
-    let content;
-
-    // isLoading ?
-    // content = 
 
     return(
         
@@ -40,7 +41,7 @@ export const LoginForm = (props) => {
             </form>
                 
             <button onClick={handleLogin} className="auth__action-btn" >Войти</button>
-            <button onClick={() => {props.handleIsRegister(false)}} className="auth__alt-btn">Зарегистрироваться</button>
+            <button onClick={() => {props.handleIsRegister(0)}} className="auth__alt-btn">Зарегистрироваться</button>
         </div>
             
     );

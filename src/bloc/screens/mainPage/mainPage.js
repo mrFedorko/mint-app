@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './mainPage.scss';
 
-export default class MainPage extends Component{
+const  MainPage = () => {
+    const {isAuth} = useSelector((state) => state.auth)
+    console.log(isAuth)
 
-    render = () => {
         return(
             <div className="mainPage">
                 <section className="promo">
@@ -124,7 +126,7 @@ export default class MainPage extends Component{
                     </div>
                 </section>
             </div>
-        );
-    };
+    );
+};
 
-}
+export default MainPage;

@@ -25,7 +25,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
     let result = await baseQuery(args, api, extraOptions);
     if(result?.error?.status){
         result?.error?.status === "FETCH_ERROR" && api.dispatch(sMessageCh('Ошибка соединения с сервером'));
-        console.log(result)
     }
     
     
