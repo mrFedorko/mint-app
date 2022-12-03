@@ -30,7 +30,7 @@ const  SideNavWide = (props) => {
                 <nav>
                     <ul className="wide__list">
                         <li className="wide__item">
-                            <Link to="/uvprint" className="wide__link-main">Личный кабинет</Link>
+                            <Link to="/personal" className="wide__link-main">Личный кабинет</Link>
                         </li>
                         <li className="wide__item">
                             <Link to="/" className="wide__link-main mt-2" >Главная</Link>
@@ -57,7 +57,7 @@ const  SideNavWide = (props) => {
                             <Link to="/design" className="wide__link pb-3">Чек-лист дизайнеру</Link>
                         </li>
                         <li className="wide__item">
-                            <Link to="/" className="wide__link-main">Кейсы</Link>
+                            <Link to="/cases" className="wide__link-main">Кейсы</Link>
                         </li>
                     </ul>
                 </nav>

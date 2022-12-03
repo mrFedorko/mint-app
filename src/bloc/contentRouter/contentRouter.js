@@ -20,6 +20,8 @@ import Help from '../personalCab/help/help';
 import Review from '../personalCab/review';
 import Settings from '../personalCab/settings';
 
+import Cases from '../screens/cases/cases';
+
 
 const ContentRouter = () => {
    
@@ -46,6 +48,7 @@ const ContentRouter = () => {
                     <Route path="/personal/review" element = {<Review/>}/>
                     <Route path="/personal/settings" element = {<Settings/>}/>
                 </Route>
+                <Route path="/cases" element = {<Cases/>}/>
 
             </Routes>
         

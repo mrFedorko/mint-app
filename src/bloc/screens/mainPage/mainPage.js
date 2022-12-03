@@ -106,22 +106,22 @@ const  MainPage = () => {
                     </div>
                 </section>
                 
-                <section className="cases">
+                <section className="cases-promo">
                     <div className="container">
-                        <div className="cases__text">
-                            <h2 className="cases__header">Интересно наглядно <br/>
+                        <div className="cases-promo__text">
+                            <h2 className="cases-promo__header">Интересно наглядно <br/>
                                 посмотреть, <br/>
                                 чем мы занимаемся?<br/>
                                 Тогда Вам сюда!
                             </h2>
-                            <img className="cases__arrow" src="img/arrow.svg" alt="arrow"/>
+                            <img className="cases-promo__arrow" src="img/arrow.svg" alt="arrow"/>
                         </div>
 
-                        <div className="cases__link">
-                            <a href="/">
-                                <div className="cases__link-title">Наши кейсы</div>
-                                <div className="cases__link-img"><img src="img/folder.png" alt=""/></div>
-                            </a>
+                        <div className="cases-promo__link">
+                            <Link to="/cases">
+                                <div className="cases-promo__link-title">Наши кейсы</div>
+                                <div className="cases-promo__link-img"><img src="img/folder.png" alt=""/></div>
+                            </Link>
                         </div>
                     </div>
                 </section>
