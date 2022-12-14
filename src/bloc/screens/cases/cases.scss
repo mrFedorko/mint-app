@@ -48,12 +48,17 @@
 
 .case-element{
     &__desc{
-        margin-top: 59px;
-        height: calc(100vh - 59px);
-        position: absolute;
+        // margin-top: 59px;
+        // height: calc(100vh - 59px);
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
         background-color: rgba($color: #121212, $alpha: 0.7);
-        padding: 25px 80px 20px 80px;
-        z-index: 2;
+        padding: 45px 80px 20px 80px;
+        z-index: 20;
+        transition: 0.5s;
     }
     &__close {
         font-size: 35px;
@@ -142,6 +147,8 @@
         width: 100%;
         display: block;
         margin: 0 auto;
+        user-select: none;
+        cursor: default;
     }
     &__desc-title{
         padding: 15px;

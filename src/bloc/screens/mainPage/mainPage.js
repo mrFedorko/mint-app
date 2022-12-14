@@ -101,7 +101,7 @@ const  MainPage = () => {
                             </div>
                         </div>
                         <button className="depiction__button">
-                            <a href="/">Сотрудничать</a>
+                            <Link to="/personal">Сотрудничать</Link>
                         </button>
                     </div>
                 </section>

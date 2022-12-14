@@ -1,13 +1,87 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import '../../../sass/sassTemplates/hat.scss';
-import { CaseDescr } from './caseElement';
+import { useGetAllCasesQuery } from '../../../store/api/caseApi';
+import { CaseDescr } from './caseDescr';
+import { CaseItem } from './caseItem';
 import './cases.scss';
 
 const Cases = () =>  {
     const [active, setActive] = useState('useful');
+    const [activeCase, setActiveCase] = useState(null);
+    const [disp, setDisp] = useState('none')
+    
+    // const[]
+    const {data, isLoading, isSuccess} = useGetAllCasesQuery();
+    
+
+
+    const handleActiveCase = (id) => {
+        if(!id){
+            setActiveCase(null);
+            return
+        };
+        if(isSuccess && data){
+            const found = data.cases.find(item=> item._id === id);
+            setActiveCase(found);
+            setDisp('block')
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    const handleNextDescr = () => {
+        if(isSuccess && data){
+            let nextCaseIndex = 0
+            if((data.cases.indexOf(activeCase)+1) === data.cases.length){
+                nextCaseIndex = 0
+            } else {
+                nextCaseIndex = data.cases.indexOf(activeCase)+1
+            }
+            setActiveCase(data.cases[nextCaseIndex])
+            console.log('next')
+        }
+    }
+
+    const handlePrevDescr = () => {
+        if(isSuccess && data){
+            let prevCaseIndex = 0
+            if((data.cases.indexOf(activeCase)-1) === -1){
+                prevCaseIndex = data.cases.length - 1; 
+            } else {
+                prevCaseIndex = data.cases.indexOf(activeCase)-1
+            }
+            setActiveCase(data.cases[prevCaseIndex])
+            console.log('prev')
+
+
+        }
+    }
+
+    const handleCloseDescr = () => {
+        setActiveCase(0)
+        setDisp('none')
+        document.body.style.overflow = "";
+    }
+
+    
+    
+    let content;
+    if(isSuccess && data) {
+        const cases = data.cases
+        content = cases.map((item) => {
+        return <CaseItem 
+                    imgMin = {item.img.min} 
+                    name={item.name} 
+                    type = {item.type} 
+                    key={item._id}
+                    handleActiveCase = {() => handleActiveCase(item._id)}
+                />
+    })} else {
+        content = <h3>Загрузка...</h3>
+    }
+
+    
 
     return(
         <>
@@ -26,104 +100,21 @@ const Cases = () =>  {
             <section className="cases">
                 <div className="container">
                     <div className="cases__grid">
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/california.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 1</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/terem.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 1Вывеска 1Вывеска 1Вывеска 1Вывеска 1</div>
-                            </a>
-                        </div>
-                        
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/kistochki.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 2</div>
-                            </a>
-                        </div>    
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/krasunya.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 3</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/impuls.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 4</div>
-                            </a>
-                        </div>
-                        
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/megafon.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 5</div>
-                            </a>
-                        </div>
-                        
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/kofe.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 6</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/ugaliny.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 7</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/alphabet.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 8</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/selfie.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 9</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/art.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 10</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/products.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 11</div>
-                            </a>
-                        </div>
-
-                        <div className="cases__element">
-                            <a href="/">
-                                <div className="cases__img"><img src="img/cases/signs/center.jpg" alt=""/></div>
-                                <div className="cases__title">Вывеска 12</div>
-                            </a>
-                        </div>
+                        {content}
                     </div>
                 </div>
-                <CaseDescr/>
+                <CaseDescr 
+                    activeCase={activeCase} 
+                    handleCloseDescr={handleCloseDescr}
+                    handleNextDescr = {handleNextDescr}
+                    handlePrevDescr = {handlePrevDescr}
+                    display={disp}/>
             </section>
         </>
     );
     
 };
+
+
 
 export default Cases;

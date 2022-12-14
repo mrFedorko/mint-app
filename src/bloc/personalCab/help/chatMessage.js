@@ -4,7 +4,16 @@ export const ChatMessage = (props) =>  {
     
     const {rtlData} = retranslate();
     
+    const insertNewLine = (text) => {
+        const newArr = text.split('\n').map(item=> item+="</br>")
+        return newArr.join('')
+    }
+
+
+
+
     const {from, text, date, like} = props
+    console.log(insertNewLine(text));
     let style;
 
     if(from && from === 'admin'){
@@ -15,7 +24,7 @@ export const ChatMessage = (props) =>  {
     
     return(
             <div className={style.wrap}>
-                <p className="chat__message-text">{text}</p>
+                <p className="chat__message-text">{insertNewLine(text)}</p>
                 <p className={style.time}>{rtlData(date, true)}</p>
             </div>        
     )

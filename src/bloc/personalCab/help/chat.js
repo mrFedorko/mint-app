@@ -45,6 +45,7 @@ export const Chat = () => {
 
     wsConnection.addEventListener('message', (event) => {
         const {from, text, date, like, _id} = JSON.parse(event.data);
+        console.log(text)
         const newMessage = <ChatMessage key={_id} from={from}  text={text} date={date} like={like} />
         setAllMessages([...allMessages, newMessage]);
     });
