@@ -36,6 +36,7 @@
         background-color: rgb(225, 225, 225);
         border-radius: 15px;
         transition: 0.4s;
+        cursor: pointer;
         &:first-child {
             margin-left: 0;
         }
@@ -43,9 +44,8 @@
             margin-right: 0;
         }
         &:hover{
-            background-color: $main-color;
+            background-color: $medium-gray;
             box-shadow: $minor-shadow;
-            color: white;
             outline: none;
         }
         &_active{
@@ -53,6 +53,12 @@
             box-shadow:$main-shadow;
             color: white;
             outline: none;
+            &:hover{
+                background-color: $main-color;
+                box-shadow:$main-shadow;
+                color: white;
+                outline: none;
+            }
         }
     }
     &__item-pic {

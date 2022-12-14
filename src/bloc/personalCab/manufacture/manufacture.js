@@ -27,11 +27,10 @@ const Manufacture =  () => {
     return(
         // manu - manufacture
          <div className="manu"> 
-         <div className="container">
-             <div className="manu__heading">Заказы в работе</div>
-
-                {content}
-         
+            <div className="container">
+                <div className="manu__heading">Заказы в работе</div>
+                <div className="manu__revers-wrap">{content}
+                </div>
             </div>
         </div>
     );

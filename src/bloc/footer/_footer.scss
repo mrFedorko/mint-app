@@ -20,6 +20,11 @@
         text-decoration: none;
         font-weight: 500;
     }
+    a{
+        &:hover{
+            color: white;
+        }
+    }
     &__phone {
         font-size: 18px;
         font-weight: 700;

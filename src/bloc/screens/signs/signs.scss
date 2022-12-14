@@ -51,11 +51,25 @@
     &__descr{
         width: 55%;
     }
-    .btn{
-        margin-top: 20px;
-        border-radius: 20px;
-        &:active{
-            box-shadow: -1px 1px 3px rgb(141, 141, 141);
+    &__btn-group{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+    }
+    &__btn{
+        width: 45%;
+        max-width: 300px;
+        margin: 0 15px;
+        padding: 7px 20px;
+        border-radius: 9px;
+        background-color: $back-color;
+        border: 1px solid $medium-gray;
+        font-size: 15px;
+        transition: all 0.3s;
+        &:hover{
+            background-color: rgb(149, 149, 149);
+            color: white;
         }
     }
 }

@@ -57,8 +57,12 @@ const  SideNavWide = (props) => {
                             <Link to="/design" className="wide__link pb-3">Чек-лист дизайнеру</Link>
                         </li>
                         <li className="wide__item">
-                            <Link to="/cases" className="wide__link-main">Кейсы</Link>
+                            <Link to="/cases" className="wide__link-main mt-2" >Кейсы</Link>
                         </li>
+                        <li className="wide__item">
+                            <Link to="/reviews" className="wide__link-main">Отзывы</Link>
+                        </li>
+
                     </ul>
                 </nav>
             </div>

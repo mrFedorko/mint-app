@@ -55,7 +55,7 @@ const Cabinet =  () => {
                             <img src="../icons/help.png" alt="" className="personal__item-pic"/>
                             <div className="personal__item-title">Помощь</div>
                         </div>
-                        <div onClick={()=>{setActive('review'); navigate('/personal/review');}} className={setActiveElement('review')}>
+                        <div onClick={()=>{setActive('feedback'); navigate('/personal/feedback');}} className={setActiveElement('feedback')}>
                             <img src="../icons/review.png" alt="" className="personal__item-pic"/>
                             <div className="personal__item-title">Оставить отзыв</div>
                         </div>
@@ -71,8 +71,6 @@ const Cabinet =  () => {
 
             <Outlet/>
 
-            
-           
         </>
     );
 };
