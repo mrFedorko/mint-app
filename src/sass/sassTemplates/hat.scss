@@ -27,6 +27,9 @@
         border-bottom: 2px solid rgb(255, 255, 255);
         width: 100%;
         margin: 0 auto;
+        &-right{
+            justify-content: flex-end;
+        }
     }
 
     &__buttons{

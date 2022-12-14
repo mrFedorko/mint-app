@@ -47,7 +47,7 @@ export const PolygOrderItem = (props) => {
                     </div>
                     <div className="manu__documents">
                         <button type="button" class="manu__chek" href="/">Счёт</button>
-                        <button type="button" class="manu__invoice" href="/">Накладная</button>
+                        <button type="button" class="manu__chek" href="/">Накладная</button>
                     </div>
                 </div>
             </div>
