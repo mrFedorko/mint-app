@@ -39,14 +39,14 @@ const ContentRouter = () => {
                 <Route path="/uvprint" element = {<UvPrint/>}/>
                 <Route path="/signs" element = {<Signs/>}>
                     <Route path="/signs/calculator" element = {<SignsCalculator/>}/>
-                    <Route path="/signs" element = {<SignsUseful/>}/>
+                    <Route path="/signs" element = {<SignsUseful />}/>
                     <Route path="/signs/order" element = {<SignsOrder/>}/>
                 </Route>
                 <Route path="/polygraphy" element = {<Polygraphy/>}>
                     <Route path="/polygraphy" element = {<PolygraphyUseful/>}/>
                     <Route path="/polygraphy/order" element = {<PolygraphyCalc/>}/>
                 </Route>
-                <Route path="/personal" element = {<Personal/>}>
+                <Route path="/personal" element = {<PersonalEnter/>}>
                     <Route index path="/personal" element = {<Profile/>}/>
                     <Route path="/personal/neworder" element = {<NewOrder/>}/>
                     <Route path="/personal/manufacture" element = {<Manufacture/>}/>

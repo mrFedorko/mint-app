@@ -24,7 +24,7 @@ const Polygraphy = () =>  {
                     </div>
                 </div>
             </section>
-            <section className="signs">
+            <section className="polygraphy">
                 <div className="container">
                     <Outlet/>
                 </div>
