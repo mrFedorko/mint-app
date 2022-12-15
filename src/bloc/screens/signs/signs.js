@@ -34,7 +34,7 @@ const Signs  = () => {
             </section>
             <section className="signs">
                 <div className="container">
-                    <Outlet/>
+                    <Outlet context={[active, setActive]}/>
                 </div>
             </section> 
         </>

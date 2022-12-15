@@ -26,13 +26,6 @@ export const settingsApi = api.injectEndpoints({
                method: 'POST',
                body: user.settings,
             }),
-            async onQueryStarted (args, {dispatch, queryFulfilled}){
-                try {
-                    console.log(args)
-                } catch (error) {
-                    console.error(error, ' couldnt fetch userdata')
-                }
-            }
         })
     }),
 });

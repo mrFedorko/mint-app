@@ -1,11 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 const SignsUseful = () => {
     
+    const [active, setActive] = useOutletContext();
+
     const navigate = useNavigate();
-    const navigateToCalc = () => { navigate('/signs/calculator');};
-    const navigateToCase = () => { navigate('/case');};
+    const navigateToCalc = () => { navigate('/signs/calculator'); setActive('calc')};
+    const navigateToCase = () => { navigate('/cases');};
     
     return(
         <div className="useful fadein">
