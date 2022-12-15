@@ -11,19 +11,21 @@ export const ServerMessage = () => {
 
     let content
     if(currentMessage){
-        content = <div className="server-message">
+        content = (<div className="server-message">
         {currentMessage}
-    </div>;
+    </div>)
     } else {
-        content = <></>
+        content = <>
+        </>
     }
-   
+   console.log(currentMessage)
 
     useEffect(() => {
+
         const timerId = setTimeout(() => {
             dispatch(sMessageCh(''));
             clearTimeout(timerId);
-        }, 3000);
+        }, 4000);
 
         
     }, [currentMessage, dispatch])

@@ -46,7 +46,7 @@ const ContentRouter = () => {
                     <Route path="/polygraphy" element = {<PolygraphyUseful/>}/>
                     <Route path="/polygraphy/order" element = {<PolygraphyCalc/>}/>
                 </Route>
-                <Route path="/personal" element = {<Personal/>}>
+                <Route path="/personal" element = {<PersonalEnter/>}>
                     <Route index path="/personal" element = {<Profile/>}/>
                     <Route path="/personal/neworder" element = {<NewOrder/>}/>
                     <Route path="/personal/manufacture" element = {<Manufacture/>}/>

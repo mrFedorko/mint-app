@@ -5,15 +5,18 @@ export const ChatMessage = (props) =>  {
     const {rtlData} = retranslate();
     
     const insertNewLine = (text) => {
-        const newArr = text.split('\n').map(item=> item+="</br>")
-        return newArr.join('')
+        const msg = text.split('\n').filter(item=> item !== '').map(item=> {  
+            return (
+                <>
+                    {item}
+                    <br/>
+                </>
+            )
+        })
+        return msg        
     }
 
-
-
-
     const {from, text, date, like} = props
-    console.log(insertNewLine(text));
     let style;
 
     if(from && from === 'admin'){
