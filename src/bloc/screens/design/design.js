@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
+import { useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import '../../../sass/sassTemplates/hat.scss';
-export default class Design extends Component{
-    render = () => {
+import'../../../sass/sassTemplates/useful.scss';
+import './design.scss';
+
+const Design  = () => {
+    const navigate = useNavigate();
+    const [active, setActive] = useState('useful')
         return(
-            <section className="hat">
+            <>
+                <section className="hat">
                 <div className="container">
                     <div className="hat__header">
                         <div className="hat__buttons">
-                            <button onClick={() => this.stateActiveSetter('useful')} className="hat__button ">Полезная информация</button>
-                            <button  onClick={() => this.stateActiveSetter('calc')}  className="hat__button">Онлайн калькулятор</button>
-                            <button onClick={() => this.stateActiveSetter('order')}  className="hat__button">Как заказать</button>
+                            <button onClick={() => {setActive('useful'); navigate('/design')}} className={'hat__button'+ (active === 'useful' ? ' hat__button_active' : '')} >Виды услуг</button>
+                            <button  onClick={() => {setActive('chek'); navigate('/design/chek')}}  className={'hat__button'+ (active === 'chek' ? ' hat__button_active' : '')}>Чек-лист заказчику</button>
+                            <button  onClick={() => {setActive('require'); navigate('/design/require')}}  className={'hat__button'+ (active === 'require' ? ' hat__button_active' : '')}> Требования к макету</button>
                         </div>
                         <h1 className="hat__title">Дизайн</h1>
                     </div>
-                    {/* {active === 'useful' ? <SignsUseful onActiveChange = {(a) => this.stateActiveSetter(a) }/> : active === 'calc' ? <SignCalculator/> : active === 'order' ? <SignsOrder/> : <SignsUseful/>} */}
+                    
                 </div>
             </section>
+            <section className="design">
+                <div className="container">
+                    <Outlet/>
+                </div>
+            </section> 
+            </>
         );
-    };
 }
+
+export default Design;

@@ -24,6 +24,9 @@ import Settings from '../personalCab/settings';
 
 import Cases from '../screens/cases/cases';
 import Reviews from '../screens/reviews/reviews';
+import { DesignUseful } from '../screens/design/designUseful';
+import { DesignChek } from '../screens/design/designChek';
+import { DesignRequire } from '../screens/design/designRequire';
 
 
 
@@ -35,7 +38,11 @@ const ContentRouter = () => {
             <Routes>
                                 
                 <Route index element = {<MainPage/>}/>
-                <Route path="/design" element = {<Design/>}/>
+                <Route path="/design" element = {<Design/>}>
+                    <Route path="/design" element = {<DesignUseful/>}/>
+                    <Route path="/design/chek" element = {<DesignChek />}/>
+                    <Route path="/design/require" element = {<DesignRequire />}/>
+                </Route>
                 <Route path="/uvprint" element = {<UvPrint/>}/>
                 <Route path="/signs" element = {<Signs/>}>
                     <Route path="/signs/calculator" element = {<SignsCalculator/>}/>

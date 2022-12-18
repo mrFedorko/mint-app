@@ -17,8 +17,11 @@ const Polygraphy = () =>  {
                 <div className="container">
                     <div className="hat__header">
                         <div className="hat__buttons">
-                            <button onClick={() => {setActive('useful'); navigate('/polygraphy');}} className={'hat__button'+ (active === 'useful' ? ' hat__button_active' : '')}>Полезная информация</button>
-                            <button onClick={() => {setActive('calc'); navigate('/polygraphy/order');}} className={'hat__button'+ (active === 'calc' ? ' hat__button_active' : '')}>Онлайн калькулятор</button>
+                            <button onClick={() => {setActive('useful'); navigate('/polygraphy');}} 
+                                    className={'hat__button'+ (active === 'useful' ? ' hat__button_active' : '')}>
+                                Виды продукции
+                            </button>
+                            <button onClick={() => {setActive('calc'); navigate('/polygraphy/order');}} className={'hat__button'+ (active === 'calc' ? ' hat__button_active' : '')}>Заказ онлайн</button>
                         </div>
                         <h1 className="hat__title">Полиграфия</h1>
                     </div>

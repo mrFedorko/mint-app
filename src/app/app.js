@@ -11,7 +11,7 @@ import './app.scss'
 
 
 const App  =  () =>  {
-    
+    console.log('app rendered')
     return(
         <>
         <div className="wrap">
