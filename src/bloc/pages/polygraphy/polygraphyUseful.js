@@ -12,11 +12,11 @@ export const PolygraphyUseful = () => {
                 <h5 className="useful__title">У нас можно заказать:</h5>
                 <div className="useful__wraper">
                     <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/lettersMainPhoto.jpg" alt="letters"></img></div>
+                        <div className="useful__img"><img className="rounded float-start" src="img/polygraphy/card.jpg" alt="card"></img></div>
                         <div className="useful__descr">Визитные карточки</div>
                     </div>
                     <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/lettersMainPhoto.jpg" alt="letters"></img></div>
+                        <div className="useful__img"><img className="rounded float-start" src="img/polygraphy/flyer.jpg" alt="flyer"></img></div>
                         <div className="useful__descr">Листовки</div>
                     </div>
                     <div className="useful__group useful__group_col">

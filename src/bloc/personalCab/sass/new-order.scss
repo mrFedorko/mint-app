@@ -130,8 +130,12 @@
         justify-content: space-between;
         margin-bottom: 30px;
     }
-    &__side{
-        display: block;
+    &__sides{
+        width: 486px;
+        background-color: #f7f7f7;
+        box-shadow: $main-shadow;
+        border-radius: 20px;
+        padding: 5px 40px;
     }
     &__sides-wrap {
         display: flex;
@@ -305,15 +309,19 @@
     }
     
     .polygraphy{
+        &__sides{
+            width: 50%;
+        }
         &__inner{
             width: 190px;
-    
+  
         }
         &__select{
             padding: 12px;
             font-size: 11px;
         }
         &__go-btn{
+            margin-top: 20px;
             width: 190px; 
         }
     }
@@ -337,6 +345,9 @@
         &__select{
             padding: 11px;
             font-size: 10px;
+        }
+        &__sides{
+            width: 50%;
         }
         &__sides-need{
             font-size: 11px;

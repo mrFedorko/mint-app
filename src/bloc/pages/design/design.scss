@@ -1,0 +1,89 @@
+@import '../../../sass/base/variables';
+
+.design {
+    background-color: #efefef;
+    padding-bottom: 30px;
+    &__img {
+        height: 290px;
+        margin-top: -60px;
+        margin-bottom: -10px;
+    }
+}
+.chek{
+    background-color: #efefef;
+    padding-bottom: 30px;
+    text-align: left;
+    &__subject{
+        font-size: 25px;
+    }
+    &__introduction {
+        padding: 20px;
+        color: black;
+        border: 1px solid rgb(157, 157, 157);
+        width: 100%;
+        border-radius: 30px;
+        margin-top: 30px;
+    }
+    &__wrap{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: white;
+        width: 100%;
+        border-radius: 30px;
+        box-shadow: $main-shadow;
+        margin-top: 20px;
+        ol{
+            color: $main-color;
+            li{
+                margin-left: 20px;
+                font-size: 16px;
+                line-height: 27px;
+            }
+        }
+    }
+    &__img{
+        height: 200px;
+        margin-left: 20px;
+        margin-right: 20px;
+        img{
+            height: 100%;
+        }
+    }
+
+}
+.require{
+    background-color: #efefef;
+    padding-bottom: 30px;
+    text-align: left;
+    &__subject{
+        font-size: 25px;
+    }
+    &__block{
+        margin-top: 10px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: $main-shadow;
+        margin-bottom: 25px;
+    }
+    &__title{
+        display: inline-block;
+        padding: 5px;
+        background-color: $back-color;
+        font-size: 15px;
+        font-weight: 700;
+        border-radius: 5px;
+    }
+    &__sub{
+        font-size: 16px;
+        color: #8971B1;
+        line-height: 16px;
+        margin-top: 20px;
+    }
+    &__list{
+        margin-top: 6px;
+        font-size: 15px;
+    }
+}
