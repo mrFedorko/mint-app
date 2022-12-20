@@ -51,6 +51,7 @@
         margin-top: 1.5em;
         border-radius: 30px;
         padding: 10px 20px;
+        box-shadow: $main-shadow;
         &_list{
             flex-direction: row;
         }
