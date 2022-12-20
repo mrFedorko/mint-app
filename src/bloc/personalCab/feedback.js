@@ -1,7 +1,15 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate, useOutletContext } from 'react-router-dom';
 
 import '../personalCab/sass/feedback.scss';
 const Feedback = () => {
+    const [active, setActive] = useOutletContext();
+    const navigate = useNavigate();
+
+    setActive('feedback');
+    
+
     return ( 
         <>
             <div className="feedback">
@@ -72,10 +80,10 @@ const Feedback = () => {
                         </div>
                     </div>
 
-                    <button className="feedback__btn feedback__btn-big">
-                        <a href="/reviews">
+                    <button onClick={() => navigate('/reviews')} className="feedback__btn feedback__btn-big">
+                        <p>
                             <img src="../img/quote.png" alt="quote"/> Посмотреть отзывы других клиентов 
-                        </a>
+                        </p>
                     </button>
                 </div>
             </div>

@@ -1,7 +1,9 @@
 import { SVGarrowLeftShort, SVGarrowRightShort, SVGcalendar, SVGlikeCase, SVGpiggiBank } from "../../../svg/svg";
+import { useEffect } from "react";
+
 
 export const CaseDescr = (props) => {
-  
+
     const activeCase = props.activeCase;
     let content;
     const display = props.display
@@ -13,7 +15,7 @@ export const CaseDescr = (props) => {
                     <div className="case-element__control case-element__control-left" onClick={props.handlePrevDescr}>
                         <SVGarrowLeftShort/>
                     </div>
-                    <div className="case-element__control case-element__control-right" onClick={props.handleNextDescr}>
+                    <div className="case-element__control case-element__control-right" onClick={(e) => {props.handleNextDescr(); props.handleScroll();} }>
                         <SVGarrowRightShort/>
                     </div>
                     <div className="case-element__window ">
@@ -21,8 +23,8 @@ export const CaseDescr = (props) => {
                         <div className="case-element__heart">
                             <SVGlikeCase/>
                         </div>
-                        <div className="case-element__window-wrap">
-                            <img className="case-element__desc-img fadein" src={`img/cases/${type}/${img.max}`} alt=""/>
+                        <div  className="case-element__window-wrap">
+                            <img  ref={props.scrollRef} className="case-element__desc-img fadein" src={`img/cases/${type}/${img.max}`} alt=""/>
                             <div className="case-element__desc-title">{name}</div>
 
                             <div className="case-element__desc-text">{descr}</div>

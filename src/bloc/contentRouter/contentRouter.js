@@ -2,18 +2,18 @@ import {Routes, Route} from 'react-router-dom';
 
 
 
-import MainPage from '../screens/mainPage/mainPage';
-import Signs from '../screens/signs/signs';
-import Polygraphy from '../screens/polygraphy/polygraphy';
-import UvPrint from '../screens/uvPrint/uvPrint';
-import Design from '../screens/design/design';
+import MainPage from '../pages/mainPage/mainPage';
+import Signs from '../pages/signs/signs';
+import Polygraphy from '../pages/polygraphy/polygraphy';
+import UvPrint from '../pages/uvPrint/uvPrint';
+import Design from '../pages/design/design';
 import { PersonalEnter } from '../personalCab/personalEnter';
 
-import SignsOrder from '../screens/signs/signsOrder';
-import SignsUseful from '../screens/signs/signsUseful';
-import SignsCalculator from '../screens/signs/signsCalculator';
-import {PolygraphyUseful} from '../screens/polygraphy/polygraphyUseful';
-import PolygraphyCalc from '../screens/polygraphy/polygraphyCalculator';
+import SignsOrder from '../pages/signs/signsOrder';
+import SignsUseful from '../pages/signs/signsUseful';
+import SignsCalculator from '../pages/signs/signsCalculator';
+import {PolygraphyUseful} from '../pages/polygraphy/polygraphyUseful';
+import PolygraphyCalc from '../pages/polygraphy/polygraphyCalculator';
 import Profile from '../personalCab/profile/profile';
 import NewOrder from '../personalCab/newOrder/newOrder';
 import Manufacture from '../personalCab/manufacture/manufacture';
@@ -22,8 +22,8 @@ import Help from '../personalCab/help/help';
 import Feedback from '../personalCab/feedback';
 import Settings from '../personalCab/settings';
 
-import Cases from '../screens/cases/cases';
-import Reviews from '../screens/reviews/reviews';
+import Cases from '../pages/cases/cases';
+import Reviews from '../pages/reviews/reviews';
 
 
 

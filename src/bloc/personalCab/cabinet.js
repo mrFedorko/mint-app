@@ -69,7 +69,7 @@ const Cabinet =  () => {
                 
             </div>
 
-            <Outlet/>
+            <Outlet context={[active, setActive]}/>
 
         </>
     );

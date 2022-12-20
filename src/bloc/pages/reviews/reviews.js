@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import'../../../sass/sassTemplates/hat.scss';
 import '../../../sass/base/_base.scss';
 import './reviews.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Reviews = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     return ( 
         <>
             <section className="hat">
@@ -18,10 +26,10 @@ const Reviews = () => {
                 <div className="container">
                     <div className="reviews__top">
                         <img className="reviews__main-img" src="img/review_img.png" alt="reviews" />
-                        <button className="reviews__btn">
-                            <a href="personal/feedback">
+                        <button onClick={(e) => navigate('/personal/feedback') } className="reviews__btn">
+                            <p>
                                 <img src="../img/quote.png" alt="quote"/>Написать отзыв
-                            </a>
+                            </p>
                         </button>
                     </div>
 

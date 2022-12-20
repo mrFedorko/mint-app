@@ -13,7 +13,6 @@ export const Chat = () => {
     const [allMessages, setAllMessages] = useState([]);
     const {data, isLoading, isSuccess, isError} = useGetAllMessagesQuery(userId);
     const bottomRef = useRef(null);
-    const inputRef = useRef(null);
 
     useEffect(() => {
         if(data && isSuccess){

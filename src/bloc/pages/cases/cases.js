@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRef } from 'react';
 
 import '../../../sass/sassTemplates/hat.scss';
 import { useGetAllCasesQuery } from '../../../store/api/caseApi';
@@ -11,11 +12,18 @@ const Cases = () =>  {
     const [active, setActive] = useState('useful');
     const [activeCase, setActiveCase] = useState(null);
     const [disp, setDisp] = useState('none')
-    
-    // const[]
+    const scrollRef = useRef(null)
+
     const {data, isLoading, isSuccess} = useGetAllCasesQuery();
     
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
+
+    const handleScroll = () => {
+        scrollRef.current.scrollIntoView()
+    }
 
     const handleActiveCase = (id) => {
         if(!id){
@@ -29,6 +37,8 @@ const Cases = () =>  {
             document.body.style.overflow = "hidden";
         }
     }
+
+
 
     const handleNextDescr = () => {
         if(isSuccess && data){
@@ -103,7 +113,9 @@ const Cases = () =>  {
                         {content}
                     </div>
                 </div>
-                <CaseDescr 
+                <CaseDescr
+                    scrollRef = {scrollRef}
+                    handleScroll = {handleScroll} 
                     activeCase={activeCase} 
                     handleCloseDescr={handleCloseDescr}
                     handleNextDescr = {handleNextDescr}

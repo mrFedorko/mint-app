@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState  } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { LoadingPage } from '../../loading/loading';
 
 import './mainPage.scss';
 
 const  MainPage = () => {
     const {isAuth} = useSelector((state) => state.auth)
-    console.log(isAuth)
+    const [starting, setStarting] = useState(true)
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      })
+
+    useEffect(() => {
+        setTimeout(() => {
+            return setStarting(false)
+        }, 300);
+    })
+    
+    console.log('render main')
         return(
+            
             <div className="mainPage">
+                {starting && <LoadingPage/>}
                 <section className="promo">
                     <div className="container">
                         <div className="content">

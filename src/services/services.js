@@ -71,7 +71,7 @@ function getPrice(state, pricing){
         return  Math.floor(pricing.letters.volumeCwoL*size*word.length + size*word.length*pricing.frame.aluminium/100);
     }
     if(signType === 'banner' && +bannerPostWork){
-        return  Math.floor(+pricing.banner.banner*width*height/100/100 + +pricing.banner.postWork*(width+height)*2/100);
+        return  Math.floor(+pricing.banner.banner*width*height/100/100 + +(pricing.banner.postWork*((+width + +height)*2/100)));
     }
     if(signType === 'banner' && !(+bannerPostWork)){
         return  Math.floor(pricing.banner.banner*width*height/100/100);

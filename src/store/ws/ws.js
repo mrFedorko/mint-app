@@ -1,5 +1,5 @@
 import c from '../../config.json'
-let wsServer = c.wsUrl;
+let wsServer;
 if(c.mode === 'prod'){
     wsServer=c.wsUrl
 }else{

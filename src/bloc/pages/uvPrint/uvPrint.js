@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './uvPrint.scss';
@@ -14,7 +14,9 @@ const UvPrint = () => {
     
     const [active, setActive] = useState('useful');
 
-   
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
 
     return(

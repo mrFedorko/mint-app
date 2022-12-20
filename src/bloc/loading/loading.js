@@ -1,26 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './loading.scss';
 
-const Loading = (props) => {
+export const LoadingPage = (props) => {
     const style = {
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        position: 'fixed',
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         width: '100vw',
         height: '100vh',
+        overflow: 'hidden',
+        zIndex: '1',
     };
+    
+
 
     return(
-        <div style={style}>
-
-            <div className="loadingio-spinner-eclipse-5y7bbwtghr7"><div className="ldio-mn2uy3rxpen">
-                <div></div>
+        <div className="loading__wrapper" style={style}>
+            <div class="loadingio-spinner-reload-rotmgzmdaor"><div class="ldio-idsdkbt499">
+                <div><div></div><div></div><div></div></div>
             </div></div>
-
         </div>
+
     );
 };
 
-export default Loading;

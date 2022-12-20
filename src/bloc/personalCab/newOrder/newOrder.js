@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import PolygraphyCalc from '../../screens/polygraphy/polygraphyCalculator';
+import PolygraphyCalc from '../../pages/polygraphy/polygraphyCalculator';
 import { PolygraphyOrder } from './polygraphyOrder';
 
-import SignsCalculator from '../../screens/signs/signsCalculator';
+import SignsCalculator from '../../pages/signs/signsCalculator';
 import { resetSign, signTypeCh } from '../../../store/signSlice';
-import { orTypeCh, orDetailsCh, orReset } from '../../../store/orderSlice';
+import { orTypeCh,  orReset } from '../../../store/orderSlice';
 import { useCreateOrder } from './createOrder';
 import { useCreateOrderMutation } from '../../../store/api/orderApi';
 import { sMessageCh } from '../../../store/sMessageSlice';
 import { resetPolyg } from '../../../store/polygraphySlice';
-import { redirect, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 
 

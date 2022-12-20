@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 
 import '../../../sass/sassTemplates/hat.scss';
 import '../../../sass/base/_base.scss';
 import './polygraphy.scss';
+import { LoadingPage } from '../../loading/loading';
 
 
 const Polygraphy = () =>  {
     
     const [active, setActive] = useState('useful');
+    const [starting, setStarting] = useState(true)
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
+    useEffect(() => {
+        setTimeout(() => {
+            return setStarting(false)
+        }, 300);
+    })
+
     const navigate = useNavigate();
     return(
-        <>
+        <div>
+            {starting && <LoadingPage/>}
             <section className="hat">
                 <div className="container">
                     <div className="hat__header">
@@ -29,7 +44,7 @@ const Polygraphy = () =>  {
                     <Outlet/>
                 </div>
             </section> 
-        </>
+        </div>
     );
     
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Outlet} from 'react-router-dom';
 
 
@@ -8,18 +8,32 @@ import'../../../sass/sassTemplates/useful.scss';
 import '../../../sass/base/_base.scss';
 import './signs.scss';
 import '../../../sass/sassTemplates/calculator.scss';
+import { LoadingPage } from '../../loading/loading';
 
 
 
 const Signs  = () => {
     
     const [active, setActive] = useState('useful');
+    const [starting, setStarting] = useState(true)
     const navigate = useNavigate();
     
+    useEffect(() => {
+        setTimeout(() => {
+            return setStarting(false)
+        }, 300);
+    }, [])
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      })
     
+    console.log('render signs')
+
     return(
         <>
+            {starting && <LoadingPage/>}
             <section className="hat">
                 <div className="container">
                     <div className="hat__header">
