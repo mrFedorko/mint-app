@@ -21,7 +21,7 @@ const Polygraphy = () =>  {
     useEffect(() => {
         setTimeout(() => {
             return setStarting(false)
-        }, 300);
+        }, 700);
     })
 
     const navigate = useNavigate();

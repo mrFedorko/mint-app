@@ -19,9 +19,10 @@ export const LoadingPage = (props) => {
 
     return(
         <div className="loading__wrapper" style={style}>
-            <div class="loadingio-spinner-reload-rotmgzmdaor"><div class="ldio-idsdkbt499">
-                <div><div></div><div></div><div></div></div>
+            <div class="loadingio-spinner-bars-541dk3owok8"><div class="ldio-lb7nv43zlt">
+            <div></div><div></div><div></div><div></div>
             </div></div>
+            
         </div>
 
     );

@@ -22,11 +22,11 @@ import Help from '../personalCab/help/help';
 import Feedback from '../personalCab/feedback';
 import Settings from '../personalCab/settings';
 
-import Cases from '../screens/cases/cases';
-import Reviews from '../screens/reviews/reviews';
-import { DesignUseful } from '../screens/design/designUseful';
-import { DesignChek } from '../screens/design/designChek';
-import { DesignRequire } from '../screens/design/designRequire';
+import Cases from '../pages/cases/cases';
+import Reviews from '../pages/reviews/reviews';
+import { DesignUseful } from '../pages/design/designUseful';
+import { DesignChek } from '../pages/design/designChek';
+import { DesignRequire } from '../pages/design/designRequire';
 
 
 

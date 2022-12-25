@@ -60,13 +60,14 @@ const PolygraphyCalc = (props) => {
         totalPrice = '0';
 
     if (productType){ 
-        
         sizeContent = data[productType].size.map((item, index) => {
             return(
                 <div key={index} className={handleActiveClass(item.size, size)}  onClick = {() => handleSize(item)}>
                     {
-                    item.image ? 
+                    item.image && productType !== "leaflet"? 
                     <div className="polygraphy__select-img"><img src={item.image} style= {{width: "25px"}} alt="card"/></div>:
+                    productType === 'leaflet' && item.image ?
+                    <div className="polygraphy__select-img"><img src={item.image} style= {{width: "18px"}} alt="card"/></div>:
                     ''
                     }
                     <div className="polygraphy__select-text">{item.descr}</div>
@@ -107,7 +108,7 @@ const PolygraphyCalc = (props) => {
                     </div>
                 </div>
                 <div className="polygraphy__inner">
-                    <div className="polygraphy__heading">Размер</div>
+                    <div className="polygraphy__heading">Размер (ш×в)</div>
                     <div className="polygraphy__col">
                         {sizeContent}
                     </div>

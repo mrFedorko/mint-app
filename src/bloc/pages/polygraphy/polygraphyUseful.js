@@ -10,30 +10,30 @@ export const PolygraphyUseful = () => {
             
             <div className="useful__block">
                 <h5 className="useful__title">У нас можно заказать:</h5>
-                <div className="useful__wraper">
-                    <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/polygraphy/card.jpg" alt="card"></img></div>
-                        <div className="useful__descr">Визитные карточки</div>
+                <div className="polygraphy__wraper">
+                    <div className="polygraphy__kind">
+                        <div className="polygraphy__picture"><img className="rounded float-start" src="img/polygraphy/card.png" alt="card"></img></div>
+                        <div className="polygraphy__name">Визитные карточки</div>
                     </div>
-                    <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/polygraphy/flyer.jpg" alt="flyer"></img></div>
-                        <div className="useful__descr">Листовки</div>
+                    <div className="polygraphy__kind">
+                        <div className="polygraphy__picture"><img className="rounded float-start" src="img/polygraphy/flyer.png" alt="flyer"></img></div>
+                        <div className="polygraphy__name">Листовки</div>
                     </div>
-                    <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/lettersMainPhoto.jpg" alt="letters"></img></div>
-                        <div className="useful__descr">Плакаты</div>
+                    <div className="polygraphy__kind">
+                        <div className="polygraphy__picture"><img className="rounded float-start" src="img/polygraphy/poster.png" alt="poster"></img></div>
+                        <div className="polygraphy__name">Плакаты</div>
                     </div>
-                    <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/lettersMainPhoto.jpg" alt="letters"></img></div>
-                        <div className="useful__descr">Открытки</div>
+                    <div className="polygraphy__kind">
+                        <div className="polygraphy__picture"><img className="rounded float-start"  src="img/polygraphy/postcard.png" alt="postcard"></img></div>
+                        <div className="polygraphy__name">Открытки</div>
                     </div>
-                    <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/lettersMainPhoto.jpg" alt="letters"></img></div>
-                        <div className="useful__descr">Буклеты</div>
+                    <div className="polygraphy__kind">
+                        <div className="polygraphy__picture"><img className="rounded float-start" src="img/polygraphy/leaflet.png" alt="leaflet"></img></div>
+                        <div className="polygraphy__name">Лифлеты</div>
                     </div>
-                    <div className="useful__group useful__group_col">
-                        <div className="useful__img"><img className="rounded float-start" src="img/lettersMainPhoto.jpg" alt="letters"></img></div>
-                        <div className="useful__descr">Лифлеты</div>
+                    <div className="polygraphy__kind">
+                        <div className="polygraphy__picture"><img className="rounded float-start" src="img/polygraphy/booklet.png" alt="booklet"></img></div>
+                        <div className="polygraphy__name">Буклеты</div>
                     </div>
                 </div>
             </div>

@@ -88,8 +88,8 @@
         "imageWidth" : "23px",
         "value": "postcard",
         "size" : [
-                  {"size": "s210x99", "descr": "210×99 мм"},
-                  {"size": "s210x148", "descr": "210×148 мм"}
+                  {"size": "s420x99", "descr": "420×99 мм", "image" : "../icons/poligraphy_icons/postcard_wide.svg"},
+                  {"size": "s297x210", "descr": "297×210 мм", "image" : "../icons/poligraphy_icons/postcard.svg"}
           ],
         "density" : [
                 {"density" : "d115", "descr": "Бумага мелованная 115 г/м²"},
@@ -116,7 +116,7 @@
               {"size": "s212x150f", "descr": "А5 (212×150 мм)"},
               {"size": "s299x212f", "descr": "А4 (299×212 мм)"},
               {"size": "s422x299f", "descr": "А3 (422×299 мм)"},
-              {"size": "s210x198f", "descr": "Евро (210×198мм)"},
+              {"size": "s198x210f", "descr": "Евро (198×210мм)"},
               {"size": "s180x150f", "descr": "Мини (180×150 мм)"}
           ],
   "density" : [
@@ -140,10 +140,10 @@
         "imageWidth" : "18px",
         "value": "leaflet",
         "size" : [
-              {"size": "s299x212f", "descr": "А4 в гармошку (299×212 мм)"},
-              {"size": "s422x299f", "descr": "А3 в гармошку (422×299 мм)"},
-              {"size": "s299x212f", "descr": "А4 в накидку (299×212 мм)"},
-              {"size": "s422x299f", "descr": "А3 в накидку (422×299 мм)"}
+              {"size": "s299x212fg", "descr": "А4 в гармошку (299×212 мм)", "image" : "../icons/poligraphy_icons/leaflet.svg"},
+              {"size": "s422x299fg", "descr": "А3 в гармошку (422×299 мм)", "image" : "../icons/poligraphy_icons/leaflet.svg"},
+              {"size": "s299x212f", "descr": "А4 в накидку (299×212 мм)", "image" : "../icons/poligraphy_icons/leaflet_open.svg"},
+              {"size": "s422x299f", "descr": "А3 в накидку (422×299 мм)", "image" : "../icons/poligraphy_icons/leaflet_open.svg"}
               
           ],
         "density" : [

@@ -46,6 +46,12 @@
         transition: 0.4s;
         font-size: 15px;
         box-shadow: $minor-shadow;
+        &:first-child{
+            margin-left: 0;
+        }
+        &:last-child{
+            margin-right: 0;
+        }
         &:hover{
             box-shadow: $main-shadow;
         }

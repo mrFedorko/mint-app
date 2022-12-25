@@ -5,4 +5,49 @@
         height: 200px;
         margin-top: 10px;
     }
+    &__wraper{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    &__kind{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        width: 33%;
+    }
+    &__picture{
+        margin-bottom: -22px; 
+    }
+    &__name{
+        font-size: 17px;
+        margin-bottom: 50px;
+    }
+}
+@media (max-width: 1200px) {
+    .polygraphy {
+        &__kind{
+            width: 45%;
+            min-width: 350px;
+        }
+        &__name{
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+    }
+}
+@media (max-width: 991px) {
+    
+}
+@media (max-width: 767px) {
+    .polygraphy 
+    {
+        &__picture{
+                transform: scale(0.8); 
+        }
+    }
+
+}
+@media (max-width: 575px) {
 }

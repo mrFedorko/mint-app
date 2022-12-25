@@ -1,4 +1,4 @@
-import { SVGarrowLeftShort, SVGarrowRightShort, SVGcalendar, SVGlikeCase, SVGpiggiBank } from "../../../svg/svg";
+import { SVGarrowLeftShort, SVGarrowRightShort, SVGadress, SVGcalendar, SVGmounting, SVGdoc, SVGlikeCase, SVGpiggiBank } from "../../../svg/svg";
 import { useEffect } from "react";
 
 
@@ -31,7 +31,7 @@ export const CaseDescr = (props) => {
                             <div className="case-element__list">
                                 <div className="case-element__thesis">
                                     <div className="case-element__thesis-icon">
-                                        <SVGcalendar/>
+                                        <SVGadress/>
                                     </div>
                                     <div className="case-element__thesis-text">{adress}</div>
                                 </div>
@@ -45,7 +45,7 @@ export const CaseDescr = (props) => {
 
                                 <div className="case-element__thesis">
                                     <div className="case-element__thesis-icon">
-                                        <SVGcalendar/>
+                                        <SVGmounting/>
                                     </div>
                                     <div className="case-element__thesis-text">Монтаж  произведен {from}</div>
                                 </div>
@@ -54,12 +54,12 @@ export const CaseDescr = (props) => {
                                     <div className="case-element__thesis-icon">
                                         <SVGcalendar/>
                                     </div>
-                                    <div className="case-element__thesis-text">изготовлена за {term} дней</div>
+                                    <div className="case-element__thesis-text">Изготовлена за {term} дней</div>
                                 </div>
 
                                 <div className="case-element__thesis">
                                     <div className="case-element__thesis-icon">
-                                        <SVGcalendar/>
+                                        <SVGdoc/>
                                     </div>
                                     <div className="case-element__thesis-text">Согласована в архитектуре: {(allowed && "ДА") || "НЕТ"}</div>
                                 </div>
