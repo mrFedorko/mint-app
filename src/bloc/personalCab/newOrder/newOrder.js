@@ -11,20 +11,27 @@ import { useCreateOrder } from './createOrder';
 import { useCreateOrderMutation } from '../../../store/api/orderApi';
 import { sMessageCh } from '../../../store/sMessageSlice';
 import { resetPolyg } from '../../../store/polygraphySlice';
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useUploadMutation } from '../../../store/api/uploadApi';
 
 
 
 
 const NewOrder = () => {
     const [resume, setResume] = useState(false)
-    
+    const [layout, setLayout] = useState([])
+
+
     // const polygDetails = useSelector(state => state.polygraphy)
     const { orType } = useSelector(state => state.order);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const orderData = useCreateOrder();
     const [createOrder] = useCreateOrderMutation();
+    const [upload, {isLoading}] = useUploadMutation();
+
+
+
 
     
 
@@ -50,7 +57,22 @@ const NewOrder = () => {
         if (!orderData){
             return dispatch(sMessageCh('Введите все данные'));  
         }
+
+        console.log(orderData)
         await createOrder(orderData);
+
+
+        //for upload files
+        const formData = new FormData();
+        const {owner: id, date: orderDate} = orderData
+        layout.forEach(item=> {
+            formData.append('files', item[0])
+        })
+        // formData.append('files', layout)
+        console.log(layout)
+        await upload({id, orderDate, formData})
+        
+        
         dispatch(orReset());
         dispatch(resetPolyg());
         dispatch(resetSign());
@@ -80,7 +102,7 @@ const NewOrder = () => {
         'uv': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
         'banner': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
         'letter': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
-        'polyg': {calc: polygraphyCalc, 'order': <PolygraphyOrder handlerResume = {handleResume}/>},
+        'polyg': {calc: polygraphyCalc, 'order': <PolygraphyOrder layout={layout} setLayout={setLayout} handlerResume = {handleResume}/>},
         '':{calc: <></>, 'order': <></>}
 
     };

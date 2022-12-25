@@ -33,7 +33,7 @@ const orderSlice = createSlice({
         orCommentCh: (state, action) => {state.orComment = action.payload;},
         orStatusCh: (state, action) => {state.orStatus = action.payload;},
         orExpDateCh: (state, action) => {state.orExpDate = action.payload;},
-        orLayoutCh: (state, action) => {state.orLayout = action.payload;},
+        orLayoutCh: (state, action) => {state.orLayout.push(action.payload);},
         orDeliveryTypeCh: (state, action) => {state.orDelivery.type = action.payload;},
         orDeliveryTownCh: (state, action) => {state.orDelivery.town = action.payload;},
         orDeliveryCommentCh: (state, action) => {state.orDelivery.comment = action.payload;},

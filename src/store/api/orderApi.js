@@ -14,7 +14,6 @@ export const newOrderApi = api.injectEndpoints({
             async onQueryStarted (_, {dispatch}){
                 try {
                     dispatch(orReset());
-                    console.log('reset order')
                 } catch (error) {
                     console.error(error, ' couldnt reset orderState')
                 }
