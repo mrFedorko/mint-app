@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { orDeliveryTypeCh, orNameCh } from "../../../store/orderSlice";
+import { orDeliveryTypeCh, orNameCh, orLayoutCh } from "../../../store/orderSlice";
 import { AdressDelivery, PickPointDelivery } from "./delivery";
 
 
@@ -8,6 +9,7 @@ export const PolygraphyOrder= (props) => {
     const {descr, descrDensity, descrQuan, descrSize, polygPrice, side} = useSelector(state => state.polygraphy)
     const {orName} = useSelector(state => state.order)
     const dispatch = useDispatch();
+    
 
     let descrSide;
     side === 'single' ? descrSide = 'односторонняя' : descrSide = 'двусторонняя' 
@@ -34,7 +36,8 @@ export const PolygraphyOrder= (props) => {
                 </div>
 
                 <h3 className="polygraphy-order__title">Название</h3>
-                <div className="polygraphy-order__content polygraphy-order__col">
+                <div className="polygraphy-order__content polygraphy-order__col"
+                     style={!orName ? {border: '2px solid red'} : {border:''}}>
                     <label>Необходимо для удобства ориентирования по заказам</label>
                     <input 
                         type="text" 
@@ -47,16 +50,20 @@ export const PolygraphyOrder= (props) => {
 
                 <h3 className="polygraphy-order__title">Макет</h3>
                 <div className="polygraphy-order__wrapper">
-                    <div className="polygraphy-order__content polygraphy-order__maquette">
-                        <div className="polygraphy-order__text">1 сторона</div>
-                        <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
-                        <label>нажмите, чтобы добавить файл</label>
-                    </div>
-                    { side === 'double' && <div className="polygraphy-order__content polygraphy-order__maquette">
+                    
+                        <label className="polygraphy-order__content polygraphy-order__maquette">
+                        <input type="file" onChange={(e) => {props.setLayout([...props.layout, e.target.files])}}/>
+                            <div className="polygraphy-order__text">1 сторона</div>
+                            <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
+                            <p>нажмите, чтобы добавить файл</p>
+                        </label>
+                    
+                    { side === 'double' && <label className="polygraphy-order__content polygraphy-order__maquette">
+                        <input type="file" onChange={(e) => props.setLayout([...props.layout, e.target.files])}/>
                         <div className="polygraphy-order__text">2 сторона</div>
                         <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
-                        <label>нажмите, чтобы добавить файл </label>
-                    </div>}
+                        <p>нажмите, чтобы добавить файл </p>
+                    </label>}
                 </div>
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>

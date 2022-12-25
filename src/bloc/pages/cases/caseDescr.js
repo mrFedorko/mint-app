@@ -1,5 +1,4 @@
-import { SVGarrowLeftShort, SVGarrowRightShort, SVGadress, SVGcalendar, SVGmounting, SVGdoc, SVGlikeCase, SVGpiggiBank } from "../../../svg/svg";
-import { useEffect } from "react";
+import { SVGarrowLeftShort, SVGarrowRightShort, SVGcalendar, SVGlikeCase, SVGpiggiBank } from "../../../svg/svg";
 
 
 export const CaseDescr = (props) => {

@@ -6,7 +6,6 @@ import { NoteItem } from "./noteItem";
 import './notifications.scss'
 import { SVGbookmarkStart, SVGtrash } from "../../../svg/svg";
 import { useState } from "react";
-import { useRef } from "react";
 
 export const Notifications = (props) => {
     

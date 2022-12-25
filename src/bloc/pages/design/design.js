@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import '../../../sass/sassTemplates/hat.scss';

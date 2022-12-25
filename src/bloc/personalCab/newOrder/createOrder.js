@@ -30,11 +30,9 @@ export const useCreateOrder = () => {
         comment: orComment,
     }
 
-   const falseValues = Object.entries(orderData).filter(item =>  !item[1]);
-
+    const falseValues = Object.entries(orderData).filter(item =>  !item[1]);
 
     if (falseValues.length) {
-        console.log(falseValues)
         return null
     }
     return orderData;
