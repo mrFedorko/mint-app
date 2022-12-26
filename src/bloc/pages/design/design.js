@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import '../../../sass/sassTemplates/hat.scss';
 import'../../../sass/sassTemplates/useful.scss';
@@ -7,7 +7,12 @@ import './design.scss';
 
 const Design  = () => {
     const navigate = useNavigate();
-    const [active, setActive] = useState('useful')
+    const [active, setActive] = useState('useful');
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
         return(
             <>
                 <section className="hat">
@@ -25,7 +30,7 @@ const Design  = () => {
             </section>
             <section className="design">
                 <div className="container">
-                    <Outlet/>
+                    <Outlet context={[active, setActive]}/>
                 </div>
             </section> 
             </>

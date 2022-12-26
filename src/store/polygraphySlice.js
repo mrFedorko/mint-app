@@ -4,7 +4,7 @@ const polygraphySlice = createSlice({
     name: 'polygraphy',
     initialState: {
         main: 'polygraphy',
-        side: 'single',
+        side: '',
         productType: '',
         descr: '',
         density: '',

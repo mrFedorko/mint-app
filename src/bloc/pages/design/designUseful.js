@@ -1,4 +1,13 @@
+import { useEffect } from "react";
+import { useOutletContext } from "react-router-dom"
+
 export const DesignUseful = () => {
+    
+    const [active, setActive] = useOutletContext();
+    useEffect(() => {
+        setActive('useful')
+    })
+
     return(
         <div className="useful fadein">
         <h3 className="useful__subject">С чего все начинается</h3>

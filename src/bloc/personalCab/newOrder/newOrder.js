@@ -30,6 +30,7 @@ const NewOrder = () => {
     const [createOrder] = useCreateOrderMutation();
     const [upload, {isLoading}] = useUploadMutation();
 
+    console.log(layout)
 
 
 
