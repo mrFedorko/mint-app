@@ -132,7 +132,7 @@
         margin-bottom: 30px;
     }
     &__sides{
-        width: 486px;
+        width: 330px;
         background-color: #f7f7f7;
         box-shadow: $main-shadow;
         border-radius: 20px;
@@ -164,6 +164,17 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+    }
+    &__result-wrap{
+        height: 65px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &__date{
+        font-size: 12px;
+        color: $main-color;
     }
     &__price{
         font-size: 15px;
@@ -262,6 +273,12 @@
         align-items: center;
         cursor: pointer;
     }
+    &__file{
+        border-radius: 6px;
+        padding: 10px 4px;
+        font-size: 10px;
+        box-shadow: $main-shadow;
+    }
     &__delivery{
         justify-content: space-around;
         width: 300px;
@@ -314,9 +331,6 @@
     }
     
     .polygraphy{
-        &__sides{
-            width: 50%;
-        }
         &__inner{
             width: 190px;
   
@@ -326,7 +340,6 @@
             font-size: 11px;
         }
         &__go-btn{
-            margin-top: 20px;
             width: 190px; 
         }
     }
@@ -363,6 +376,13 @@
             font-size: 11px;
         }
 
+        &__result{
+            margin-top: 20px;
+        }
+        &__result-wrap{
+            height: 60px;
+        }
+
         &__go-btn{
             width: 148px;
             height: 60px;
@@ -370,6 +390,24 @@
         }
         &__price{
             font-size: 13px;
+        }
+    }
+    .polygraphy-order{
+        &__content{
+            flex-wrap: wrap;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        &__parametr-item{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 30%;
+            height: 56px;
+            padding: 15px;
         }
     }
 }
@@ -422,24 +460,14 @@
             margin-bottom: 20px;
         }
         &__content{
-            flex-wrap: wrap;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
             label{
                 text-align: center;
                 font-size: 11px;
             }
         }
         &__parametr-item{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
             width: 50%;
-            height: 56px;
-            padding: 15px;
+            height: 36px;
         }
         &__name{
             font-size: 13px;

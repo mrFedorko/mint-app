@@ -2,6 +2,48 @@
 p{
     margin-bottom: 0;
 }
+details{
+    position: relative;
+    // transition: all 0.3s;
+
+    summary{
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding-left: 8px;
+        transition: all 0.3s;
+
+        // list-style:  url('../../../../public/icons/caret-down-fill.svg');
+        // img{
+        //     position: absolute;
+        //     right: 5px;
+        // }
+        &:before{
+            content: url('../../../../public/icons/caret-down-fill.svg');
+            position: absolute;
+            right: 5px;
+            top: 2px;
+            transition: all 0.3s;
+            will-change: transform;
+        }
+    }
+    &[open] > summary:before {
+    transform: rotate(180deg);
+    transform-origin: 50% 37% 0;
+    }
+    p{
+        padding-top: 13px;
+        padding-left: 8px;
+    }
+}
+details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+  }
+  
+  @keyframes sweep {
+    0%    {opacity: 0; transform: translateX(-10px)}
+    100%  {opacity: 1; transform: translateX(0)}
+  }
 
 .help{
     .container{
@@ -166,6 +208,7 @@ p{
         &:focus-visible{
             border: none;
             outline-style: none;
+            cursor: auto;
         }
         &::-webkit-scrollbar {
             width: 11px;

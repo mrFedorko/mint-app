@@ -8,6 +8,7 @@ import Polygraphy from '../pages/polygraphy/polygraphy';
 import UvPrint from '../pages/uvPrint/uvPrint';
 import Design from '../pages/design/design';
 import { PersonalEnter } from '../personalCab/personalEnter';
+import { Privacy } from '../pages/privacy/privacy';
 
 import SignsOrder from '../pages/signs/signsOrder';
 import SignsUseful from '../pages/signs/signsUseful';
@@ -64,6 +65,7 @@ const ContentRouter = () => {
                 </Route>
                 <Route path="/cases" element = {<Cases/>}/>
                 <Route path="/reviews" element = {<Reviews/>}/>
+                <Route path="/privacy" element = {<Privacy/>}/>
 
             </Routes>
         

@@ -1,5 +1,6 @@
 import React from 'react';
 import './_footer.scss';
+import c from '../../config.json'
 
 const Footer = () => {
     return (
@@ -7,9 +8,10 @@ const Footer = () => {
             <div className="footer__info">
                 <div className="footer__addr">Белгород</div>
                 <a href="tel:89524346863" className="footer__phone">+7 952 4346863 </a>
+                <div className="footer__addr">belmint@mail.ru</div>
                 <div className="footer__social">
                     <a href="/" className="footer__social-item"><img src="icons/vk.png" alt="vk"/></a>
-                    <a href=  "/" className="footer__social-item"><img src="icons/telegram.png" alt="telegram"/></a>
+                    <a href=  {`https://telegram.me/${c.telegram}`} className="footer__social-item"><img src="icons/telegram.png" alt="telegram"/></a>
                     <a href="/" className="footer__social-item"><img src="icons/viber.png" alt="viber"/></a>   
                     <a href="/" className="footer__social-item"><img src="icons/whatsapp.png" alt="whatsapp"/></a>     
                 </div>

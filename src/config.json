@@ -3,5 +3,7 @@
     "wsUrl": "ws://46.229.213.229:8000",
     "baseApiUrl" : "http://46.229.213.229:8000/",
     "baseLocalApiUrl": "http://localhost:8000",
-    "mode": "prod"
+    "mode": "prod",
+    "telegram": "Lilyanchik",
+    "mainPhone": "+7 952 4346863" 
 }

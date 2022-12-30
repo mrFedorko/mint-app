@@ -35,8 +35,8 @@ export const LoginForm = (props) => {
         
         <div className="auth__wrapper">
             <form className=" fadein" onKeyDown={(e) =>{if(e.key === 'Enter'){handleLogin()}}}>
-                <input onChange={(e) => setEmail(e.target.value)}  type="email" className="auth__email" placeholder="email" value ={email}/>
-                <input onKeyDown={(e) =>{if(e.key === 'Enter'){handleLogin()}}} onChange={(e) => setPassword(e.target.value)} type="password" className="auth__pwd" placeholder="Пароль" value = {password}/>
+                <input onChange={(e) => setEmail(e.target.value)}  type="email" className="auth__input" placeholder="email" value ={email}/>
+                <input onKeyDown={(e) =>{if(e.key === 'Enter'){handleLogin()}}} onChange={(e) => setPassword(e.target.value)} type="password" className="auth__input" placeholder="Пароль" value = {password}/>
                 <a href="/" className="auth__forgot">Забыли пароль?</a>
             </form>
                 

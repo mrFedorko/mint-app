@@ -18,7 +18,7 @@ const Manufacture =  () => {
 
         if(data.orders.length === 0){
             console.log('true')
-            content = <h3>Здесь будут показаны ваши активные заказы...</h3>
+            content = <h6>Здесь будут показаны ваши активные заказы...</h6>
         }
     }  
 

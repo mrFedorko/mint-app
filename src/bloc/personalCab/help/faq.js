@@ -7,8 +7,10 @@ export const Faq = () => {
                 <div className="faq__block-heading-shadow"></div>
             </div>
             <div className="faq__content">
-                <details className="faq__chapter">
-                    <summary className="faq__chapter-question">Легенда</summary>
+                <details className="faq__chapter"open>
+                    <summary className="faq__chapter-question">Легенда 
+                        {/* <img src="icons/chevron-compact-down.svg" alt="" /> */}
+                    </summary>
                     <p className="faq__chapter-answer">Раскрывающийся текст Раскрывающийся текст Раскрывающийся текст</p>
                 </details>
                 <details className="faq__chapter">

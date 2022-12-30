@@ -50,6 +50,7 @@ export const DesignUseful = () => {
             </div>
             <h5 className="useful__price">5000-130000 ₽</h5>
         </div>
+        <div className="useful__introduction useful__introduction-vide">Чтобы заказать бренд-бук или макет у нашего опытного дизайнера, составьте техническое задание согласно "Чек-листу заказчика" и обратитесь по телефону +79524346863 или по email: <span className="useful__introduction-nowrap">design-belmint@mail.ru</span> </div>
 
     </div>
     )

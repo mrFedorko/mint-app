@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useLogoutMutation } from '../../store/api/authApi';
 import { selectCurrentIsAuth } from '../../store/authSlice';
-
+import c from '../../config.json';
 
 import './header.scss';
 
@@ -14,6 +14,12 @@ const Header = (props) => {
     
     const isAuth = useSelector(selectCurrentIsAuth);
     
+    const handlePhone = () => {
+      const phoneWOPlus = c.mainPhone.split('').filter(item => item !== ' ' && item !== '+');
+      const phoneWPlus = c.mainPhone.split('').filter(item => item !== ' ');
+      return {phoneWOPlus, phoneWPlus}
+    }
+
     return (
         <header className="header">
 
@@ -39,9 +45,9 @@ const Header = (props) => {
                 </form>
                 
 
-                <button type="button" className="header__contact" href="tel:+79524346863">
-                    <a className="header__contact-maxi" href="tel:+79524346863">+7 952 4346863</a>
-                    <a className="header__contact-mini" href="tel:+79524346863">
+                <button type="button" className="header__contact">
+                    <a className="header__contact-maxi" href={`tel:${handlePhone().phoneWPlus}`}>{c.mainPhone}</a>
+                    <a className="header__contact-mini" href={`tel:${handlePhone().phoneWPlus}`}>
                         <img src="./icons/phone-yellow.svg" alt="logo"/>
                     </a>
                 </button>

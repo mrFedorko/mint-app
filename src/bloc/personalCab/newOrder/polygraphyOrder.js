@@ -48,6 +48,16 @@ export const PolygraphyOrder= (props) => {
                     />
                 </div>
 
+                <h3 className="polygraphy-order__title">Комментарий</h3>
+                <div className="polygraphy-order__content polygraphy-order__col">
+                    <label>Любые уточнения или пожелания по заказу (при необходимости)</label>
+                    <input 
+                        type="text" 
+                        className="polygraphy-order__name" 
+                        placeholder="Напишите комментарий к этому заказу"
+                    />
+                </div>
+
                 <h3 className="polygraphy-order__title">Макет</h3>
                 <div className="polygraphy-order__wrapper">
                     
@@ -64,6 +74,13 @@ export const PolygraphyOrder= (props) => {
                         <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
                         <p>нажмите, чтобы добавить файл </p>
                     </label>}
+
+                    <label className="polygraphy-order__content polygraphy-order__maquette">
+                        <input type="file" onChange={(e) => {props.setLayout([...props.layout, e.target.files])}}/>
+                            <div className="polygraphy-order__text">1 сторона</div>
+                            <div className="polygraphy-order__file"><img src="../icons/poligraphy_icons/confirm_file.svg" style= {{width: '29px', height: '24px'}} alt="file" className="polygraphy-order__add" />super Длинное название файла.jpg</div>
+                            <p>нажмите, чтобы выбрать другой файл</p>
+                        </label>
                 </div>
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>

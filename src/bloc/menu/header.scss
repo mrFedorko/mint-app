@@ -81,11 +81,15 @@
         font-weight: 700;
         color: white;
         margin-right:72px;
+        transition: 0.4s;
+        &:hover{
+            box-shadow: $minor-shadow;
+        }
         &-maxi{
             text-decoration: none;
             color: white;
             &:hover{
-                color: white
+                color: white;
             }
             
         }
@@ -130,7 +134,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: $minor-shadow;
+        transition: 0.4s;
+        &:hover{
+            box-shadow: $minor-shadow;
+        }
         img {
             height: 22px;
         }

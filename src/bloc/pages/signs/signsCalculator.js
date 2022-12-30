@@ -12,7 +12,6 @@ const SignsCalculator = (props) => {
     const {isAuth} = useSelector(state=>state.auth)
     const calculator = useSelector(state => state.sign.calculator);
     const {signType, type, colored, sideColor, faceColor, word, size, width, height, signMaterial, bannerPostWork} = calculator;
-    const {orType} = useSelector(state=> state.order);
 
     
     const dispatch = useDispatch();
