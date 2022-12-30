@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { convertCalcState, getPrice } from '../../../services/services.js';
 import data from '../../../services/pricing.json';
 import { bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from '../../../store/signSlice.js';
-import { orDetailsCh, orTypeCh } from '../../../store/orderSlice';
+import { orDetailsCh, orPriceCh, orTypeCh } from '../../../store/orderSlice';
 
 
 const SignsCalculator = (props) => {
@@ -16,6 +16,10 @@ const SignsCalculator = (props) => {
 
     
     const dispatch = useDispatch();
+
+    if (getPrice(calculator, data.pricing)) {
+        dispatch(orPriceCh(getPrice(calculator, data.pricing)))
+    }
 
     const content = {
         'letter' : {
@@ -126,8 +130,8 @@ const SignsCalculator = (props) => {
 
 const LetterDescrBlock= (props) => {
    
-    const {type, light, sideColor, faceColor, word, size} = useSelector(state=>state.sign.calculator);
 
+    const {type, light, sideColor, faceColor, word, size} = useSelector(state=>state.sign.calculator);
 
 
     return(

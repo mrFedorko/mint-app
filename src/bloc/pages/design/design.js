@@ -12,7 +12,7 @@ const Design  = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      }, [])
+      }, [active])
         return(
             <>
                 <section className="hat">

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useGetAllOrdersQuery } from '../../../store/api/orderApi';
 import { PolygOrderItem } from './polygOrderItem';
+import { UvOrderItem } from './uvOrderItem';
 
 const Manufacture =  () => {
     const {userId} = useSelector(state => state.auth)
@@ -13,7 +14,13 @@ const Manufacture =  () => {
         const {orders} =  data;
 
         content = orders.map((item, index) => {
-               return  <PolygOrderItem key={item._id}  index={index+1} order={item} /> 
+            if (item.type === 'polyg'){
+                return  <PolygOrderItem key={item._id}  index={index+1} order={item} /> 
+            };
+            if (item.type === 'uv'){
+                return <UvOrderItem key={item._id}  index={index+1} order={item}/>
+            }        
+            return ''
         } )
 
         if(data.orders.length === 0){

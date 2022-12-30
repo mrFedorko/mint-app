@@ -85,6 +85,8 @@ function getPrice(state, pricing){
     if(signType === 'uv' && signMaterial === 'ACP3'){
         return  Math.floor(pricing.uv.ACP3*height*width/100/100);
     }
+
+    return ''
 }
 
 

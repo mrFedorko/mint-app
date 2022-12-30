@@ -1,4 +1,5 @@
 import { retranslate } from "../../../services/retranslate"
+import { SVGpolygIcon } from "../../../svg/svg"
 
 
 export const PolygOrderItem = (props) => {
@@ -13,7 +14,7 @@ export const PolygOrderItem = (props) => {
             <div className="manu__wrapper">
                 <div className="manu__date">Заказ от {rtlData(date, true)}</div>
                 <div className="manu__info">
-                    <div className="manu__icon"><img src="../icons/poligraphy_icons/card.svg" alt="card" /></div>
+                    <div className="manu__icon"><SVGpolygIcon fill="#4d897c" height="35"/></div>
                     <div className="manu__definition">
                         <div className="manu__inner">
                             <div className="manu__order-name">{details.descr} {rtlSide(details.side)}</div>
