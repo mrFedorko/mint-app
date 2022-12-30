@@ -1,23 +1,20 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { orDeliveryTypeCh, orNameCh, orPriceCh } from "../../../store/orderSlice";
-import { AdressDelivery, PickPointDelivery } from "./delivery";
+import { orDeliveryTypeCh, orNameCh } from "../../../store/orderSlice";
+import { PickPointDelivery, AdressDelivery } from "./delivery";
 
 
-export const PolygraphyOrder= (props) => {
-    const {orDelivery, orDetails} = useSelector(state => state.order);
-    const {descr, descrDensity, descrQuan, descrSize, polygPrice, side} = useSelector(state => state.polygraphy)
+export const UvOrder= (props) => {
+    const {orDelivery, orPrice} = useSelector(state => state.order);
+    const {signMaterial, height, width} = useSelector(state => state.sign.calculator)
     const {orName} = useSelector(state => state.order)
     const dispatch = useDispatch();
 
+    const descr = {
+        'PVC3': 'Табличка из пластика ПВХ 3мм',
+        'PVC5': 'Табличчка из пластика ПВХ 5мм',
+        'ACP3': 'Табличка из алюминиевой композитной паннели 3 мм'
+    }
 
-    useEffect(() => {
-        props.setLayout([])
-    }, [side])
-
-    let descrSide;
-    side === 'single' ? descrSide = 'односторонняя' : descrSide = 'двусторонняя' 
     
 
     const handleDelivery = (state) => {
@@ -32,7 +29,7 @@ export const PolygraphyOrder= (props) => {
 
     const handleBorder = (arg) => (arg ? {border:''} : {border: '3px solid red'})
     
-
+    
     return(
         <div className="polygraphy-order">
             <div className="polygraphy-order__close" onClick={() => props.handlerResume(false)}>&times;</div>
@@ -41,12 +38,10 @@ export const PolygraphyOrder= (props) => {
                 <h3 className="polygraphy-order__title">Параметры</h3>
 
                 <div className="polygraphy-order__content">
-                    <div className="polygraphy-order__parametr-item">{descr}</div>
-                    <div className="polygraphy-order__parametr-item">{descrSize}</div>
-                    <div className="polygraphy-order__parametr-item">{descrSide}</div>
-                    <div className="polygraphy-order__parametr-item">{descrDensity}</div>
-                    <div className="polygraphy-order__parametr-item">{descrQuan}</div>
-                    <div className="polygraphy-order__parametr-item">{polygPrice} руб</div>
+                    <div className="polygraphy-order__parametr-item">{descr[signMaterial]}</div>
+                    <div className="polygraphy-order__parametr-item">{`Ширина ${width} см`}</div>
+                    <div className="polygraphy-order__parametr-item">{`Длина ${height} см`}</div>
+                    <div className="polygraphy-order__parametr-item">{orPrice} руб</div>
                 </div>
 
                 <h3 className="polygraphy-order__title">Название</h3>
@@ -62,16 +57,6 @@ export const PolygraphyOrder= (props) => {
                     />
                 </div>
 
-                <h3 className="polygraphy-order__title">Комментарий</h3>
-                <div className="polygraphy-order__content polygraphy-order__col">
-                    <label>Любые уточнения или пожелания по заказу (при необходимости)</label>
-                    <input 
-                        type="text" 
-                        className="polygraphy-order__name" 
-                        placeholder="Напишите комментарий к этому заказу"
-                    />
-                </div>
-
                 <h3 className="polygraphy-order__title">Макет</h3>
                 <div className="polygraphy-order__wrapper">
                     
@@ -83,20 +68,6 @@ export const PolygraphyOrder= (props) => {
                             <p>нажмите, чтобы добавить файл</p>
                         </label>
                     
-                    { side === 'double' && <label className="polygraphy-order__content polygraphy-order__maquette"
-                    style={handleBorder(props.layout[1])}>
-                        <input type="file" onChange={(e) => handleOnLayoutAdd(e, 1)}/>
-                        <div className="polygraphy-order__text">2 сторона</div>
-                        <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
-                        <p>нажмите, чтобы добавить файл </p>
-                    </label>}
-
-                    <label className="polygraphy-order__content polygraphy-order__maquette">
-                        <input type="file" onChange={(e) => {props.setLayout([...props.layout, e.target.files])}}/>
-                            <div className="polygraphy-order__text">1 сторона</div>
-                            <div className="polygraphy-order__file"><img src="../icons/poligraphy_icons/confirm_file.svg" style= {{width: '29px', height: '24px'}} alt="file" className="polygraphy-order__add" />super Длинное название файла.jpg</div>
-                            <p>нажмите, чтобы выбрать другой файл</p>
-                        </label>
                 </div>
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>

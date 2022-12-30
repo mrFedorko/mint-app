@@ -67,7 +67,20 @@ export const retranslate = () => {
                 default:
                     break;
             }
-        } 
+        },
+        
+        rtlMaterial: (mat) => {
+            switch (mat) {
+                case 'PVC3':
+                    return 'ПВХ 3мм'
+                case 'PVC5':
+                    return 'ПВХ 5мм'
+                case 'ACP3':
+                    return 'Алюминиевая композитная паннель 3мм'
+                default:
+                    break;
+            }
+        }
     }
 };
 

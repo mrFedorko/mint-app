@@ -13,7 +13,7 @@ const orderSlice = createSlice({
         orOwner: '',
         orExpDate: '',
         orLayout: [],
-        orPrice: 0,
+        orPrice: '0',
         orDelivery: {
             type: '',
             town:'',

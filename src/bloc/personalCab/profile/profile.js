@@ -1,11 +1,15 @@
 import React from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useOutletContext } from 'react-router-dom';
 import { Notifications } from './notifications';
 
 
 
 const Profile = ()=> {
+
+    const [active, setActive] = useOutletContext();
+    setActive('profile');
 
     const {name, adress, phone,  entity, entityName, TIN, OGRN, check, corCheck, bank, BIK} = useSelector(state => state.userSettings);
 

@@ -1,4 +1,4 @@
-import { SVGarrowLeftShort, SVGarrowRightShort, SVGcalendar, SVGlikeCase, SVGpiggiBank, SVGmounting, SVGadress, SVGdoc } from "../../../svg/svg";
+import { SVGarrowLeftShort, SVGarrowRightShort, SVGcalendar, SVGlikeCase, SVGpiggiBank, SVGmounting, SVGadress, SVGdoc } from "../../../svg/svg.js";
 
 
 export const CaseDescr = (props) => {

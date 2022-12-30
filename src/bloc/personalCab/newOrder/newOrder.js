@@ -13,13 +13,17 @@ import { sMessageCh } from '../../../store/sMessageSlice';
 import { resetPolyg } from '../../../store/polygraphySlice';
 import { useNavigate } from "react-router-dom";
 import { useUploadMutation } from '../../../store/api/uploadApi';
+import { UvOrder } from './uvOrder';
+import { useOutletContext } from 'react-router-dom';
 
 
 
 
 const NewOrder = () => {
-    const [resume, setResume] = useState(false)
-    const [layout, setLayout] = useState([])
+    const [resume, setResume] = useState(false);
+    const [layout, setLayout] = useState([]);
+    const [_, setActive] = useOutletContext();
+    setActive('new');
 
 
     // const polygDetails = useSelector(state => state.polygraphy)
@@ -30,6 +34,7 @@ const NewOrder = () => {
     const [createOrder] = useCreateOrderMutation();
     const [upload, {isLoading}] = useUploadMutation();
 
+    console.log(layout)
 
 
 
@@ -68,7 +73,6 @@ const NewOrder = () => {
         layout.forEach(item=> {
             formData.append('files', item[0])
         })
-        // formData.append('files', layout)
         console.log(layout)
         await upload({id, orderDate, formData})
         
@@ -82,26 +86,16 @@ const NewOrder = () => {
 
     } 
 
-    const handleConfirmStyle = () => {
-        if(!orderData){
-            return {
-                display: 'none'
-            }
-        } else {
-            return {
-                display: 'block'
-            }
-        }
-    }
+   
 
-        
+    console.log(orderData)
     const signCalculator = <SignsCalculator blocked={!!orType} handleResume = {handleResume}/>
     const polygraphyCalc = <PolygraphyCalc handleResume = {handleResume}/>
     
     let content = {
-        'uv': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
-        'banner': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
-        'letter': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume}/>},
+        'uv': {calc: signCalculator, 'order': <UvOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
+        'banner': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
+        'letter': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
         'polyg': {calc: polygraphyCalc, 'order': <PolygraphyOrder layout={layout} setLayout={setLayout} handlerResume = {handleResume}/>},
         '':{calc: <></>, 'order': <></>}
 
@@ -120,12 +114,13 @@ const NewOrder = () => {
                 {!!active && content[active].calc}
                 {resume && content[active].order}
 
-                <button 
+                {orderData && <button 
                     className="new-order__confirm"
                     children="Оформить заказ"
                     onClick={handleCreateOrder}
-                    style = {handleConfirmStyle()}
-                />
+                />}
+
+                {!orderData && <h6> Заполните все поля заказа </h6>}
             </div>
             
         </div>
