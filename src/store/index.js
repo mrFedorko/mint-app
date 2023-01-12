@@ -7,6 +7,7 @@ import userSettingsReducer from './userSettingsSlice';
 import orderReducer from './orderSlice';
 import polygraphyReducer from './polygraphySlice';
 import sMessageReducer from './sMessageSlice'
+import reviewReducer from './rewiewSlice'
 
 import { api } from './api/api';
 
@@ -19,6 +20,7 @@ const store = configureStore({
         order: orderReducer,
         polygraphy: polygraphyReducer,
         sMessage: sMessageReducer,
+        review: reviewReducer,
         [api.reducerPath]: api.reducer
     },
     middleware: getDefaultMiddleware => {

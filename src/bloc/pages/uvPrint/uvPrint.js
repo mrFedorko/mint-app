@@ -9,7 +9,7 @@ import '../../../sass/sassTemplates/hat.scss';
 import data from '../../../services/pricing.json';
 import { convertCalcState, getPrice } from '../../../services/services.js';
 import { heightCh, signMaterialCh, widthCh } from '../../../store/uvprintSlice';
-import SignsCalculator from '../signs/signsCalculator';
+import SignsCalculator from '../../calculators/signsCalculator';
 import { UvUseful } from './uvUseful';
 
 import { signTypeCh } from '../../../store/signSlice';
@@ -34,19 +34,25 @@ const UvPrint = () => {
 
 
     return(
-        <section className="hat">
-            <div className="container">
-                <div className="hat__header">
-                    <div className="hat__buttons">
-                        <button onClick={() => setActive('useful')} className={'hat__button'+ (active === 'useful' ? ' hat__button_active' : '')}>Информация</button>
-                        <button onClick={() => setActive('calc')} className={'hat__button'+ (active === 'calc' ? ' hat__button_active' : '')}>Онлайн заказ</button>
+        <>
+            <section className="hat">
+                <div className="container">
+                    <div className="hat__header">
+                        <div className="hat__buttons">
+                            <button onClick={() => setActive('useful')} className={'hat__button'+ (active === 'useful' ? ' hat__button_active' : '')}>Информация</button>
+                            <button onClick={() => setActive('calc')} className={'hat__button'+ (active === 'calc' ? ' hat__button_active' : '')}>Онлайн заказ</button>
+                        </div>
+                        <h1 className="hat__title">УФ-печать</h1>
                     </div>
-                    <h1 className="hat__title">УФ-печать</h1>
                 </div>
-                { active === 'calc' && <SignsCalculator blocked={true}/>}
-                { active === 'useful' && <UvUseful/>}
-            </div>
-        </section>
+            </section>
+            <section className="uvprint">
+                <div className="container">
+                    { active === 'calc' && <SignsCalculator blocked={true}/>}
+                    { active === 'useful' && <UvUseful/>}
+                </div>
+            </section> 
+        </>
     );
     
 };

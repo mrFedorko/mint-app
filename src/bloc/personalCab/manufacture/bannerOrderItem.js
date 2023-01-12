@@ -1,10 +1,10 @@
 import { retranslate } from "../../../services/retranslate"
-import { SVGuvIcon } from "../../../svg/svg"
+import { SVGbannerIcon } from "../../../svg/svg"
 
-export const UvOrderItem = (props) => {
+export const BannerOrderItem = (props) => {
     const {date, details, name, status, price, payStatus, expDate, key} = props.order
     const index = props.index
-    const { rtlDate, rtlStatus, rtlPayStatus, rtlMaterial } = retranslate()
+    const { rtlDate, rtlStatus, rtlPayStatus, rtlPostWork } = retranslate()
 
     return (
         <div className="manu__strip" key={key}>
@@ -12,11 +12,12 @@ export const UvOrderItem = (props) => {
         <div className="manu__wrapper">
             <div className="manu__date">Заказ от {rtlDate(date, true)}</div>
             <div className="manu__info">
-                <div className="manu__icon"><SVGuvIcon fill={'#4d897c'} height={"35"}/></div>
+                <div className="manu__icon"><SVGbannerIcon fill={'#4d897c'} height={"35"}/></div>
                 <div className="manu__definition">
                     <div className="manu__inner">
-                        <div className="manu__order-name">Материал: {rtlMaterial(details.signMaterial)}</div>
+                        <div className="manu__order-name">Материал: Баннер 440 г/м.кв</div>
                         <div className="manu__order-detales">ширина: {details.width}см, длина: {details.height}см </div>
+                        <div className="manu__order-detales">Дополнительно: {rtlPostWork(!!(+details.bannerPostWork))} </div>
                     </div>
                     <div className="manu__comment">{name}</div>
                 </div>

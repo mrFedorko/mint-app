@@ -17,7 +17,7 @@ export const useCreateOrder = () => {
     orType !== 'polyg' ? details = signDetails:
     details = 'no details'
 
-    orType === 'polyg' ? price = polygDetails.price:
+    orType === 'polyg' ? price = polygDetails.polygPrice:
     price = ''
 
     
@@ -38,7 +38,7 @@ export const useCreateOrder = () => {
         comment: orComment,
     }
 
-    const falseValues = Object.entries(orderData).filter(item =>  !item[1]);
+    const falseValues = Object.entries(orderData).filter(item =>  !item[1] || item[1] === []);
 
     if (falseValues.length) {
         return null

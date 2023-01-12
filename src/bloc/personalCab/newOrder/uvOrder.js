@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { orDeliveryTypeCh, orNameCh } from "../../../store/orderSlice";
 import { PickPointDelivery, AdressDelivery } from "./delivery";
 
+import { LayoutUpload } from "./layoutUpload";
 
 export const UvOrder= (props) => {
     const {orDelivery, orPrice} = useSelector(state => state.order);
@@ -60,13 +61,7 @@ export const UvOrder= (props) => {
                 <h3 className="polygraphy-order__title">Макет</h3>
                 <div className="polygraphy-order__wrapper">
                     
-                        <label className="polygraphy-order__content polygraphy-order__maquette"
-                        style={handleBorder(props.layout[0])}>
-                        <input type="file" onChange={(e) => handleOnLayoutAdd(e, 0)}/>
-                            <div className="polygraphy-order__text">1 сторона</div>
-                            <img src="../icons/poligraphy_icons/add.svg" style= {{width: '25px'}} alt="add" className="polygraphy-order__add" />
-                            <p>нажмите, чтобы добавить файл</p>
-                        </label>
+                <LayoutUpload index={0} handleOnLayoutAdd = {handleOnLayoutAdd} layout = {props.layout} handleBorder = {handleBorder}/>
                     
                 </div>
 

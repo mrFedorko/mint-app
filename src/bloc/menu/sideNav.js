@@ -25,8 +25,8 @@ const SideNavNarrow = () => {
 const  SideNavWide = (props) => {
 
     return (
-        <div className="screen fadein" onClick = {(e) => props.hideWide(e.target)}>
-            <div className="wide">
+        <div className="screen fadein" >
+            <div className="wide" onMouseLeave = {(e) => props.hideWide(e.target)}>
                 <nav>
                     <ul className="wide__list">
                         <li className="wide__item">

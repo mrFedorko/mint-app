@@ -6,13 +6,13 @@ export const PolygOrderItem = (props) => {
     
     const {date, details, name, status, price, payStatus, expDate, key} = props.order
     const index = props.index
-    const { rtlData, rtlStatus, rtlPayStatus, rtlSide } = retranslate()
+    const { rtlDate, rtlStatus, rtlPayStatus, rtlSide } = retranslate()
 
     return (
         <div className="manu__strip" key={key}>
             <div className="manu__number">{index}</div>
             <div className="manu__wrapper">
-                <div className="manu__date">Заказ от {rtlData(date, true)}</div>
+                <div className="manu__date">Заказ от {rtlDate(date, true)}</div>
                 <div className="manu__info">
                     <div className="manu__icon"><SVGpolygIcon fill="#4d897c" height="35"/></div>
                     <div className="manu__definition">
@@ -29,7 +29,7 @@ export const PolygOrderItem = (props) => {
                         </div>
                         <div className="manu__control-group">
                             <div className="manu__control-parametr">Дата готовности:</div>
-                            <div className="manu__control-value">{rtlData(expDate)}</div>
+                            <div className="manu__control-value">{rtlDate(expDate)}</div>
                         </div>
                     </div>
                     <div className="manu__buttons">
@@ -42,7 +42,7 @@ export const PolygOrderItem = (props) => {
                         Отменить
                         </button>
                         <button type="button" class="manu__button manu__button_pay" href="/">
-                            <div className="manu__sum">{price}</div>
+                            <div className="manu__sum">{price} руб</div>
                             <div className="manu__pay">Оплатить</div>
                         </button>
                     </div>

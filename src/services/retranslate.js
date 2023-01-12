@@ -8,17 +8,17 @@ function addZero (value){
 
 export const retranslate = () => {
     return{
-        rtlData: (dateStr, exact=0) => {
+        rtlDate: (dateStr, exact=0) => {
             const d = new Date(+dateStr);
             const day = addZero(d.getDate());
-            const month = addZero(d.getMonth());
+            const month = addZero(d.getMonth()+1);
             const year = d.getFullYear();
             const hour = addZero(d.getHours());  
             const minutes = addZero(d.getMinutes());
             if(exact){
-                return `${year}-${month+1}-${day}   ${hour}:${minutes}`;
+                return `${year}-${month}-${day}   ${hour}:${minutes}`;
             } else {
-                return `${year}-${month+1}-${day}`;
+                return `${year}-${month}-${day}`;
             }
 
         },
@@ -77,6 +77,17 @@ export const retranslate = () => {
                     return 'ПВХ 5мм'
                 case 'ACP3':
                     return 'Алюминиевая композитная паннель 3мм'
+                default:
+                    break;
+            }
+        },
+        rtlPostWork: (pw) => {
+            switch (pw) {
+                case true:
+                    return 'проклейка края и установка люверсов через 30 см'
+                case false:
+                    return 'без постпечатной обработки'
+                
                 default:
                     break;
             }

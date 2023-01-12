@@ -2,7 +2,7 @@ import { retranslate } from "../../../services/retranslate";
 
 export const ChatMessage = (props) =>  {
     
-    const {rtlData} = retranslate();
+    const {rtlDate} = retranslate();
     
     const insertNewLine = (text) => {
         const msg = text.split('\n').filter(item=> item !== '').map(item=> {  
@@ -28,7 +28,7 @@ export const ChatMessage = (props) =>  {
     return(
             <div className={style.wrap}>
                 <p className="chat__message-text">{insertNewLine(text)}</p>
-                <p className={style.time}>{rtlData(date, true)}</p>
+                <p className={style.time}>{rtlDate(date, true)}</p>
             </div>        
     )
 }

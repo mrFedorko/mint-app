@@ -12,15 +12,15 @@ import { Privacy } from '../pages/privacy/privacy';
 
 import SignsOrder from '../pages/signs/signsOrder';
 import SignsUseful from '../pages/signs/signsUseful';
-import SignsCalculator from '../pages/signs/signsCalculator';
+import SignsCalculator from '../calculators/signsCalculator';
 import {PolygraphyUseful} from '../pages/polygraphy/polygraphyUseful';
-import PolygraphyCalc from '../pages/polygraphy/polygraphyCalculator';
+import PolygraphyCalc from '../calculators/polygraphyCalculator';
 import Profile from '../personalCab/profile/profile';
 import NewOrder from '../personalCab/newOrder/newOrder';
 import Manufacture from '../personalCab/manufacture/manufacture';
 import { History } from '../personalCab/history/history';
 import Help from '../personalCab/help/help';
-import Feedback from '../personalCab/feedback';
+import Feedback from '../personalCab/feedback/feedback';
 import Settings from '../personalCab/settings';
 
 import Cases from '../pages/cases/cases';

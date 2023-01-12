@@ -9,9 +9,10 @@ const Menu  = () => {
    
     const [navWide, setNavWide] = useState(false);
     const hideWide = (target) => {
-        if(target.className.indexOf('wide') === -1){
-            setNavWide(false);
-        }
+        // if(target.className.indexOf('screen')){
+        //     setNavWide(false);
+        // }
+        setNavWide(false)
        
     };
     return(

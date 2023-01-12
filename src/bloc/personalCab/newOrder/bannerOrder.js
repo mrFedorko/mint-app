@@ -1,24 +1,21 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { orDeliveryTypeCh, orNameCh, orPriceCh } from "../../../store/orderSlice";
-import { AdressDelivery, PickPointDelivery } from "./delivery";
+import { orDeliveryTypeCh, orNameCh } from "../../../store/orderSlice";
+import { PickPointDelivery, AdressDelivery } from "./delivery";
+
 import { LayoutUpload } from "./layoutUpload";
 
-
-export const PolygraphyOrder= (props) => {
-    const {orDelivery, orDetails} = useSelector(state => state.order);
-    const {descr, descrDensity, descrQuan, descrSize, polygPrice, side} = useSelector(state => state.polygraphy)
+export const BannerOrder= (props) => {
+    const {orDelivery, orPrice} = useSelector(state => state.order);
+    const {bannerPostWork, height, width} = useSelector(state => state.sign.calculator)
     const {orName} = useSelector(state => state.order)
     const dispatch = useDispatch();
 
+    const descr = {
+        'true': 'Баннер 440 г/м.кв, проклейка и люверсы через 30 см',
+        'false': 'Баннер 440 г/м.кв, без проклейки и люверсов',
+        
+    }
 
-    useEffect(() => {
-        props.setLayout([])
-    }, [side])
-
-    let descrSide;
-    side === 'single' ? descrSide = 'односторонняя' : descrSide = 'двусторонняя' 
     
 
     const handleDelivery = (state) => {
@@ -33,7 +30,7 @@ export const PolygraphyOrder= (props) => {
 
     const handleBorder = (arg) => (arg ? {border:''} : {border: '3px solid red'})
     
-
+    
     return(
         <div className="polygraphy-order">
             <div className="polygraphy-order__close" onClick={() => props.handlerResume(false)}>&times;</div>
@@ -42,12 +39,10 @@ export const PolygraphyOrder= (props) => {
                 <h3 className="polygraphy-order__title">Параметры</h3>
 
                 <div className="polygraphy-order__content">
-                    <div className="polygraphy-order__parametr-item">{descr}</div>
-                    <div className="polygraphy-order__parametr-item">{descrSize}</div>
-                    <div className="polygraphy-order__parametr-item">{descrSide}</div>
-                    <div className="polygraphy-order__parametr-item">{descrDensity}</div>
-                    <div className="polygraphy-order__parametr-item">{descrQuan}</div>
-                    <div className="polygraphy-order__parametr-item">{polygPrice} руб</div>
+                    <div className="polygraphy-order__parametr-item">{descr[!!(+bannerPostWork)]}</div>
+                    <div className="polygraphy-order__parametr-item">{`Ширина ${width} см`}</div>
+                    <div className="polygraphy-order__parametr-item">{`Длина ${height} см`}</div>
+                    <div className="polygraphy-order__parametr-item">{orPrice} руб</div>
                 </div>
 
                 <h3 className="polygraphy-order__title">Название</h3>
@@ -63,24 +58,11 @@ export const PolygraphyOrder= (props) => {
                     />
                 </div>
 
-                <h3 className="polygraphy-order__title">Комментарий</h3>
-                <div className="polygraphy-order__content polygraphy-order__col">
-                    <label>Любые уточнения или пожелания по заказу (при необходимости)</label>
-                    <input 
-                        type="text" 
-                        className="polygraphy-order__name" 
-                        placeholder="Напишите комментарий к этому заказу"
-                    />
-                </div>
-
                 <h3 className="polygraphy-order__title">Макет</h3>
                 <div className="polygraphy-order__wrapper">
                     
-                    <LayoutUpload index={0} handleOnLayoutAdd = {handleOnLayoutAdd} layout = {props.layout} handleBorder = {handleBorder}/>
+                <LayoutUpload index={0} handleOnLayoutAdd = {handleOnLayoutAdd} layout = {props.layout} handleBorder = {handleBorder}/>
                     
-                    { side === 'double' && 
-                    <LayoutUpload index={1} handleOnLayoutAdd = {handleOnLayoutAdd} layout = {props.layout} handleBorder = {handleBorder}/>}
-
                 </div>
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>

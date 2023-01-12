@@ -1,39 +1,36 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { orDeliveryTypeCh, orNameCh, orPriceCh } from "../../../store/orderSlice";
-import { AdressDelivery, PickPointDelivery } from "./delivery";
+import { orDeliveryTypeCh, orNameCh } from "../../../store/orderSlice";
+import { PickPointDelivery, AdressDelivery } from "./delivery";
+
 import { LayoutUpload } from "./layoutUpload";
 
-
-export const PolygraphyOrder= (props) => {
-    const {orDelivery, orDetails} = useSelector(state => state.order);
-    const {descr, descrDensity, descrQuan, descrSize, polygPrice, side} = useSelector(state => state.polygraphy)
+export const LetterOrder= (props) => {
+    const {orDelivery, orPrice} = useSelector(state => state.order);
+    const {type, light, word, size, colored} = useSelector(state => state.sign.calculator)
     const {orName} = useSelector(state => state.order)
     const dispatch = useDispatch();
 
+    const descr = {
+        'plate' : 'плоские буквы из ПВХ 8мм',
+        'volume': 'объемные буквы',
+        light:{
+            'true': 'c подсветкой',
+            'false': 'без подсветки',
+        },
+        
+        'full': 'сплошная',
+        'stroke': 'с контуром',
+    }
 
-    useEffect(() => {
-        props.setLayout([])
-    }, [side])
-
-    let descrSide;
-    side === 'single' ? descrSide = 'односторонняя' : descrSide = 'двусторонняя' 
     
 
     const handleDelivery = (state) => {
         dispatch(orDeliveryTypeCh(state))
     }
 
-    const handleOnLayoutAdd = (e, index) => {
-        const newLayouts = [...props.layout];
-        newLayouts[index] = e.target.files;
-        props.setLayout(newLayouts);
-    }
-
     const handleBorder = (arg) => (arg ? {border:''} : {border: '3px solid red'})
     
-
+    
     return(
         <div className="polygraphy-order">
             <div className="polygraphy-order__close" onClick={() => props.handlerResume(false)}>&times;</div>
@@ -42,14 +39,13 @@ export const PolygraphyOrder= (props) => {
                 <h3 className="polygraphy-order__title">Параметры</h3>
 
                 <div className="polygraphy-order__content">
-                    <div className="polygraphy-order__parametr-item">{descr}</div>
-                    <div className="polygraphy-order__parametr-item">{descrSize}</div>
-                    <div className="polygraphy-order__parametr-item">{descrSide}</div>
-                    <div className="polygraphy-order__parametr-item">{descrDensity}</div>
-                    <div className="polygraphy-order__parametr-item">{descrQuan}</div>
-                    <div className="polygraphy-order__parametr-item">{polygPrice} руб</div>
+                    <div className="polygraphy-order__parametr-item">Вывеска "{word}": {descr[type]}</div>
+                    <div className="polygraphy-order__parametr-item">{descr.light[`${!!(+light)}`]}</div>
+                    <div className="polygraphy-order__parametr-item">Лицевая сторона {descr[colored]}</div>
+                    <div className="polygraphy-order__parametr-item">Высота буквы {size} см</div>
+                    <div className="polygraphy-order__parametr-item"> приблиизительно {orPrice} руб</div>
                 </div>
-
+                <h3 className="polygraphy-order__title">Вывеска - не шаблонный заказ, а уникальны продукт. Для уточчнения всех деталей мы свяжемся с вами по контактному телефону, указанному в вашем профиле. Если вы не хотите указывать ваш номер телефона - позвоните нам сами. До согласования с вами этот заказ не будет запущен в работу</h3>
                 <h3 className="polygraphy-order__title">Название</h3>
                 <div className="polygraphy-order__content polygraphy-order__col"
                      style={handleBorder(orName)}>
@@ -63,24 +59,9 @@ export const PolygraphyOrder= (props) => {
                     />
                 </div>
 
-                <h3 className="polygraphy-order__title">Комментарий</h3>
-                <div className="polygraphy-order__content polygraphy-order__col">
-                    <label>Любые уточнения или пожелания по заказу (при необходимости)</label>
-                    <input 
-                        type="text" 
-                        className="polygraphy-order__name" 
-                        placeholder="Напишите комментарий к этому заказу"
-                    />
-                </div>
-
-                <h3 className="polygraphy-order__title">Макет</h3>
                 <div className="polygraphy-order__wrapper">
                     
-                    <LayoutUpload index={0} handleOnLayoutAdd = {handleOnLayoutAdd} layout = {props.layout} handleBorder = {handleBorder}/>
                     
-                    { side === 'double' && 
-                    <LayoutUpload index={1} handleOnLayoutAdd = {handleOnLayoutAdd} layout = {props.layout} handleBorder = {handleBorder}/>}
-
                 </div>
 
                 <h3 className="polygraphy-order__title">Доставка DPD</h3>

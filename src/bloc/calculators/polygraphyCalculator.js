@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { productTypeCh, densityCh, quanCh, sizeCh, descrCh, polygPriceCh, descrSizeCh, polygSideCh, descrQuanCh, descrDensityCh } from '../../../store/polygraphySlice.js';
+import { productTypeCh, densityCh, quanCh, sizeCh, descrCh, polygPriceCh, descrSizeCh, polygSideCh, descrQuanCh, descrDensityCh } from '../../store/polygraphySlice.js';
 
-import data from '../../../services/polygraphy.json';
-import price from '../../../services/polygraphyPrise.json';
+import data from '../../services/polygraphy.json';
+import price from '../../services/polygraphyPrise.json';
 
 
 

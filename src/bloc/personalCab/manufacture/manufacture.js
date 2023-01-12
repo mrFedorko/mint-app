@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useGetAllOrdersQuery } from '../../../store/api/orderApi';
+import { BannerOrderItem } from './bannerOrderItem';
 import { PolygOrderItem } from './polygOrderItem';
 import { UvOrderItem } from './uvOrderItem';
 
@@ -20,7 +21,12 @@ const Manufacture =  () => {
             if (item.type === 'uv'){
                 return <UvOrderItem key={item._id}  index={index+1} order={item}/>
             }        
-            return ''
+            if(item.type === 'banner'){
+                return <BannerOrderItem key={item._id}  index={index+1} order={item}/>
+            }
+            if(item.type === 'letter'){
+                return <BannerOrderItem key={item._id}  index={index+1} order={item}/>
+            }
         } )
 
         if(data.orders.length === 0){

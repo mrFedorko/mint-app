@@ -2,10 +2,10 @@ import React from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import { convertCalcState, getPrice } from '../../../services/services.js';
-import data from '../../../services/pricing.json';
-import { bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from '../../../store/signSlice.js';
-import { orDetailsCh, orPriceCh, orTypeCh } from '../../../store/orderSlice';
+import { convertCalcState, getPrice } from '../../services/services.js';
+import data from '../../services/pricing.json';
+import { bannerPostWorkCh, coloredCh, faceColorCh, heightCh, lightCh, sideColorCh, signMaterialCh, signTypeCh, sizeCh, typeCh, widthCh, wordCh } from '../../store/signSlice.js';
+import { orDetailsCh, orPriceCh, orTypeCh } from '../../store/orderSlice';
 
 
 const SignsCalculator = (props) => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import PolygraphyCalc from '../../pages/polygraphy/polygraphyCalculator';
+import PolygraphyCalc from '../../calculators/polygraphyCalculator';
 import { PolygraphyOrder } from './polygraphyOrder';
 
-import SignsCalculator from '../../pages/signs/signsCalculator';
+import SignsCalculator from '../../calculators/signsCalculator';
 import { resetSign, signTypeCh } from '../../../store/signSlice';
 import { orTypeCh,  orReset } from '../../../store/orderSlice';
 import { useCreateOrder } from './createOrder';
@@ -15,6 +15,8 @@ import { useNavigate } from "react-router-dom";
 import { useUploadMutation } from '../../../store/api/uploadApi';
 import { UvOrder } from './uvOrder';
 import { useOutletContext } from 'react-router-dom';
+import { BannerOrder } from './bannerOrder';
+import { LetterOrder } from './letterOrder';
 
 
 
@@ -34,7 +36,6 @@ const NewOrder = () => {
     const [createOrder] = useCreateOrderMutation();
     const [upload, {isLoading}] = useUploadMutation();
 
-    console.log(layout)
 
 
 
@@ -86,16 +87,13 @@ const NewOrder = () => {
 
     } 
 
-   
-
-    console.log(orderData)
     const signCalculator = <SignsCalculator blocked={!!orType} handleResume = {handleResume}/>
     const polygraphyCalc = <PolygraphyCalc handleResume = {handleResume}/>
     
     let content = {
         'uv': {calc: signCalculator, 'order': <UvOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
-        'banner': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
-        'letter': {calc: signCalculator, 'order': <PolygraphyOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
+        'banner': {calc: signCalculator, 'order': <BannerOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
+        'letter': {calc: signCalculator, 'order': <LetterOrder handleResume = {handleResume} layout={layout} setLayout={setLayout}/>},
         'polyg': {calc: polygraphyCalc, 'order': <PolygraphyOrder layout={layout} setLayout={setLayout} handlerResume = {handleResume}/>},
         '':{calc: <></>, 'order': <></>}
 

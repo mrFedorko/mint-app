@@ -8,7 +8,7 @@ export const NoteItem = (props) => {
     const [descr, setDescr] = useState('');
     const [liked, setLiked] = useState(false)
 
-    const {rtlData} = retranslate(); 
+    const {rtlDate} = retranslate(); 
 
     const noteListId = props.noteListId
     const target = props.target
@@ -37,14 +37,14 @@ export const NoteItem = (props) => {
             </button>
             <button className="note__act" 
                 onClick={() => {props.noteLiked({noteListId, target}); setLiked()}}
-                onMouseEnter = {() => setDescr('В избранное')}
+                onMouseEnter = {() => {if(!liked){setDescr('В избранное')}else{setDescr('Убрать из избранного')}}}
                 onMouseLeave = {()=> setDescr('')}
             > 
                 <SVGbookmarkStart liked={liked}/>    
             </button>
             <div className="note__icons-descr fadein">{descr}</div>
         </div>}
-        <p className="note__time">{rtlData(item.date, true)}</p>
+        <p className="note__time">{rtlDate(item.date, true)}</p>
     </div>
     )
 }
